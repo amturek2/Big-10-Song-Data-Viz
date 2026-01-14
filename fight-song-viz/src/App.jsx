@@ -13,10 +13,12 @@ export default function App() {
   const [conferenceFilter, setConferenceFilter] = useState("All");
   const [conferenceOptions, setConferenceOptions] = useState(["All"]);
   const [languageKpi, setLanguageKpi] = useState(null);
+  const [songRows, setSongRows] = useState([]);
 
   useEffect(() => {
     const csvUrl = new URL("./data/song_data.csv", import.meta.url).toString();
     d3.csv(csvUrl).then((rows) => {
+      setSongRows(rows);
       const counts = new Map();
       rows.forEach((r) => {
         const conf = (r.conference || "").trim();
@@ -27,18 +29,28 @@ export default function App() {
         .sort((a, b) => b[1] - a[1])
         .map(([name]) => name);
       setConferenceOptions(["All", ...ordered]);
-
-      const total = rows.length;
-      const avgTropeCount =
-        total > 0
-          ? rows.reduce((sum, r) => sum + Number(r.trope_count || 0), 0) / total
-          : 0;
-      setLanguageKpi({
-        label: "Average tropes per song",
-        value: avgTropeCount.toFixed(1),
-      });
     });
   }, []);
+
+  useEffect(() => {
+    if (!songRows.length) return;
+    const filteredRows =
+      conferenceFilter === "All"
+        ? songRows
+        : songRows.filter((r) => r.conference === conferenceFilter);
+    const total = filteredRows.length;
+    const avgTropeCount =
+      total > 0
+        ? filteredRows.reduce(
+            (sum, r) => sum + Number(r.trope_count || 0),
+            0
+          ) / total
+        : 0;
+    setLanguageKpi({
+      label: "Average tropes per song",
+      value: avgTropeCount.toFixed(1),
+    });
+  }, [songRows, conferenceFilter]);
 
   return (
     <div className="siteShell">
@@ -75,7 +87,7 @@ export default function App() {
                 </span>
               </div>
             ) : null}
-            <div className="sectionRow sectionRow--language">
+            <div className="sectionRow sectionRow-language">
               <BaselineSection conferenceFilter={conferenceFilter} />
               <TropeNetworkSection conferenceFilter={conferenceFilter} />
             </div>

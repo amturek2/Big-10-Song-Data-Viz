@@ -69,7 +69,7 @@
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.hero_badge--ghost {
+.hero_badge-ghost {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   opacity: 0.95;
@@ -231,7 +231,7 @@
 .scorebug_select {
   appearance: none;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--conf-glow-soft, rgba(245, 199, 122, 0.35));
   background: rgba(255, 255, 255, 0.08);
   color: white;
   font-size: 11px;
@@ -239,12 +239,14 @@
   text-transform: uppercase;
   padding: 6px 26px 6px 10px;
   cursor: pointer;
+  box-shadow: 0 0 14px var(--conf-glow-soft, rgba(245, 199, 122, 0.35));
 }
 
 .scorebug_select:focus {
   outline: none;
-  border-color: rgba(245, 199, 122, 0.7);
-  box-shadow: 0 0 0 2px rgba(245, 199, 122, 0.18);
+  border-color: var(--conf-glow-strong, rgba(245, 199, 122, 0.65));
+  box-shadow: 0 0 0 2px var(--conf-glow-soft, rgba(245, 199, 122, 0.35)),
+    0 0 16px var(--conf-glow-strong, rgba(245, 199, 122, 0.65));
 }
 
 .scorebug_filter::after {

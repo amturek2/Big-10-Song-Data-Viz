@@ -2,8 +2,8 @@ import RhetoricVsRealityScatter from "../charts/RhetoricVsRealityScatter";
 
 export default function RhetoricVsRealitySection({ conferenceFilter = "All" }) {
   return (
-    <section className="vizSection vizSection--final">
-      <div className="vizSection_inner vizSection_inner--wide">
+    <section className="vizSection vizSection-final">
+      <div className="vizSection_inner vizSection_inner-wide">
         <header className="vizSection_header">
           <h2 className="vizSection_title">
             When the talk meets the s_reboard
@@ -15,7 +15,7 @@ export default function RhetoricVsRealitySection({ conferenceFilter = "All" }) {
           </p>
         </header>
 
-        <div className="vizSection_chart vizSection_chart--full">
+        <div className="vizSection_chart vizSection_chart-full">
           <RhetoricVsRealityScatter
             activeStep={3}
             _

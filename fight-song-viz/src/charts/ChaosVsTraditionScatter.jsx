@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as d3 from "d3";
+import { makeConferenceColorScale } from "../utils/conferenceColors";
 
 function useResizeObserver(ref) {
   const [size, setSize] = useState({ width: 900, height: 520 });
@@ -107,17 +108,7 @@ export default function ChaosVsTraditionScatter({
   }, [filteredRows, chaosKeys, traditionKeys]);
 
   const conferenceColor = useMemo(() => {
-    const confs = Array.from(new Set(points.map((d) => d.conference))).filter(
-      Boolean
-    );
-    if (!confs.length) return null;
-
-    const palette =
-      confs.length <= 10
-        ? d3.schemeTableau10
-        : d3.quantize(d3.interpolateRainbow, confs.length);
-
-    return d3.scaleOrdinal(confs, palette);
+    return makeConferenceColorScale(points.map((d) => d.conference));
   }, [points]);
 
   const quadCounts = useMemo(() => {

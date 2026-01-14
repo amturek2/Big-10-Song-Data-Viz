@@ -1,8 +1,28 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as d3 from "d3";
 import { feature } from "topojson-client";
+import {
+  conferenceColors,
+  makeConferenceColorScale,
+} from "../utils/conferenceColors";
 
 const unknownColor = "rgba(255,255,255,0.35)";
+
+function hexToRgb(hex) {
+  const normalized = hex.replace("#", "").trim();
+  if (normalized.length !== 6) return null;
+  const r = parseInt(normalized.slice(0, 2), 16);
+  const g = parseInt(normalized.slice(2, 4), 16);
+  const b = parseInt(normalized.slice(4, 6), 16);
+  if ([r, g, b].some((v) => Number.isNaN(v))) return null;
+  return { r, g, b };
+}
+
+function rgbaFromHex(hex, alpha) {
+  const rgb = hexToRgb(hex);
+  if (!rgb) return `rgba(245, 199, 122, ${alpha})`;
+  return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
+}
 
 function toBool01(v) {
   if (v == null) return false;
@@ -123,12 +143,7 @@ export default function USSchoolMap({
   );
 
   const conferenceColor = useMemo(() => {
-    if (!conferences.length) return null;
-    const palette =
-      conferences.length <= 10
-        ? d3.schemeTableau10
-        : d3.quantize(d3.interpolateRainbow, conferences.length);
-    return d3.scaleOrdinal(conferences, palette);
+    return makeConferenceColorScale(conferences);
   }, [conferences]);
 
   useEffect(() => {
@@ -315,6 +330,8 @@ function getUsStatesGeo(usTopo) {
 function DNASwatchCard({ data, mode, pinned, showLyrics, onToggleLyrics }) {
   const sentence = buildIdentitySentence(data.dna);
   const pills = buildDNAPills(data.dna, mode);
+  const confName = data.conference || "Independent";
+  const confColor = conferenceColors[confName] ?? "#F5C77A";
   const spotifyUrl = data.spotifyId
     ? `https://open.spotify.com/embed/track/${data.spotifyId}?utm_source=generator`
     : "";
@@ -325,26 +342,27 @@ function DNASwatchCard({ data, mode, pinned, showLyrics, onToggleLyrics }) {
         position: "absolute",
         left: data.x,
         top: data.y,
-        width: 260,
+        width: 285,
         pointerEvents: pinned ? "auto" : "none",
         padding: "12px 12px",
         borderRadius: 16,
         background: "rgba(14, 16, 22, 0.95)",
         color: "white",
-        boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
+        boxShadow: `0 14px 40px rgba(0,0,0,0.35), 0 0 18px ${rgbaFromHex(
+          confColor,
+          0.35
+        )}`,
         backdropFilter: "blur(10px)",
-        border: pinned ? "1px solid rgba(245, 199, 122, 0.4)" : "none",
+        border: pinned ? `1px solid ${rgbaFromHex(confColor, 0.55)}` : "none",
       }}
       onClick={(event) => event.stopPropagation()}
     >
       <div style={{ fontWeight: 800 }}>{data.school}</div>
-      <div style={{ opacity: 0.7, fontSize: 12, marginTop: 2 }}>
-        {data.conference ? `${data.conference}` : "Independent"}
-      </div>
+      <div style={{ opacity: 0.7, fontSize: 12, marginTop: 2 }}>{confName}</div>
       <div style={{ marginTop: 8, fontSize: 12, opacity: 0.85 }}>
         "{sentence}"
       </div>
-      <DNAPills pills={pills} />
+      <DNAPills pills={pills} accent={confColor} />
       {pinned && (
         <div style={{ marginTop: 10, display: "grid", gap: 6 }}>
           <button
@@ -426,7 +444,8 @@ function buildDNAPills(dna, mode) {
   }));
 }
 
-function DNAPills({ pills }) {
+function DNAPills({ pills, accent }) {
+  const accentColor = accent ?? "#F5C77A";
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 10 }}>
       {pills.map((pill) => (
@@ -439,10 +458,10 @@ function DNAPills({ pills }) {
             padding: "6px 8px",
             borderRadius: 999,
             border: pill.value
-              ? "1px solid rgba(245, 199, 122, 0.7)"
+              ? `1px solid ${rgbaFromHex(accentColor, 0.7)}`
               : "1px solid rgba(255,255,255,0.18)",
             background: pill.value
-              ? "rgba(245, 199, 122, 0.15)"
+              ? rgbaFromHex(accentColor, 0.15)
               : "rgba(255,255,255,0.04)",
             fontSize: 11,
             opacity: pill.value ? 0.95 : 0.65,
@@ -453,9 +472,9 @@ function DNAPills({ pills }) {
               width: 8,
               height: 8,
               borderRadius: 999,
-              background: pill.value ? "rgba(245, 199, 122, 0.95)" : "none",
+              background: pill.value ? rgbaFromHex(accentColor, 0.95) : "none",
               border: pill.value
-                ? "1px solid rgba(245, 199, 122, 0.95)"
+                ? `1px solid ${rgbaFromHex(accentColor, 0.95)}`
                 : "1px solid rgba(255,255,255,0.3)",
             }}
           />

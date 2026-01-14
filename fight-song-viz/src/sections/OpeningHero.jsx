@@ -1,8 +1,19 @@
 import { useEffect, useMemo, useState } from "react";
 import "./OpeningHero.css";
+import { conferenceColors } from "../utils/conferenceColors";
 
 function clamp(n, a, b) {
   return Math.max(a, Math.min(b, n));
+}
+
+function hexToRgb(hex) {
+  const normalized = hex.replace("#", "").trim();
+  if (normalized.length !== 6) return null;
+  const r = parseInt(normalized.slice(0, 2), 16);
+  const g = parseInt(normalized.slice(2, 4), 16);
+  const b = parseInt(normalized.slice(4, 6), 16);
+  if ([r, g, b].some((v) => Number.isNaN(v))) return null;
+  return { r, g, b };
 }
 
 function useScrollProgress() {
@@ -49,6 +60,18 @@ export default function OpeningHero({
   const progress = useScrollProgress();
 
   const scorePct = useMemo(() => Math.round(progress * 100), [progress]);
+  const filterGlow = useMemo(() => {
+    if (conferenceFilter === "All") return "#F5C77A";
+    return conferenceColors[conferenceFilter] ?? "#F5C77A";
+  }, [conferenceFilter]);
+  const filterGlowVars = useMemo(() => {
+    const rgb = hexToRgb(filterGlow) ?? { r: 245, g: 199, b: 122 };
+    return {
+      "--conf-glow": filterGlow,
+      "--conf-glow-soft": `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.35)`,
+      "--conf-glow-strong": `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.65)`,
+    };
+  }, [filterGlow]);
 
   return (
     <section className="hero">
@@ -66,7 +89,10 @@ export default function OpeningHero({
           <div className="scorebug_bar">
             <div className="scorebug_fill" style={{ width: `${scorePct}%` }} />
           </div>
-          <div className="scorebug_filter">
+          <div
+            className="scorebug_filter"
+            style={filterGlowVars}
+          >
             <label className="scorebug_label" htmlFor="confFilter">
               Conference
             </label>
@@ -89,9 +115,7 @@ export default function OpeningHero({
       <div className="hero_inner">
         <div className="hero_topline">
           <span className="hero_badge">DATA VIZ • D3 • REACT</span>
-          <span className="hero_badge hero_badge--ghost">
-            CREATIVE DATA VIZ
-          </span>
+          <span className="hero_badge hero_badge-ghost">CREATIVE DATA VIZ</span>
         </div>
 
         <h1 className="hero_title">{title}</h1>
