@@ -1,6 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 
+function getTextColor(bgColor) {
+  const c = d3.color(bgColor);
+  if (!c) return "#fff";
+
+  // Calculate luminance (YIQ formula)
+  const yiq = (c.r * 299 + c.g * 587 + c.b * 114) / 1000;
+  return yiq >= 150 ? "#111" : "#fff";
+}
+
 function useResizeObserver(ref) {
   const [size, setSize] = useState({ width: 900, height: 480 });
   useEffect(() => {
@@ -31,10 +40,10 @@ export default function ConferenceHeatmap({ data }) {
     //   left: Math.min(140, Math.max(80, Math.round(outerWidth * 0.16))),
     // };
     const margin = {
-      top: 50,
-      right: 20,
+      top: 30,
+      right: 0,
       bottom: 50,
-      left: 110,
+      left: 70,
     };
     const width = Math.max(240, outerWidth - margin.left - margin.right);
     const height = Math.max(200, outerHeight - margin.top - margin.bottom);
@@ -169,12 +178,12 @@ export default function ConferenceHeatmap({ data }) {
       .attr("text-anchor", "middle")
       .style("font-size", `${labelFont}px`)
       .style("fill", "#fff")
-      .text("Hype Style Categories");
+      .text("Lyric Themes");
 
     svg
       .append("text")
       .attr("x", -height / 2)
-      .attr("y", -Math.max(60, Math.round(margin.left * 0.7)))
+      .attr("y", -60)
       .attr("transform", "rotate(-90)")
       .attr("text-anchor", "middle")
       .style("font-size", `${labelFont}px`)
@@ -238,7 +247,7 @@ export default function ConferenceHeatmap({ data }) {
       .attr("y", (d) => y(d.conference) + y.bandwidth() / 2 + 4)
       .attr("text-anchor", "middle")
       .style("font-size", `${Math.max(9, Math.min(11, axisFont))}px`)
-      .style("fill", "#fff")
+      .style("fill", (d) => getTextColor(color(d.score)))
       .text((d) => d.score.toFixed(2));
 
     // Color legend
@@ -259,7 +268,7 @@ export default function ConferenceHeatmap({ data }) {
       .append("g")
       .attr(
         "transform",
-        `translate(${width - legendWidth}, ${margin.top - 90})`
+        `translate(${width - legendWidth}, ${margin.top - 65})`
       );
 
     const gradientId = "legendGradient";

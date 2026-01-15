@@ -2,6 +2,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import * as d3 from "d3";
 import { makeConferenceColorScale } from "../utils/conferenceColors";
 
+function formatK(n) {
+  if (!Number.isFinite(n)) return "0";
+  if (Math.abs(n) < 1000) return Math.round(n).toString();
+  return (n / 1000).toFixed(n >= 10000 ? 0 : 1) + "k";
+}
+
 function useResizeObserver(ref) {
   const [size, setSize] = useState({ width: 900, height: 520 });
   useEffect(() => {
@@ -24,32 +30,6 @@ function toNumber(v) {
 function toBool01(v) {
   if (v == null) return false;
   return String(v).trim() === "1";
-}
-
-function pickLabels(data, k = 4) {
-  const byHiX = [...data].sort((a, b) => b.x - a.x).slice(0, k);
-  const byLoX = [...data].sort((a, b) => a.x - b.x).slice(0, k);
-  const byHiY = [...data].sort((a, b) => b.y - a.y).slice(0, k);
-  const byLoY = [...data].sort((a, b) => a.y - b.y).slice(0, k);
-
-  const byTopRight = [...data]
-    .sort((a, b) => b.x + b.y - (a.x + a.y))
-    .slice(0, k);
-
-  const byBottomRight = [...data]
-    .sort((a, b) => b.x - b.y - (a.x - a.y))
-    .slice(0, k);
-
-  const set = new Set();
-  [
-    ...byHiX,
-    ...byLoX,
-    ...byHiY,
-    ...byLoY,
-    ...byTopRight,
-    ...byBottomRight,
-  ].forEach((d) => set.add(d.school));
-  return set;
 }
 
 function linearRegression(xs, ys) {
@@ -99,8 +79,6 @@ export default function RhetoricVsRealityScatter({
   wWin = 1,
 
   colorByConference = true,
-  labelCount = 3,
-
   title = "Rhetoric vs Reality",
   subtitle = "Competitive Language Index vs Home Win % (size = attendance)",
 }) {
@@ -180,11 +158,6 @@ export default function RhetoricVsRealityScatter({
     wWin,
   ]);
 
-  const labelSet = useMemo(
-    () => pickLabels(data, labelCount),
-    [data, labelCount]
-  );
-
   const conferenceColor = useMemo(() => {
     if (!colorByConference) return null;
     return makeConferenceColorScale(data.map((d) => d.conference));
@@ -194,12 +167,11 @@ export default function RhetoricVsRealityScatter({
     if (!svgRef.current || !data.length || !width) return;
 
     const showPoints = activeStep >= 1;
-    const showLabels = activeStep >= 2;
     const showLegend = activeStep >= 2;
     const spotlight = activeStep >= 3;
     const showTrend = activeStep >= 3;
 
-    const margin = { top: 60, right: 26, bottom: 54, left: 70 };
+    const margin = { top: 60, right: 130, bottom: 54, left: 70 };
     const height = Math.max(560, Math.round(width * 0.62));
     const innerW = Math.max(260, width - margin.left - margin.right);
     const innerH = height - margin.top - margin.bottom;
@@ -385,42 +357,68 @@ export default function RhetoricVsRealityScatter({
       .attr("fill", "white")
       .attr("font-weight", (d) => (d === 50 ? 800 : 600));
 
-    // Axis labels
-    g.append("text")
-      .attr("x", innerW / 2)
-      .attr("y", innerH + 46)
-      .attr("text-anchor", "middle")
-      .attr("font-size", 12)
-      .attr("opacity", 0.78)
-      .attr("fill", "rgba(255,255,255,0.85)")
-      .text(`Talk Game (Competitive Language per ${perSeconds}s)`);
+    const callouts = svg.append("g").attr("class", "axis-callouts");
+    const calloutFill = "rgba(10, 12, 18, 0.85)";
+    const calloutStroke = "rgba(255,255,255,0.2)";
+    const calloutText = "rgba(255,255,255,0.9)";
 
-    g.append("text")
-      .attr("x", 0)
-      .attr("y", innerH + 64)
-      .attr("text-anchor", "start")
-      .attr("font-size", 11)
-      .attr("opacity", 0.65)
-      .attr("fill", "rgba(255,255,255,0.8)")
-      .text("Soft-spoken teams");
+    function addCallout({ text, x, y, lineTo, anchor = "start" }) {
+      const group = callouts
+        .append("g")
+        .attr("transform", `translate(${x},${y})`);
+      const textEl = group
+        .append("text")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("text-anchor", anchor)
+        .attr("font-size", 12)
+        .attr("font-weight", 650)
+        .attr("letter-spacing", "0.04em")
+        .attr("fill", calloutText)
+        .attr("dominant-baseline", "hanging")
+        .text(text);
 
-    g.append("text")
-      .attr("x", innerW)
-      .attr("y", innerH + 64)
-      .attr("text-anchor", "end")
-      .attr("font-size", 11)
-      .attr("opacity", 0.65)
-      .attr("fill", "rgba(255,255,255,0.8)")
-      .text("Talk-a-lot teams");
+      const bbox = textEl.node()?.getBBox();
+      if (!bbox) return;
 
-    g.append("text")
-      .attr("x", -10)
-      .attr("y", -14)
-      .attr("text-anchor", "start")
-      .attr("font-size", 12)
-      .attr("opacity", 0.8)
-      .attr("fill", "rgba(255,255,255,0.88)")
-      .text("On-Field Execution (%)");
+      group
+        .insert("rect", "text")
+        .attr("x", bbox.x - 10)
+        .attr("y", bbox.y - 6)
+        .attr("width", bbox.width + 20)
+        .attr("height", bbox.height + 12)
+        .attr("rx", 10)
+        .attr("fill", calloutFill)
+        .attr("stroke", calloutStroke);
+
+      if (lineTo) {
+        callouts
+          .append("line")
+          .attr("x1", x + (anchor === "end" ? -bbox.width / 2 : bbox.width / 2))
+          .attr("y1", y + bbox.height + 6)
+          .attr("x2", lineTo[0])
+          .attr("y2", lineTo[1])
+          .attr("stroke", "rgba(245, 199, 122, 0.65)")
+          .attr("stroke-width", 1.1)
+          .attr("stroke-dasharray", "4 4");
+      }
+    }
+
+    addCallout({
+      text: `Talk Game (Competitive Language per ${perSeconds}s)`,
+      x: margin.left + innerW - 260,
+      y: margin.top + innerH + 12,
+      lineTo: [margin.left + innerW * 0.82, margin.top + innerH - 10],
+      anchor: "start",
+    });
+
+    addCallout({
+      text: "On-Field Execution (%)",
+      x: 14,
+      y: 10,
+      lineTo: [margin.left + innerW * 0.22, margin.top + innerH * 0.22],
+      anchor: "start",
+    });
 
     endZones
       .append("text")
@@ -620,29 +618,6 @@ export default function RhetoricVsRealityScatter({
       });
     }
 
-    if (showLabels) {
-      const labeled = data.filter((d) => labelSet.has(d.school));
-      g.append("g")
-        .selectAll("text.label")
-        .data(labeled, (d) => d.school)
-        .join("text")
-        .attr("class", "label")
-        .attr("x", (d) => x(d.x) + 8)
-        .attr("y", (d) => y(d.y) - 8)
-        .attr("font-size", 11)
-        .attr("font-weight", 750)
-        .attr("fill", "rgba(255,255,255,0.92)")
-        .attr("paint-order", "stroke")
-        .attr("stroke", "rgba(0,0,0,0.55)")
-        .attr("stroke-width", 3)
-        .attr("opacity", 0)
-        .text((d) => d.school)
-        .transition()
-        .duration(250)
-        .delay(760)
-        .attr("opacity", 0.9);
-    }
-
     if (showPoints) {
       g.append("g")
         .selectAll("circle.hit")
@@ -686,27 +661,64 @@ export default function RhetoricVsRealityScatter({
       const confs = conferenceColor.domain();
       const legendItems = confs.slice(0, 10);
 
+      const columnCount = legendItems.length > 6 ? 2 : 1;
+      const rowCount = Math.ceil(legendItems.length / columnCount);
+      const columnWidth = 86;
+      const itemHeight = 14;
+      const headerHeight = 14;
+      const sizeBlockHeight = 42;
+      const legendWidth = 90;
+      const legendHeight =
+        headerHeight + rowCount * itemHeight + sizeBlockHeight + 18;
+
       const legend = svg
         .append("g")
-        .attr("transform", `translate(${width - 180},${margin.top + 8})`)
+        .attr(
+          "transform",
+          `translate(${width - legendWidth - 18},${margin.top + 6})`
+        )
         .attr("opacity", 0);
 
+      legend
+        .append("rect")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", legendWidth)
+        .attr("height", legendHeight)
+        .attr("rx", 10)
+        .attr("fill", "rgba(12, 14, 20, 0.82)")
+        .attr("stroke", "rgba(255,255,255,0.14)");
+
+      legend
+        .append("text")
+        .attr("x", 8)
+        .attr("y", 10)
+        .attr("font-size", 9.5)
+        .attr("font-weight", 700)
+        .attr("letter-spacing", "0.08em")
+        .attr("fill", "rgba(255,255,255,0.85)")
+        .text("CONFERENCES");
+
       legendItems.forEach((c, i) => {
-        const yy = i * 16;
+        const col = Math.floor(i / rowCount);
+        const row = i % rowCount;
+        const xx = 8 + col * columnWidth;
+        const yy = headerHeight + 8 + row * itemHeight;
+
         legend
           .append("circle")
-          .attr("cx", 0)
+          .attr("cx", xx)
           .attr("cy", yy)
-          .attr("r", 4.8)
+          .attr("r", 3.8)
           .attr("fill", conferenceColor(c))
           .attr("stroke", "white")
-          .attr("stroke-width", 1);
+          .attr("stroke-width", 0.8);
 
         legend
           .append("text")
-          .attr("x", 10)
+          .attr("x", xx + 7)
           .attr("y", yy + 4)
-          .attr("font-size", 11)
+          .attr("font-size", 9.5)
           .attr("opacity", 0.78)
           .attr("fill", "rgba(255,255,255,0.9)")
           .text(c);
@@ -715,26 +727,72 @@ export default function RhetoricVsRealityScatter({
       if (confs.length > legendItems.length) {
         legend
           .append("text")
-          .attr("x", 10)
-          .attr("y", legendItems.length * 16 + 4)
-          .attr("font-size", 11)
+          .attr("x", 8)
+          .attr("y", headerHeight + rowCount * itemHeight + 8)
+          .attr("font-size", 9)
           .attr("opacity", 0.6)
-          .attr("fill", "rgba(255,255,255,0.85)")
+          .attr("fill", "rgba(255,255,255,0.75)")
           .text(`+${confs.length - legendItems.length} more`);
       }
 
+      const sizeY = headerHeight + rowCount * itemHeight + 16;
+      const attVals = data.map((d) => d.att).filter(Number.isFinite);
+      const minAtt = d3.min(attVals);
+      const maxAtt = d3.max(attVals);
+      const minLabel = formatK(minAtt);
+      const maxLabel = formatK(maxAtt);
+
+      legend
+        .append("text")
+        .attr("x", 8)
+        .attr("y", sizeY)
+        .attr("font-size", 9.5)
+        .attr("font-weight", 700)
+        .attr("letter-spacing", "0.08em")
+        .attr("fill", "rgba(255,255,255,0.85)")
+        .text("ATTENDANCE");
+
+      const sizeGroup = legend
+        .append("g")
+        .attr("transform", `translate(8, ${sizeY + 12})`);
+
+      sizeGroup
+        .append("circle")
+        .attr("cx", 6)
+        .attr("cy", 8)
+        .attr("r", Number.isFinite(minAtt) ? r(minAtt) : 4)
+        .attr("fill", "rgba(255,255,255,0.25)")
+        .attr("stroke", "rgba(255,255,255,0.65)")
+        .attr("stroke-width", 0.8);
+
+      sizeGroup
+        .append("text")
+        .attr("x", 16)
+        .attr("y", 11)
+        .attr("font-size", 9)
+        .attr("fill", "rgba(255,255,255,0.8)")
+        .text(minLabel);
+
+      sizeGroup
+        .append("circle")
+        .attr("cx", 50)
+        .attr("cy", 8)
+        .attr("r", Number.isFinite(maxAtt) ? r(maxAtt) : 10)
+        .attr("fill", "rgba(255,255,255,0.25)")
+        .attr("stroke", "rgba(255,255,255,0.65)")
+        .attr("stroke-width", 0.8);
+
+      sizeGroup
+        .append("text")
+        .attr("x", 64)
+        .attr("y", 11)
+        .attr("font-size", 9)
+        .attr("fill", "rgba(255,255,255,0.8)")
+        .text(maxLabel);
+
       legend.transition().duration(250).attr("opacity", 1);
     }
-  }, [
-    data,
-    width,
-    conferenceColor,
-    labelSet,
-    perSeconds,
-    title,
-    subtitle,
-    activeStep,
-  ]);
+  }, [data, width, conferenceColor, perSeconds, title, subtitle, activeStep]);
 
   return (
     <div ref={wrapperRef} style={{ position: "relative", width: "100%" }}>

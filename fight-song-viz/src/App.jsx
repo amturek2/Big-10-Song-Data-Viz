@@ -4,7 +4,6 @@ import BaselineSection from "./sections/BaselineSection";
 import TropeNetworkSection from "./sections/TropeNetworkSection";
 import OpeningHero from "./sections/OpeningHero";
 import "./App.css";
-import ConferenceByHeatmapSection from "./sections/ConferenceHeatmapSection";
 import SongIdentitySection from "./sections/SongIdentitySection";
 import RhetoricVsRealitySection from "./sections/RhetoricVsRealitySection";
 
@@ -111,8 +110,8 @@ export default function App() {
           </div>
         </section>
         <SongIdentitySection conferenceFilter={conferenceFilter} />
-        {/* <ConferenceByHeatmapSection></ConferenceByHeatmapSection> */}
         <RhetoricVsRealitySection conferenceFilter={conferenceFilter} />
+        {/* <ConferenceByHeatmapSection></ConferenceByHeatmapSection> */}
       </div>
     </div>
   );

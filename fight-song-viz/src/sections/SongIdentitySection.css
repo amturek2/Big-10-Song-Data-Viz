@@ -144,6 +144,28 @@
   color: rgba(148, 163, 184, 0.9);
 }
 
+.identityCard_actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.identityCard_button {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 12, 18, 0.8);
+  color: #f8fafc;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.identityCard_button:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(18, 22, 32, 0.92);
+}
+
 /* CHART CONTAINERS ---------------------------------------------------- */
 
 .identityCard_chart {
@@ -169,6 +191,89 @@
 
 .identityCard_chart--heatmap {
   min-height: 230px;
+}
+
+.identityModal_backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 5, 10, 0.75);
+  display: grid;
+  place-items: center;
+  z-index: 100;
+}
+
+.identityModal {
+  width: min(720px, 90vw);
+  max-height: 82vh;
+  overflow: auto;
+  border-radius: 20px;
+  padding: 18px 20px 20px;
+  background: rgba(10, 12, 18, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  color: #f8fafc;
+}
+
+.identityModal_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.identityModal_title {
+  margin: 0;
+  font-size: 18px;
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.identityModal_close {
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.identityModal_close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.identityModal_text {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.86);
+}
+
+.identityModal_grid {
+  display: grid;
+  gap: 12px;
+}
+
+.identityModal_item {
+  border-radius: 14px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.identityModal_label {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: rgba(248, 250, 252, 0.9);
+}
+
+.identityModal_desc {
+  font-size: 12px;
+  color: rgba(226, 232, 240, 0.78);
 }
 
 /* RESPONSIVE ---------------------------------------------------------- */

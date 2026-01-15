@@ -9,6 +9,7 @@ import "./SongIdentitySection.css";
 
 export default function SongIdentitySection({ conferenceFilter = "All" }) {
   const [heatmapData, setHeatmapData] = useState([]);
+  const [showHeatmapExplain, setShowHeatmapExplain] = useState(false);
 
   useEffect(() => {
     const csvUrl = new URL(
@@ -97,8 +98,8 @@ export default function SongIdentitySection({ conferenceFilter = "All" }) {
               />
             </div>
             <p className="identityCard_caption">
-              Right means longer songs; up means more “fight” repetition per
-              60 seconds. Bigger dots indicate more total fight words.
+              Right means longer songs; up means more “fight” repetition per 60
+              seconds. Bigger dots indicate more total fight words.
             </p>
           </article>
 
@@ -106,19 +107,110 @@ export default function SongIdentitySection({ conferenceFilter = "All" }) {
           <article className="identityCard identityCard--heatmap">
             <div className="identityCard_intro">
               <h3 className="identityCard_title">
-                Hype Profiles by Conference
+                Lyric Themes by Conference{" "}
               </h3>
               <p className="identityCard_desc">
-                Cells show how strongly each conference leans into different
-                hype styles.
+                The heatmap compares conferences on six lyric themes. Darker
+                cells mean that theme shows up more often in that conference’s
+                fight songs than in others in this dataset.
               </p>
             </div>
             <div className="identityCard_chart identityCard_chart--heatmap">
               <ConferenceHeatmap data={heatmapData} />
             </div>
+            <div className="identityCard_actions">
+              <button
+                type="button"
+                className="identityCard_button"
+                onClick={() => setShowHeatmapExplain(true)}
+              >
+                Explain the scores
+              </button>
+            </div>
           </article>
         </div>
       </div>
+      {showHeatmapExplain && (
+        <div
+          className="identityModal_backdrop"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Heatmap score explanation"
+          onClick={() => setShowHeatmapExplain(false)}
+        >
+          <div
+            className="identityModal"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="identityModal_header">
+              <h3 className="identityModal_title">
+                How the Heatmap Scores Work
+              </h3>
+              <button
+                type="button"
+                className="identityModal_close"
+                onClick={() => setShowHeatmapExplain(false)}
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            </div>
+            <p className="identityModal_text identityModal_math">
+              <strong>How we calculate the scores:</strong> for each fight song,
+              we scan the lyrics and count how often certain kinds of words
+              appear (for example, battle words like <i>fight</i> or{" "}
+              <i>crush</i>, unity words like <i>we</i> or <i>together</i>,
+              school-name and color mentions, and so on). We then mix in a few
+              musical details like tempo and song length to nudge some themes up
+              or down (longer, slower songs tend to feel more traditional;
+              faster songs tend to feel more aggressive). Those ingredients are
+              combined into six theme scores for each song, and the heatmap
+              shows the average of those scores for all schools in a conference.
+            </p>
+
+            <div className="identityModal_grid">
+              <div className="identityModal_item">
+                <div className="identityModal_label">Aggression / Conflict</div>
+                <div className="identityModal_desc">
+                  Battle language: fight, beat, crush, defeat, enemy, smash.
+                </div>
+              </div>
+              <div className="identityModal_item">
+                <div className="identityModal_label">Unity / Brotherhood</div>
+                <div className="identityModal_desc">
+                  We, us, our, together, loyal, stand, team, brothers.
+                </div>
+              </div>
+              <div className="identityModal_item">
+                <div className="identityModal_label">Tradition / Legacy</div>
+                <div className="identityModal_desc">
+                  Alma mater, honor, faithful, forever, old, legacy, tradition.
+                </div>
+              </div>
+              <div className="identityModal_item">
+                <div className="identityModal_label">Pageantry / Spectacle</div>
+                <div className="identityModal_desc">
+                  Rah, hail, cheer, yell, chant, crowd-call, nonsense syllables.
+                </div>
+              </div>
+              <div className="identityModal_item">
+                <div className="identityModal_label">Institutional Pride</div>
+                <div className="identityModal_desc">
+                  School name, colors, mascot, campus, home, alma mater
+                  references.
+                </div>
+              </div>
+              <div className="identityModal_item">
+                <div className="identityModal_label">Competitive Glory</div>
+                <div className="identityModal_desc">
+                  Champion, victory, glory, win, triumph, titles, being the
+                  best.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

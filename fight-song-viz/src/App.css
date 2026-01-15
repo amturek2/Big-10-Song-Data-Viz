@@ -41,21 +41,21 @@
 .siteBg {
   background: radial-gradient(
       900px 420px at 20% 15%,
-      rgba(245, 199, 122, 0.16),
+      rgba(245, 200, 122, 0.331),
       transparent 60%
     ),
     radial-gradient(
       980px 520px at 82% 22%,
-      rgba(120, 170, 255, 0.18),
+      rgba(120, 170, 255, 0.399),
       transparent 62%
     ),
     radial-gradient(
       1200px 900px at 50% 110%,
-      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.199),
       transparent 60%
     ),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.72)),
-    url("/photos/stadium.jpg");
+    linear-gradient(180deg, rgb(0, 0, 0), rgb(0, 0, 0));
+
   background-size: cover;
   background-position: center;
   filter: saturate(1.05) contrast(1.05);

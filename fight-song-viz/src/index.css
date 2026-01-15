@@ -30,6 +30,27 @@
 .vizSection {
   padding: 68px 18px 84px;
   color: rgba(255, 255, 255, 0.92);
+  position: relative;
+  z-index: 1;
+}
+
+.vizSection-final::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      900px 420px at 80% 20%,
+      rgba(12, 14, 20, 0.9),
+      transparent 65%
+    ),
+    linear-gradient(180deg, rgba(4, 6, 10, 0.55), rgba(4, 6, 10, 0.8));
+  z-index: 0;
+  pointer-events: none;
+}
+
+.vizSection-final .vizSection_inner {
+  position: relative;
+  z-index: 1;
 }
 
 .vizSection_inner {
@@ -102,6 +123,22 @@
 .languageSection {
   padding: 68px 90px 84px;
   color: rgba(255, 255, 255, 0.92);
+  position: relative;
+  z-index: 1;
+}
+
+.languageSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      700px 320px at 12% 8%,
+      rgba(10, 12, 18, 0.88),
+      transparent 65%
+    ),
+    linear-gradient(180deg, rgba(6, 8, 12, 0.65), rgba(6, 8, 12, 0.78));
+  z-index: 0;
+  pointer-events: none;
 }
 
 .languageSection__inner,
@@ -110,6 +147,8 @@
   margin: 0 auto;
   display: grid;
   gap: 28px;
+  position: relative;
+  z-index: 1;
 }
 .languageSection_header {
   padding: 0;
@@ -435,7 +474,6 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(8, 10, 16, 0.6);
   border-radius: 18px;
-  padding: 16px 20px;
   max-width: 820px;
   margin: 0 auto;
   text-align: center;
