@@ -1,7 +1,7 @@
 /* SECTION SHELL ------------------------------------------------------- */
 
 .identitySection {
-  padding: 68px 90px 84px;
+  padding: 68px 30px 84px;
   background: radial-gradient(
     circle at top center,
     #1c2537 0,
@@ -13,7 +13,7 @@
 
 .identitySection_inner {
   margin: 0;
-  padding: 0 24px;
+  /* padding: 0 24px; */
   width: 100%;
 }
 

@@ -245,6 +245,12 @@
   box-shadow: 0 0 14px var(--conf-glow-soft, rgba(245, 199, 122, 0.35));
 }
 
+.scorebug_select option,
+.scorebug_select optgroup {
+  color: #0b0e14;
+  background: #f2f4f8;
+}
+
 .scorebug_select:focus {
   outline: none;
   border-color: var(--conf-glow-strong, rgba(245, 199, 122, 0.65));

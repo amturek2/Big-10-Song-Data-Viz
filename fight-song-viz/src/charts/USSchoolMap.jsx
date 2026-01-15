@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import * as d3 from "d3";
 import { feature } from "topojson-client";
 import {
@@ -258,29 +259,46 @@ export default function USSchoolMap({
 
     if (showLegend && conferenceColor) {
       const legendItems = conferences.slice(0, 12);
+      const smallLayout = width < 640;
+      const itemGap = smallLayout ? 14 : 18;
+      const fontSize = smallLayout ? 10 : 12;
+      const dotRadius = smallLayout ? 4 : 5;
+      const legendHeight = legendItems.length * itemGap + 6;
+      const legendX = 18;
+      const legendY = Math.max(14, chartHeight - legendHeight - 18);
 
       const legend = svg
         .append("g")
-        .attr("transform", `translate(18, 18)`)
+        .attr("transform", `translate(${legendX}, ${legendY})`)
         .attr("opacity", 0);
 
+      legend
+        .append("rect")
+        .attr("x", -10)
+        .attr("y", -10)
+        .attr("width", 140)
+        .attr("height", legendHeight)
+        .attr("rx", 10)
+        .attr("fill", "rgba(10, 12, 18, 0.65)")
+        .attr("stroke", "rgba(255,255,255,0.12)");
+
       legendItems.forEach((c, i) => {
-        const y = i * 18;
+        const y = i * itemGap;
 
         legend
           .append("circle")
           .attr("cx", 0)
           .attr("cy", y)
-          .attr("r", 5)
+          .attr("r", dotRadius)
           .attr("fill", conferenceColor(c))
           .attr("stroke", "white")
           .attr("stroke-width", 1);
 
         legend
           .append("text")
-          .attr("x", 12)
+          .attr("x", 10 + dotRadius)
           .attr("y", y + 4)
-          .attr("font-size", 12)
+          .attr("font-size", fontSize)
           .attr("opacity", 0.82)
           .attr("fill", "rgba(255,255,255,0.9)")
           .text(c);
@@ -293,6 +311,9 @@ export default function USSchoolMap({
   const dnaMode = activeStep >= 3 ? "all" : "present";
   const cardData = selected || hover;
   const isPinned = Boolean(selected);
+  const containerRect = wrapperRef.current?.getBoundingClientRect() ?? null;
+  const portalRoot =
+    typeof document !== "undefined" ? document.body : null;
 
   return (
     <div
@@ -305,16 +326,19 @@ export default function USSchoolMap({
     >
       <svg ref={svgRef} style={{ width: "100%", display: "block" }} />
 
-      {cardData && activeStep >= 1 && (
-        <DNASwatchCard
-          data={cardData}
-          mode={dnaMode}
-          pinned={isPinned}
-          showLyrics={showLyrics}
-          onToggleLyrics={() => setShowLyrics((s) => !s)}
-          bounds={{ width, height }}
-        />
-      )}
+      {cardData && activeStep >= 1 && portalRoot
+        ? createPortal(
+            <DNASwatchCard
+              data={cardData}
+              mode={dnaMode}
+              pinned={isPinned}
+              showLyrics={showLyrics}
+              onToggleLyrics={() => setShowLyrics((s) => !s)}
+              containerRect={containerRect}
+            />,
+            portalRoot
+          )
+        : null}
     </div>
   );
 }
@@ -337,7 +361,7 @@ function DNASwatchCard({
   pinned,
   showLyrics,
   onToggleLyrics,
-  bounds,
+  containerRect,
 }) {
   const sentence = buildIdentitySentence(data.dna);
   const pills = buildDNAPills(data.dna, mode);
@@ -348,19 +372,27 @@ function DNASwatchCard({
     : "";
   const cardWidth = 285;
   const cardHeight = pinned ? 320 : 210;
+  const originX = containerRect?.left ?? 0;
+  const originY = containerRect?.top ?? 0;
+  const viewportW =
+    typeof window !== "undefined" ? window.innerWidth : cardWidth;
+  const viewportH =
+    typeof window !== "undefined" ? window.innerHeight : cardHeight;
+  const rawLeft = originX + data.x;
+  const rawTop = originY + data.y;
   const clampX = Math.max(
     12,
-    Math.min(data.x, (bounds?.width || 0) - cardWidth - 12)
+    Math.min(rawLeft, viewportW - cardWidth - 12)
   );
   const clampY = Math.max(
     12,
-    Math.min(data.y, (bounds?.height || 0) - cardHeight - 12)
+    Math.min(rawTop, viewportH - cardHeight - 12)
   );
 
   return (
     <div
       style={{
-        position: "absolute",
+        position: "fixed",
         left: clampX,
         top: clampY,
         width: cardWidth,
@@ -375,7 +407,7 @@ function DNASwatchCard({
         )}`,
         backdropFilter: "blur(10px)",
         border: pinned ? `1px solid ${rgbaFromHex(confColor, 0.55)}` : "none",
-        zIndex: 20,
+        zIndex: 2000,
       }}
       onClick={(event) => event.stopPropagation()}
     >

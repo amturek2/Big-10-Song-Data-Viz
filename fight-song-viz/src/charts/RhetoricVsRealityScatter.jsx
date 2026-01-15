@@ -80,7 +80,7 @@ export default function RhetoricVsRealityScatter({
 
   colorByConference = true,
   title = "Rhetoric vs Reality",
-  subtitle = "Competitive Language Index vs Home Win % (size = attendance)",
+  subtitle = "Competitive Language Index vs Home Win % Over The Last 24 Years (size = attendance)",
 }) {
   const wrapperRef = useRef(null);
   const svgRef = useRef(null);
@@ -364,7 +364,9 @@ export default function RhetoricVsRealityScatter({
       .attr("font-size", 12)
       .attr("opacity", 0.78)
       .attr("fill", "rgba(255,255,255,0.85)")
-      .text(`Talk Game (Competitive Language per ${perSeconds}s)`);
+      .text(
+        `Competitive Language Index (Competive Language per ${perSeconds}s)`
+      );
 
     g.append("text")
       .attr("x", 0)
@@ -390,7 +392,7 @@ export default function RhetoricVsRealityScatter({
       .attr("font-size", 12)
       .attr("opacity", 0.8)
       .attr("fill", "rgba(255,255,255,0.88)")
-      .text("On-Field Execution (%)");
+      .text("Home Win % Over Last 24 Years");
 
     endZones
       .append("text")

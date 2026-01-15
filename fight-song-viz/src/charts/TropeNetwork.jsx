@@ -361,82 +361,30 @@ export default function TropeNetwork({
 
     node.on("mouseleave", resetFocus);
 
-    const legend = svg
-      .append("g")
-      .attr("transform", `translate(${width - 240},${margin.top + 380})`);
-
-    legend
-      .append("rect")
-      .attr("x", -10)
-      .attr("y", -12)
-      .attr("width", 230)
-      .attr("height", 78)
-      .attr("rx", 12)
-      .attr("fill", "rgba(255,255,255,0.08)")
-      .attr("stroke", "rgba(255,255,255,0.2)")
-      .attr("stroke-width", 1);
-
-    legend
-      .append("text")
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("font-size", 11)
-      .attr("font-weight", 700)
-      .attr("fill", "rgba(255,255,255,0.85)")
-      .text("Legend");
-
-    legend
-      .append("circle")
-      .attr("cx", 8)
-      .attr("cy", 18)
-      .attr("r", 6)
-      .attr("fill", "rgba(255,255,255,0.7)");
-    legend
-      .append("circle")
-      .attr("cx", 36)
-      .attr("cy", 18)
-      .attr("r", 12)
-      .attr("fill", "rgba(255,255,255,0.3)");
-    legend
-      .append("text")
-      .attr("x", 60)
-      .attr("y", 22)
-      .attr("font-size", 10)
-      .attr("opacity", 0.7)
-      .attr("fill", "white")
-      .text("Node size = trope frequency");
-
-    legend
-      .append("line")
-      .attr("x1", 2)
-      .attr("x2", 42)
-      .attr("y1", 40)
-      .attr("y2", 40)
-      .attr("stroke", "rgba(255,255,255,0.3)")
-      .attr("stroke-width", 1.2);
-    legend
-      .append("line")
-      .attr("x1", 2)
-      .attr("x2", 42)
-      .attr("y1", 52)
-      .attr("y2", 52)
-      .attr("stroke", "rgba(245, 199, 122, 0.95)")
-      .attr("stroke-width", 3);
-    legend
-      .append("text")
-      .attr("x", 60)
-      .attr("y", 56)
-      .attr("font-size", 10)
-      .attr("opacity", 0.7)
-      .attr("fill", "white")
-      .text("Line thickness = co-occurrence");
-
     return () => simulation.stop();
   }, [nodes, links, width, title, subtitle]);
 
   return (
     <div ref={wrapperRef} style={{ position: "relative", width: "100%" }}>
       <svg ref={svgRef} style={{ width: "100%", display: "block" }} />
+
+      <div className="tropeNetworkLegend" aria-hidden="true">
+        <div className="tropeNetworkLegend_title">Legend</div>
+        <div className="tropeNetworkLegend_row">
+          <span className="tropeNetworkLegend_dot tropeNetworkLegend_dot--sm" />
+          <span className="tropeNetworkLegend_dot tropeNetworkLegend_dot--lg" />
+          <span className="tropeNetworkLegend_text">
+            Node size = trope frequency
+          </span>
+        </div>
+        <div className="tropeNetworkLegend_row">
+          <span className="tropeNetworkLegend_line tropeNetworkLegend_line--thin" />
+          <span className="tropeNetworkLegend_line tropeNetworkLegend_line--thick" />
+          <span className="tropeNetworkLegend_text">
+            Line thickness = co-occurrence
+          </span>
+        </div>
+      </div>
 
       {hover && (
         <div
