@@ -357,68 +357,40 @@ export default function RhetoricVsRealityScatter({
       .attr("fill", "white")
       .attr("font-weight", (d) => (d === 50 ? 800 : 600));
 
-    const callouts = svg.append("g").attr("class", "axis-callouts");
-    const calloutFill = "rgba(10, 12, 18, 0.85)";
-    const calloutStroke = "rgba(255,255,255,0.2)";
-    const calloutText = "rgba(255,255,255,0.9)";
+    g.append("text")
+      .attr("x", innerW / 2)
+      .attr("y", innerH + 46)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 12)
+      .attr("opacity", 0.78)
+      .attr("fill", "rgba(255,255,255,0.85)")
+      .text(`Talk Game (Competitive Language per ${perSeconds}s)`);
 
-    function addCallout({ text, x, y, lineTo, anchor = "start" }) {
-      const group = callouts
-        .append("g")
-        .attr("transform", `translate(${x},${y})`);
-      const textEl = group
-        .append("text")
-        .attr("x", 0)
-        .attr("y", 0)
-        .attr("text-anchor", anchor)
-        .attr("font-size", 12)
-        .attr("font-weight", 650)
-        .attr("letter-spacing", "0.04em")
-        .attr("fill", calloutText)
-        .attr("dominant-baseline", "hanging")
-        .text(text);
+    g.append("text")
+      .attr("x", 0)
+      .attr("y", innerH + 64)
+      .attr("text-anchor", "start")
+      .attr("font-size", 11)
+      .attr("opacity", 0.65)
+      .attr("fill", "rgba(255,255,255,0.8)")
+      .text("Soft-spoken teams");
 
-      const bbox = textEl.node()?.getBBox();
-      if (!bbox) return;
+    g.append("text")
+      .attr("x", innerW)
+      .attr("y", innerH + 64)
+      .attr("text-anchor", "end")
+      .attr("font-size", 11)
+      .attr("opacity", 0.65)
+      .attr("fill", "rgba(255,255,255,0.8)")
+      .text("Talk-a-lot teams");
 
-      group
-        .insert("rect", "text")
-        .attr("x", bbox.x - 10)
-        .attr("y", bbox.y - 6)
-        .attr("width", bbox.width + 20)
-        .attr("height", bbox.height + 12)
-        .attr("rx", 10)
-        .attr("fill", calloutFill)
-        .attr("stroke", calloutStroke);
-
-      if (lineTo) {
-        callouts
-          .append("line")
-          .attr("x1", x + (anchor === "end" ? -bbox.width / 2 : bbox.width / 2))
-          .attr("y1", y + bbox.height + 6)
-          .attr("x2", lineTo[0])
-          .attr("y2", lineTo[1])
-          .attr("stroke", "rgba(245, 199, 122, 0.65)")
-          .attr("stroke-width", 1.1)
-          .attr("stroke-dasharray", "4 4");
-      }
-    }
-
-    addCallout({
-      text: `Talk Game (Competitive Language per ${perSeconds}s)`,
-      x: margin.left + innerW - 260,
-      y: margin.top + innerH + 12,
-      lineTo: [margin.left + innerW * 0.82, margin.top + innerH - 10],
-      anchor: "start",
-    });
-
-    addCallout({
-      text: "On-Field Execution (%)",
-      x: 14,
-      y: 10,
-      lineTo: [margin.left + innerW * 0.22, margin.top + innerH * 0.22],
-      anchor: "start",
-    });
+    g.append("text")
+      .attr("transform", `translate(${-52}, ${innerH / 2}) rotate(-90)`)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 12)
+      .attr("opacity", 0.8)
+      .attr("fill", "rgba(255,255,255,0.88)")
+      .text("On-Field Execution (%)");
 
     endZones
       .append("text")
@@ -472,43 +444,43 @@ export default function RhetoricVsRealityScatter({
       .attr("stroke", "rgba(255,255,255,0.18)")
       .attr("stroke-dasharray", "4 4");
 
-    if (spotlight) {
-      const quads = [
-        { x0: xMedPx, y0: 0, x1: innerW, y1: yMedPx, t: "Talk big + win big" },
-        { x0: 0, y0: 0, x1: xMedPx, y1: yMedPx, t: "Win big, talk less" },
-        { x0: xMedPx, y0: yMedPx, x1: innerW, y1: innerH, t: "All talk?" },
-        { x0: 0, y0: yMedPx, x1: xMedPx, y1: innerH, t: "Quiet + struggling" },
-      ];
+    // if (spotlight) {
+    //   const quads = [
+    //     { x0: xMedPx, y0: 0, x1: innerW, y1: yMedPx, t: "Talk big + win big" },
+    //     { x0: 0, y0: 0, x1: xMedPx, y1: yMedPx, t: "Win big, talk less" },
+    //     { x0: xMedPx, y0: yMedPx, x1: innerW, y1: innerH, t: "All talk?" },
+    //     { x0: 0, y0: yMedPx, x1: xMedPx, y1: innerH, t: "Quiet + struggling" },
+    //   ];
 
-      g.append("g")
-        .selectAll("rect.qpanel")
-        .data(quads)
-        .join("rect")
-        .attr("class", "qpanel")
-        .attr("x", (d) => d.x0)
-        .attr("y", (d) => d.y0)
-        .attr("width", (d) => d.x1 - d.x0)
-        .attr("height", (d) => d.y1 - d.y0)
-        .attr("fill", "rgba(255,255,255,0.03)")
-        .attr("stroke", "rgba(255,255,255,0.10)")
-        .attr("stroke-width", 1);
+    //   g.append("g")
+    //     .selectAll("rect.qpanel")
+    //     .data(quads)
+    //     .join("rect")
+    //     .attr("class", "qpanel")
+    //     .attr("x", (d) => d.x0)
+    //     .attr("y", (d) => d.y0)
+    //     .attr("width", (d) => d.x1 - d.x0)
+    //     .attr("height", (d) => d.y1 - d.y0)
+    //     .attr("fill", "rgba(255,255,255,0.03)")
+    //     .attr("stroke", "rgba(255,255,255,0.10)")
+    //     .attr("stroke-width", 1);
 
-      g.append("g")
-        .selectAll("text.qcap")
-        .data(quads)
-        .join("text")
-        .attr("class", "qcap")
-        .attr("x", (d) => d.x0 + 10)
-        .attr("y", (d) => d.y0 + 20)
-        .attr("font-size", 12)
-        .attr("font-weight", 750)
-        .attr("fill", "rgba(255,255,255,0.86)")
-        .attr("opacity", 0)
-        .text((d) => d.t)
-        .transition()
-        .duration(250)
-        .attr("opacity", 0.85);
-    }
+    //   g.append("g")
+    //     .selectAll("text.qcap")
+    //     .data(quads)
+    //     .join("text")
+    //     .attr("class", "qcap")
+    //     .attr("x", (d) => d.x0 + 10)
+    //     .attr("y", (d) => d.y0 + 20)
+    //     .attr("font-size", 12)
+    //     .attr("font-weight", 750)
+    //     .attr("fill", "rgba(255,255,255,0.86)")
+    //     .attr("opacity", 0)
+    //     .text((d) => d.t)
+    //     .transition()
+    //     .duration(250)
+    //     .attr("opacity", 0.85);
+    // }
 
     if (showTrend) {
       const xs = data.map((d) => d.x);
@@ -517,7 +489,7 @@ export default function RhetoricVsRealityScatter({
 
       if (lr) {
         const x0 = 0;
-        const x1 = xMax;
+        const x1 = xMax * 1.08;
         const y0 = lr.m * x0 + lr.b;
         const y1 = lr.m * x1 + lr.b;
 
@@ -575,7 +547,7 @@ export default function RhetoricVsRealityScatter({
             .attr("stroke", "rgba(245, 199, 122, 0.35)");
         }
 
-        trendLabel.transition().duration(350).delay(620).attr("opacity", 1);
+        // trendLabel.transition().duration(350).delay(620).attr("opacity", 1);
       }
     }
 
