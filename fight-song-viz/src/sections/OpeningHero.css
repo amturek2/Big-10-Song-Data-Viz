@@ -76,7 +76,7 @@
 }
 
 .hero_title {
-  font-size: clamp(44px, 6vw, 76px);
+  font-size: clamp(48px, 6.4vw, 84px);
   line-height: 0.98;
   margin: 0 0 14px 0;
   letter-spacing: -0.02em;
@@ -131,6 +131,9 @@
   gap: 12px;
   opacity: 0.86;
   user-select: none;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .hero_chev {
@@ -271,8 +274,8 @@
 .scorebug_fill {
   height: 100%;
   border-radius: 999px;
-  background: rgba(120, 170, 255, 0.95);
-  box-shadow: 0 0 18px rgba(120, 170, 255, 0.45);
+  background: var(--conf-glow, rgba(120, 170, 255, 0.95));
+  box-shadow: 0 0 18px var(--conf-glow-strong, rgba(120, 170, 255, 0.45));
 }
 
 @media (max-width: 720px) {

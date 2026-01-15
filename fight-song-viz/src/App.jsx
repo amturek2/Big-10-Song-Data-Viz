@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import * as d3 from "d3";
 import BaselineSection from "./sections/BaselineSection";
 import TropeDensitySection from "./sections/TropeDensitySection";
@@ -8,6 +8,7 @@ import LengthVsRedundancySection from "./sections/LengthVsRedundancySection";
 import RhetoricVsRealitySection from "./sections/RhetoricVsRealitySection";
 import OpeningHero from "./sections/OpeningHero";
 import "./App.css";
+import ConferenceByHeatmapSection from "./sections/ConferenceHeatmapSection";
 
 export default function App() {
   const [conferenceFilter, setConferenceFilter] = useState("All");
@@ -32,6 +33,16 @@ export default function App() {
     });
   }, []);
 
+  const conferenceCount = useMemo(() => {
+    if (!songRows.length) return 0;
+    if (conferenceFilter === "All") return songRows.length;
+    return songRows.filter((r) => r.conference === conferenceFilter).length;
+  }, [songRows, conferenceFilter]);
+  const conferenceCountLabel = useMemo(
+    () => `${conferenceCount} Schools Visualized`,
+    [conferenceCount]
+  );
+
   useEffect(() => {
     if (!songRows.length) return;
     const filteredRows =
@@ -41,13 +52,11 @@ export default function App() {
     const total = filteredRows.length;
     const avgTropeCount =
       total > 0
-        ? filteredRows.reduce(
-            (sum, r) => sum + Number(r.trope_count || 0),
-            0
-          ) / total
+        ? filteredRows.reduce((sum, r) => sum + Number(r.trope_count || 0), 0) /
+          total
         : 0;
     setLanguageKpi({
-      label: "Average tropes per song",
+      label: "Average trope count per song",
       value: avgTropeCount.toFixed(1),
     });
   }, [songRows, conferenceFilter]);
@@ -62,17 +71,19 @@ export default function App() {
           conferenceOptions={conferenceOptions}
           conferenceFilter={conferenceFilter}
           onConferenceChange={setConferenceFilter}
+          conferenceCount={conferenceCount}
+          conferenceCountLabel={conferenceCountLabel}
         />
-        <section className="languageSection">
+        <section className="languageSection" id="language-section">
           <div className="languageSection_inner">
             <header className="languageSection_header">
               <h2 className="languageSection_title">
                 How Fight Songs Use Language
               </h2>
               <p className="languageSection_subtitle">
-                Before we compare schools, we look at which tropes are common
-                across the genre and how those tropes travel together in a
-                typical song.
+                Most fight songs lean on the same core script—fight, school
+                colors, and winning—while chants and nonsense syllables take a
+                backseat.
               </p>
             </header>
             {languageKpi ? (
@@ -89,33 +100,15 @@ export default function App() {
             ) : null}
             <div className="sectionRow sectionRow-language">
               <BaselineSection conferenceFilter={conferenceFilter} />
+
               <TropeNetworkSection conferenceFilter={conferenceFilter} />
             </div>
             <div className="languageSection_keybar">
-              <span className="languageSection_keyLabel">Key Insight</span>
+              <span className="languageSection_keyLabel">KEY INSIGHT</span>
               <span className="languageSection_keyText">
                 The baseline ranks the most common tropes, while the network
                 shows how those ideas cluster into a shared hype grammar.
               </span>
-            </div>
-            <div className="languageSection_insight">
-              <div className="languageSection_insightTitle">
-                What this tells us
-              </div>
-              <ul className="languageSection_insightList">
-                <li>
-                  "Fight" and "school colors" are core tropes, appearing in over
-                  half of all songs.
-                </li>
-                <li>
-                  Victory language is common but not universal; about two-thirds
-                  of songs mention winning.
-                </li>
-                <li>
-                  In the network, "Fight" anchors the hub and most other tropes
-                  plug into it, revealing a shared grammar of hype.
-                </li>
-              </ul>
             </div>
           </div>
         </section>
@@ -123,6 +116,7 @@ export default function App() {
         <MapSection conferenceFilter={conferenceFilter} />
         <LengthVsRedundancySection conferenceFilter={conferenceFilter} />
         <RhetoricVsRealitySection conferenceFilter={conferenceFilter} />
+        {/* <ConferenceByHeatmapSection></ConferenceByHeatmapSection> */}
       </div>
     </div>
   );

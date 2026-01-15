@@ -56,7 +56,9 @@ export default function GenreBaselineBars({
 }) {
   const wrapperRef = useRef(null);
   const svgRef = useRef(null);
-  const { width } = useResizeObserver(wrapperRef);
+  const { width, height } = useResizeObserver(wrapperRef);
+
+  // const { width } = useResizeObserver(wrapperRef);
 
   const [rows, setRows] = useState([]);
   const [hover, setHover] = useState(null);
@@ -93,37 +95,37 @@ export default function GenreBaselineBars({
   }, [filteredRows, tropeColumns]);
 
   useEffect(() => {
-    if (!svgRef.current || !stats.length || !width) return;
+    if (!svgRef.current || !stats.length || !width || !height) return;
 
     const showBars = activeStep >= 0;
     const showValues = activeStep >= 1;
 
-    const margin = { top: 58, right: 26, bottom: 34, left: 180 };
-    const barH = 26;
-    const gap = 10;
-    const innerH = stats.length * (barH + gap);
-    const height = margin.top + innerH + margin.bottom;
+    const margin = { top: 100, right: 30, bottom: 0, left: 120 };
 
     const innerW = Math.max(260, width - margin.left - margin.right);
+    const innerH = Math.max(0, height - margin.top - margin.bottom);
+
+    const gap = 10;
 
     const svg = d3.select(svgRef.current);
     svg.attr("width", width).attr("height", height);
     svg.selectAll("*").remove();
 
+    const titleX = 24;
     svg
       .append("text")
-      .attr("x", margin.left)
+      .attr("x", titleX)
       .attr("y", 24)
-      .attr("font-size", 18)
+      .attr("font-size", 24)
       .attr("font-weight", 750)
       .attr("fill", "rgba(255,255,255,0.92)")
       .text(title);
 
     svg
       .append("text")
-      .attr("x", margin.left)
+      .attr("x", titleX)
       .attr("y", 44)
-      .attr("font-size", 12)
+      .attr("font-size", 18)
       .attr("opacity", 0.75)
       .attr("fill", "rgba(255,255,255,0.85)")
       .text(subtitle);
@@ -132,7 +134,14 @@ export default function GenreBaselineBars({
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    const x = d3.scaleLinear().domain([0, 100]).range([0, innerW]);
+    const labelGap = 18;
+    const maxPct = d3.max(stats, (d) => d.pct) || 0;
+
+    const x = d3
+      .scaleLinear()
+      .domain([0, maxPct])
+      .nice()
+      .range([0, innerW - labelGap]);
 
     const y = d3
       .scaleBand()
@@ -146,7 +155,7 @@ export default function GenreBaselineBars({
         d3
           .axisBottom(x)
           .ticks(5)
-          .tickFormat((d) => `${d}%`)
+          .tickFormat((d) => `${d.toFixed(0)}%`)
       )
       .call((ax) => ax.select(".domain").attr("opacity", 0.25))
       .call((ax) => ax.selectAll("line").attr("opacity", 0.16))
@@ -169,7 +178,7 @@ export default function GenreBaselineBars({
       .data(stats, (d) => d.key)
       .join("rect")
       .attr("class", "bar")
-      .attr("x", 0)
+      .attr("x", labelGap)
       .attr("y", (d) => y(d.label))
       .attr("height", y.bandwidth())
       .attr("rx", 10)
@@ -194,7 +203,7 @@ export default function GenreBaselineBars({
       .data(stats, (d) => d.key)
       .join("text")
       .attr("class", "value")
-      .attr("x", (d) => x(d.pct) + 10)
+      .attr("x", (d) => labelGap + x(d.pct) + 10)
       .attr("y", (d) => y(d.label) + y.bandwidth() / 2)
       .attr("dominant-baseline", "middle")
       .attr("font-size", 12)
@@ -215,10 +224,10 @@ export default function GenreBaselineBars({
         .data(stats, (d) => d.key)
         .join("rect")
         .attr("class", "hitbox")
-        .attr("x", 0)
+        .attr("x", labelGap)
         .attr("y", (d) => y(d.label))
         .attr("height", y.bandwidth())
-        .attr("width", x(100))
+        .attr("width", (d) => x(d.pct))
         .attr("fill", "transparent")
         .style("cursor", "default")
         .on("mousemove", (event, d) => {
@@ -239,6 +248,7 @@ export default function GenreBaselineBars({
   }, [
     stats,
     width,
+    height,
     title,
     subtitle,
     activeStep,
@@ -248,12 +258,19 @@ export default function GenreBaselineBars({
   ]);
 
   return (
-    <div ref={wrapperRef} style={{ position: "relative", width: "100%" }}>
+    <div
+      ref={wrapperRef}
+      style={{ position: "relative", width: "100%", height: "100%" }}
+    >
       <svg
         ref={svgRef}
-        style={{ width: "100%", display: "block", overflow: "visible" }}
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "block",
+          overflow: "visible",
+        }}
       />
-
       {hover && (
         <div
           style={{

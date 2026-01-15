@@ -9,6 +9,18 @@ export const conferenceColors = {
   Independent: "#B7BCD1",
 };
 
+export const tropeNetworkColors = {
+  Fight: "#E35A47",
+  Victory: "#5CE1E6",
+  "Win / Won": "#E7A84E",
+  Spelling: "#E76BA9",
+  Men: "#4A7BCE",
+  "School Colors": "#B88A5B",
+  Rah: "#C8F47A",
+  Opponents: "#8CAFD5",
+  Nonsense: "#C9B0FF",
+};
+
 export function makeConferenceColorScale(conferences) {
   const confs = Array.from(new Set(conferences)).filter(Boolean);
   if (!confs.length) return null;

@@ -51,8 +51,10 @@ export default function OpeningHero({
   conferenceOptions = ["All"],
   conferenceFilter = "All",
   onConferenceChange = () => {},
+  conferenceCount = 0,
+  conferenceCountLabel = "",
   stats = [
-    { label: "Schools", value: "130+" },
+    { label: "Schools", value: "65" },
     { label: "Tropes tracked", value: "9" },
     { label: "Conferences", value: "6" },
   ],
@@ -78,21 +80,20 @@ export default function OpeningHero({
       <div className="hero_bg" aria-hidden="true" />
       <div className="hero_grain" aria-hidden="true" />
 
-      <div className="scorebug" aria-hidden="true">
+      <div className="scorebug" aria-hidden="true" style={filterGlowVars}>
         <div className="scorebug_left">
           <span className="scorebug_tag">NCAA FIGHT SONG LAB</span>
           <span className="scorebug_dot" />
-          <span className="scorebug_small">LIVE</span>
+          <span className="scorebug_small">
+            {conferenceCountLabel || conferenceCount}
+          </span>
         </div>
         <div className="scorebug_right">
           <span className="scorebug_small">{scorePct}%</span>
           <div className="scorebug_bar">
             <div className="scorebug_fill" style={{ width: `${scorePct}%` }} />
           </div>
-          <div
-            className="scorebug_filter"
-            style={filterGlowVars}
-          >
+          <div className="scorebug_filter">
             <label className="scorebug_label" htmlFor="confFilter">
               Conference
             </label>
@@ -129,12 +130,12 @@ export default function OpeningHero({
           ))}
         </div>
 
-        <div className="hero_cta">
+        <a className="hero_cta" href="#language-section">
           <div className="hero_chev" aria-hidden="true">
             ⌄
           </div>
           <div className="hero_ctaText">{cta}</div>
-        </div>
+        </a>
       </div>
     </section>
   );

@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as d3 from "d3";
+import { tropeNetworkColors } from "../utils/conferenceColors";
 
 function useResizeObserver(ref) {
-  const [size, setSize] = useState({ width: 900, height: 560 });
+  const [size, setSize] = useState({ width: 900, height: 580 });
   useEffect(() => {
     if (!ref.current) return;
     const obs = new ResizeObserver((entries) => {
@@ -170,23 +171,24 @@ export default function TropeNetwork({
       .attr("width", innerW)
       .attr("height", innerH)
       .attr("rx", 18)
-      .attr("fill", "url(#networkVignette)")
-      .attr("stroke", "rgba(255,255,255,0.08)");
+      .attr("fill", "url(#networkVignette)");
+
+    const titleX = 24;
 
     svg
       .append("text")
-      .attr("x", margin.left)
+      .attr("x", titleX)
       .attr("y", 24)
-      .attr("font-size", 18)
+      .attr("font-size", 24)
       .attr("font-weight", 750)
       .attr("fill", "rgba(255,255,255,0.92)")
       .text(title);
 
     svg
       .append("text")
-      .attr("x", margin.left)
+      .attr("x", titleX)
       .attr("y", 44)
-      .attr("font-size", 12)
+      .attr("font-size", 18)
       .attr("opacity", 0.75)
       .attr("fill", "rgba(255,255,255,0.85)")
       .text(subtitle);
@@ -201,7 +203,7 @@ export default function TropeNetwork({
     const linkWidth = d3
       .scaleLinear()
       .domain([d3.min(linkCounts), d3.max(linkCounts)])
-      .range([0.6, 3.4]);
+      .range([1.2, 8.2]);
 
     const linkColor = d3
       .scaleLinear()
@@ -218,23 +220,9 @@ export default function TropeNetwork({
       .domain([d3.min(linkCounts), d3.max(linkCounts)])
       .range([0.2, 0.45]);
 
-    const palette = [
-      "#fedd4f",
-      "#34d399",
-      "#f6c941",
-      "#a3e635",
-      "#714e85",
-      "#b34941",
-      "#4faca1",
-      "#5c9a97",
-      "#60a5fa",
-      "#fbbf24",
-      "#6d8e82",
-    ];
-
     const color = d3.scaleOrdinal(
       nodes.map((d) => d.id),
-      palette
+      nodes.map((d) => tropeNetworkColors[d.id] ?? "#f0c267")
     );
 
     const link = g
@@ -375,7 +363,18 @@ export default function TropeNetwork({
 
     const legend = svg
       .append("g")
-      .attr("transform", `translate(${width - 210},${margin.top + 6})`);
+      .attr("transform", `translate(${width - 240},${margin.top + 380})`);
+
+    legend
+      .append("rect")
+      .attr("x", -10)
+      .attr("y", -12)
+      .attr("width", 230)
+      .attr("height", 78)
+      .attr("rx", 12)
+      .attr("fill", "rgba(255,255,255,0.08)")
+      .attr("stroke", "rgba(255,255,255,0.2)")
+      .attr("stroke-width", 1);
 
     legend
       .append("text")

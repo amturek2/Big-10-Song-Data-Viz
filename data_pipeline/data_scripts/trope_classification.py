@@ -3,19 +3,17 @@ import numpy as np
 import re
 from pathlib import Path
 
-
 BASE = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE.parent
 
-
-PROJECT_ROOT = BASE.parent  
-songs_path  = PROJECT_ROOT / "output_data" / "fight-songs-plus-cfb.csv"
-lyrics_path = PROJECT_ROOT / "input_files" / "lyrics_dataset.csv"
-
+# ---- INPUT: single file with everything (lyrics included) ----
+songs_path = PROJECT_ROOT / "output_data" / "final_songs.csv"
 songs = pd.read_csv(songs_path)
-lyrics = pd.read_csv(lyrics_path)
+
+# ---------- Helpers ----------
 
 def to01(x):
-    if pd.isna(x): 
+    if pd.isna(x):
         return 0
     if isinstance(x, (int, float, np.integer, np.floating)):
         return int(x != 0)
@@ -26,11 +24,11 @@ def to01(x):
         return 0
     try:
         return int(float(s) != 0)
-    except:
+    except Exception:
         return 0
 
 def normalize_text(s):
-    if pd.isna(s): 
+    if pd.isna(s):
         return ""
     s = str(s).lower()
     s = re.sub(r"[\u2019\u2018]", "'", s)
@@ -58,38 +56,45 @@ def lexicon_freq(tokens, lexset):
 def count_tokens(tokens, lexset):
     return sum(1 for t in tokens if t in lexset)
 
-songs2 = songs.copy()
-lyrics2 = lyrics.copy()
 
-songs2["school_id_norm"] = songs2["school_id"].astype(str).str.strip().str.lower()
-lyrics2["school_id_norm"] = lyrics2["school_id"].astype(str).str.strip().str.lower()
-
-merged = songs2.merge(
-    lyrics2[["school_id_norm", "lyrics"]],
-    on="school_id_norm",
-    how="left"
-)
+merged = songs.copy()
 
 merged["lyrics_norm"] = merged["lyrics"].map(normalize_text)
 merged["tokens"] = merged["lyrics_norm"].map(tokenize)
 merged["n_words"] = merged["tokens"].map(len).replace(0, np.nan)
 
 LEX = {
-    "aggression": {"fight","beat","crush","defeat","win","won","conquer","kill","strike","down","smash","battle","enemy","foe"},
-    "unity": {"we","our","us","together","stand","united","one","team","loyal","true","hearts","brothers","brotherhood","friends"},
-    "tradition": {"alma","mater","tradition","old","forever","honor","faithful"},
-    "pageantry": {"rah","hey","hail","hooray","hurray","cheer","yell"},
-    "competitive_glory": {"champion","champions","glory","victory","win","wins","won","triumph"},
+    "aggression": {
+        "fight","beat","crush","defeat","win","won","conquer","kill",
+        "strike","down","smash","battle","enemy","foe"
+    },
+    "unity": {
+        "we","our","us","together","stand","united","one","team",
+        "loyal","true","hearts","brothers","brotherhood","friends"
+    },
+    "tradition": {
+        "alma","mater","tradition","old","forever","honor","faithful"
+    },
+    "pageantry": {
+        "rah","hey","hail","hooray","hurray","cheer","yell"
+    },
+    "competitive_glory": {
+        "champion","champions","glory","victory","win","wins","won","triumph"
+    },
 }
 
 COLOR_WORDS = {
-    "blue","red","green","gold","yellow","orange","purple","white","black","scarlet","crimson","navy","maroon",
-    "silver","gray","grey","cardinal","garnet","teal"
+    "blue","red","green","gold","yellow","orange","purple","white","black",
+    "scarlet","crimson","navy","maroon","silver","gray","grey","cardinal",
+    "garnet","teal"
 }
 
 for k, lexset in LEX.items():
-    merged[f"lex_{k}_freq"] = merged["tokens"].map(lambda toks, s=lexset: lexicon_freq(toks, s))
+    merged[f"lex_{k}_freq"] = merged["tokens"].map(
+        lambda toks, s=lexset: lexicon_freq(toks, s)
+    )
 
+# School tokens for institutional pride
 merged["school_norm"] = merged["school"].astype(str).map(normalize_text)
 merged["school_tokens"] = merged["school_norm"].map(tokenize)
 
@@ -105,16 +110,20 @@ def institutional_pride_freq(row):
 
 merged["lex_institutional_freq"] = merged.apply(institutional_pride_freq, axis=1)
 
+# Binary trope flags
 for col in ["fight","victory","win_won","opponents","rah","nonsense","colors","men","official_song"]:
     if col in merged.columns:
         merged[col] = merged[col].map(to01)
     else:
         merged[col] = 0
 
+# BPM / duration
 merged["bpm"] = pd.to_numeric(merged.get("bpm", np.nan), errors="coerce")
 merged["sec_duration"] = pd.to_numeric(merged.get("sec_duration", np.nan), errors="coerce")
 merged["bpm_z"] = zscore(merged["bpm"]) if "bpm" in merged else 0
 merged["dur_z"] = zscore(merged["sec_duration"]) if "sec_duration" in merged else 0
+
+# ---------- Scores ----------
 
 merged["score_aggression"] = (
     2.0*merged["fight"] + 1.5*merged["opponents"] + 1.0*merged["win_won"] + 1.0*merged["victory"]
@@ -178,6 +187,8 @@ merged["secondary_bucket"] = np.where(
     ""
 )
 
+# ---------- Conference-level summary for heat map ----------
+
 conf_dist = (
     merged.groupby(["conference","primary_bucket"])
     .size()
@@ -187,40 +198,38 @@ conf_tot = merged.groupby("conference").size().rename("total").reset_index()
 conf_dist = conf_dist.merge(conf_tot, on="conference", how="left")
 conf_dist["pct"] = conf_dist["n_songs"] / conf_dist["total"]
 
-conf_pivot = conf_dist.pivot_table(index="conference", columns="primary_bucket", values="pct", fill_value=0).reset_index()
+conf_pivot = conf_dist.pivot_table(
+    index="conference",
+    columns="primary_bucket",
+    values="pct",
+    fill_value=0
+).reset_index()
+
 conf_scores = merged.groupby("conference")[score_cols].mean(numeric_only=True).reset_index()
 conf_summary = conf_pivot.merge(conf_scores, on="conference", how="left")
 
+# ---------- Outputs ----------
 
 out_dir = PROJECT_ROOT / "output_data"
 out_dir.mkdir(parents=True, exist_ok=True)
 
-song_out_path = out_dir / "fight_song_trope_classification.csv"
-conf_out_path = out_dir / "conference_trope_summary.csv"
+song_out_path = out_dir / "fight_song_trope_classification_1.csv"
+conf_out_path = out_dir / "conference_trope_summary_1.csv"
 
-keep_cols = [
-    "school", "school_id", "conference", "song_name",
-
-    "bpm", "sec_duration",
-
-    "fight", "victory", "win_won", "opponents", "rah", "nonsense", "colors", "men", "official_song",
-
-    # bucket labels
+# keep all original columns + new score columns
+extra_cols = [
     "primary_bucket", "secondary_bucket",
-
-    # scores (main outputs)
     "score_aggression", "score_unity", "score_tradition",
     "score_pageantry", "score_institutional", "score_competitive_glory",
-
     "lex_aggression_freq", "lex_unity_freq", "lex_tradition_freq",
     "lex_pageantry_freq", "lex_institutional_freq", "lex_competitive_glory_freq",
 ]
 
-keep_cols = [c for c in keep_cols if c in merged.columns]
+base_cols = list(songs.columns)
+out_cols = base_cols + [c for c in extra_cols if c not in base_cols]
 
-song_out = merged[keep_cols].copy()
+song_out = merged[out_cols].copy()
 song_out.to_csv(song_out_path, index=False)
-
 conf_summary.to_csv(conf_out_path, index=False)
 
 print(f"Wrote: {song_out_path}")
