@@ -55,12 +55,9 @@ export default function TropeDensityBySchoolVertical({
   topN = 60,
   colorBy = "conference",
 
-  title = "How dense is tradition?",
-  subtitle = "Trope density by school (count of tropes present)",
-
   fallbackColor = "rgba(80, 130, 255, 0.9)",
   highlightColor = "rgba(245, 199, 122, 0.92)",
-  mutedColor = "rgba(255,255,255,0.12)",
+  mutedColor = "rgba(212, 180, 128, 0.92)",
 
   barW = 12,
   barGap = 4,
@@ -72,7 +69,7 @@ export default function TropeDensityBySchoolVertical({
 }) {
   const wrapperRef = useRef(null);
   const svgRef = useRef(null);
-  const { width } = useResizeObserver(wrapperRef);
+  const { width, height } = useResizeObserver(wrapperRef);
 
   const [rows, setRows] = useState([]);
   const [hover, setHover] = useState(null);
@@ -134,8 +131,9 @@ export default function TropeDensityBySchoolVertical({
   useEffect(() => {
     if (!svgRef.current || !data.length || !width) return;
 
-    const margin = { top: 58, right: 26, bottom: 84, left: 56 };
-    const innerH = fixedHeight - margin.top - margin.bottom;
+    const chartHeight = height > 0 ? height : fixedHeight;
+    const margin = { top: 0, right: 84, bottom: 84, left: 60 };
+    const innerH = chartHeight - margin.top - margin.bottom;
 
     const contentW = data.length * (barW + barGap);
     const svgW = enableHorizontalScroll
@@ -145,26 +143,8 @@ export default function TropeDensityBySchoolVertical({
     const innerW = svgW - margin.left - margin.right;
 
     const svg = d3.select(svgRef.current);
-    svg.attr("width", svgW).attr("height", fixedHeight);
+    svg.attr("width", svgW).attr("height", chartHeight);
     svg.selectAll("*").remove();
-
-    svg
-      .append("text")
-      .attr("x", margin.left)
-      .attr("y", 24)
-      .attr("font-size", 18)
-      .attr("font-weight", 750)
-      .attr("fill", "rgba(255,255,255,0.92)")
-      .text(title);
-
-    svg
-      .append("text")
-      .attr("x", margin.left)
-      .attr("y", 44)
-      .attr("font-size", 12)
-      .attr("fill", "rgba(255,255,255,0.85)")
-      .attr("opacity", 0.75)
-      .text(subtitle);
 
     const g = svg
       .append("g")
@@ -210,6 +190,7 @@ export default function TropeDensityBySchoolVertical({
 
     const topSet = new Set(allData.slice(0, 8).map((d) => d.school));
 
+    const barWidth = Math.min(barW, x.bandwidth());
     const bars = g
       .append("g")
       .selectAll("rect.bar")
@@ -217,7 +198,7 @@ export default function TropeDensityBySchoolVertical({
       .join("rect")
       .attr("class", "bar")
       .attr("x", (d) => x(d.school))
-      .attr("width", Math.min(barW, x.bandwidth()))
+      .attr("width", barWidth)
       .attr("y", innerH)
       .attr("height", 0)
       .attr("rx", 6)
@@ -271,9 +252,9 @@ export default function TropeDensityBySchoolVertical({
       .join("rect")
       .attr("class", "hit")
       .attr("x", (d) => x(d.school))
-      .attr("width", Math.min(barW, x.bandwidth()))
-      .attr("y", 0)
-      .attr("height", innerH)
+      .attr("width", barWidth)
+      .attr("y", (d) => y(d.density))
+      .attr("height", (d) => innerH - y(d.density))
       .attr("fill", "transparent")
       .style("cursor", "default")
       .on("mousemove", (event, d) => {
@@ -291,13 +272,12 @@ export default function TropeDensityBySchoolVertical({
     data,
     allData,
     width,
+    height,
     fixedHeight,
     barW,
     barGap,
     tropeKeys.length,
     colorBy,
-    title,
-    subtitle,
     activeStep,
     showBars,
     showValues,
@@ -316,6 +296,7 @@ export default function TropeDensityBySchoolVertical({
       style={{
         position: "relative",
         width: "100%",
+        height: "100%",
         overflowX: enableHorizontalScroll ? "auto" : "visible",
         overflowY: "hidden",
         paddingBottom: 6,

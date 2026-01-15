@@ -35,23 +35,6 @@ function seededJitter(seedStr, amtX = 10, amtY = 10) {
   return [u, v];
 }
 
-function pickLabelSet(data, k = 4) {
-  const byDurHi = [...data].sort((a, b) => b.duration - a.duration).slice(0, k);
-  const byDurLo = [...data].sort((a, b) => a.duration - b.duration).slice(0, k);
-  const byRateHi = [...data]
-    .sort((a, b) => b.fightRate - a.fightRate)
-    .slice(0, k);
-  const byRateLo = [...data]
-    .sort((a, b) => a.fightRate - b.fightRate)
-    .slice(0, k);
-
-  const s = new Set();
-  [...byDurHi, ...byDurLo, ...byRateHi, ...byRateLo].forEach((d) =>
-    s.add(d.school)
-  );
-  return s;
-}
-
 const defaultCsvUrl = new URL(
   "../data/song_data.csv",
   import.meta.url
@@ -62,8 +45,6 @@ export default function LengthVsRedundancyQuadrant({
 
   csvUrl = defaultCsvUrl,
   conferenceFilter = "All",
-  title = "Length vs Redundancy",
-  subtitle = "Do longer songs say more - or just repeat “fight” louder?",
   durationCol = "sec_duration",
   fightsCol = "number_fights",
   ratePerSeconds = 60,
@@ -74,7 +55,7 @@ export default function LengthVsRedundancyQuadrant({
 }) {
   const wrapperRef = useRef(null);
   const svgRef = useRef(null);
-  const { width } = useResizeObserver(wrapperRef);
+  const { width, height } = useResizeObserver(wrapperRef);
 
   const [rows, setRows] = useState([]);
   const [hover, setHover] = useState(null);
@@ -125,21 +106,16 @@ export default function LengthVsRedundancyQuadrant({
   }, [filteredRows, durationCol, fightsCol, ratePerSeconds]);
 
   const rScale = useMemo(() => {
-    const bpmVals = data.map((d) => d.bpm).filter(Number.isFinite);
-    if (!bpmVals.length) return () => dotRadius;
+    const fightVals = data.map((d) => d.fights).filter(Number.isFinite);
+    if (!fightVals.length) return () => dotRadius;
 
-    const min = d3.min(bpmVals);
-    const max = d3.max(bpmVals);
+    const min = d3.min(fightVals);
+    const max = d3.max(fightVals);
     if (!Number.isFinite(min) || !Number.isFinite(max)) return () => dotRadius;
 
-    const scale = d3.scaleSqrt().domain([min, max]).range([4, 10]);
+    const scale = d3.scaleSqrt().domain([min, max]).range([3, 9]);
     return (v) => (Number.isFinite(v) ? scale(v) : dotRadius);
   }, [data, dotRadius]);
-
-  const labelSet = useMemo(
-    () => pickLabelSet(data, labelCount),
-    [data, labelCount]
-  );
 
   const conferenceColor = useMemo(() => {
     if (colorBy !== "conference") return null;
@@ -149,37 +125,17 @@ export default function LengthVsRedundancyQuadrant({
   useEffect(() => {
     if (!svgRef.current || !data.length || !width) return;
 
-    const showPanels = activeStep >= 1;
     const showDots = activeStep >= 2;
-    const showLabels = activeStep >= 3;
 
-    const height = Math.max(560, Math.round(width * 0.65));
-    const margin = { top: 60, right: 28, bottom: 54, left: 66 };
+    const chartHeight =
+      height > 0 ? height : Math.max(560, Math.round(width * 0.65));
+    const margin = { top: 30, right: 10, bottom: 50, left: 45 };
     const innerW = Math.max(280, width - margin.left - margin.right);
-    const innerH = height - margin.top - margin.bottom;
+    const innerH = chartHeight - margin.top - margin.bottom;
 
     const svg = d3.select(svgRef.current);
-    svg.attr("width", width).attr("height", height);
+    svg.attr("width", width).attr("height", chartHeight);
     svg.selectAll("*").remove();
-
-    // Titles
-    svg
-      .append("text")
-      .attr("x", margin.left)
-      .attr("y", 26)
-      .attr("font-size", 18)
-      .attr("font-weight", 750)
-      .attr("fill", "rgba(255,255,255,0.92)")
-      .text(title);
-
-    svg
-      .append("text")
-      .attr("x", margin.left)
-      .attr("y", 46)
-      .attr("font-size", 12)
-      .attr("opacity", 0.75)
-      .attr("fill", "rgba(255,255,255,0.85)")
-      .text(subtitle);
 
     const g = svg
       .append("g")
@@ -197,64 +153,48 @@ export default function LengthVsRedundancyQuadrant({
     const xMid = x(xMidVal);
     const yMid = y(yMidVal);
 
-    const panels = [
+    const quadPanels = [
       {
-        key: "LongLow",
-        name: "Long + Low repetition",
-        x0: xMid,
-        x1: innerW,
-        y0: 0,
-        y1: yMid,
-        caption: "Uses time for variety / ceremony",
-      },
-      {
-        key: "ShortLow",
-        name: "Short + Low repetition",
         x0: 0,
-        x1: xMid,
-        y0: yMid,
-        y1: innerH,
-        caption: "Minimalist, tight lyrics",
-      },
-      {
-        key: "ShortHigh",
-        name: "Short + High repetition",
-        x0: 0,
-        x1: xMid,
         y0: 0,
+        x1: xMid,
         y1: yMid,
-        caption: "Pure hype chant energy",
+        fill: "rgba(245, 199, 122, 0.06)",
       },
       {
-        key: "LongHigh",
-        name: "Long + High repetition",
         x0: xMid,
+        y0: 0,
         x1: innerW,
+        y1: yMid,
+        fill: "rgba(120, 170, 255, 0.06)",
+      },
+      {
+        x0: 0,
         y0: yMid,
+        x1: xMid,
         y1: innerH,
-        caption: "Ritual chants (repeating louder)",
+        fill: "rgba(120, 255, 190, 0.05)",
+      },
+      {
+        x0: xMid,
+        y0: yMid,
+        x1: innerW,
+        y1: innerH,
+        fill: "rgba(255, 130, 130, 0.05)",
       },
     ];
 
-    const panelFill = showPanels
-      ? "rgba(255,255,255,0.04)"
-      : "rgba(255,255,255,0.01)";
-    const panelStroke = showPanels
-      ? "rgba(255,255,255,0.12)"
-      : "rgba(255,255,255,0.06)";
-    const capOpacity = showPanels ? 0.85 : 0.25;
-
     g.append("g")
-      .selectAll("rect.panel")
-      .data(panels)
+      .selectAll("rect.quad")
+      .data(quadPanels)
       .join("rect")
-      .attr("class", "panel")
+      .attr("class", "quad")
       .attr("x", (d) => d.x0)
       .attr("y", (d) => d.y0)
       .attr("width", (d) => d.x1 - d.x0)
       .attr("height", (d) => d.y1 - d.y0)
-      .attr("fill", panelFill)
-      .attr("stroke", panelStroke)
+      .attr("fill", (d) => d.fill)
+      .attr("stroke", "rgba(255,255,255,0.06)")
       .attr("stroke-width", 1);
 
     // Axes
@@ -275,24 +215,30 @@ export default function LengthVsRedundancyQuadrant({
         ax.selectAll("text").attr("opacity", 0.75).attr("fill", "white")
       );
 
-    // Axis labels
-    g.append("text")
-      .attr("x", innerW)
-      .attr("y", innerH + 44)
-      .attr("text-anchor", "end")
-      .attr("font-size", 12)
-      .attr("opacity", 0.75)
+    // Axis labels with professional styling
+    svg
+      .append("text")
+      .attr("x", margin.left + innerW / 2)
+      .attr("y", chartHeight - 10)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 13)
+      .attr("font-weight", 600)
       .attr("fill", "rgba(255,255,255,0.85)")
-      .text("Song duration (seconds)");
+      .attr("letter-spacing", "0.02em")
+      .text("Song Duration (seconds)");
 
-    g.append("text")
-      .attr("x", -10)
-      .attr("y", -14)
-      .attr("text-anchor", "start")
-      .attr("font-size", 12)
-      .attr("opacity", 0.75)
+    svg
+      .append("text")
+      .attr(
+        "transform",
+        `translate(16, ${margin.top + innerH / 2}) rotate(-90)`
+      )
+      .attr("text-anchor", "middle")
+      .attr("font-size", 13)
+      .attr("font-weight", 600)
       .attr("fill", "rgba(255,255,255,0.85)")
-      .text(`Fight repetition (fights per ${ratePerSeconds}s)`);
+      .attr("letter-spacing", "0.02em")
+      .text(`"Fight" Repetition Rate (per ${ratePerSeconds}s)`);
 
     // Median guide lines
     g.append("line")
@@ -313,54 +259,10 @@ export default function LengthVsRedundancyQuadrant({
       .attr("stroke-width", 1)
       .attr("stroke-dasharray", "4 4");
 
-    // Panel captions
-    const cap = g.append("g");
-
-    cap
-      .selectAll("text.pname")
-      .data(panels)
-      .join("text")
-      .attr("class", "pname")
-      .attr("x", (d) => d.x0 + 12)
-      .attr("y", (d) => d.y0 + 22)
-      .attr("font-size", 12)
-      .attr("font-weight", 750)
-      .attr("opacity", capOpacity)
-      .attr("fill", "rgba(255,255,255,0.9)")
-      .text((d) => d.name);
-
-    cap
-      .selectAll("text.pcap")
-      .data(panels)
-      .join("text")
-      .attr("class", "pcap")
-      .attr("x", (d) => d.x0 + 12)
-      .attr("y", (d) => d.y0 + 40)
-      .attr("font-size", 12)
-      .attr("opacity", showPanels ? 0.68 : 0.18)
-      .attr("fill", "rgba(255,255,255,0.85)")
-      .text((d) => d.caption);
-
     const placed = data.map((d) => {
       const [jx, jy] = seededJitter(d.school, 10, 10);
       return { ...d, px: x(d.duration) + jx, py: y(d.fightRate) + jy };
     });
-
-    if (showLabels) {
-      const spotlight = new Set(["ShortHigh", "LongHigh"]);
-      g.append("g")
-        .selectAll("rect.spot")
-        .data(panels.filter((p) => spotlight.has(p.key)))
-        .join("rect")
-        .attr("class", "spot")
-        .attr("x", (d) => d.x0)
-        .attr("y", (d) => d.y0)
-        .attr("width", (d) => d.x1 - d.x0)
-        .attr("height", (d) => d.y1 - d.y0)
-        .attr("fill", "rgba(245, 199, 122, 0.05)")
-        .attr("stroke", "rgba(245, 199, 122, 0.20)")
-        .attr("stroke-width", 1.2);
-    }
 
     // Dots
     const dots = g.append("g");
@@ -383,31 +285,8 @@ export default function LengthVsRedundancyQuadrant({
       .transition()
       .duration(showDots ? 650 : 200)
       .ease(d3.easeCubicOut)
-      .attr("r", (d) => (showDots ? rScale(d.bpm) : 0))
+      .attr("r", (d) => (showDots ? rScale(d.fights) : 0))
       .attr("opacity", showDots ? 1 : 0);
-
-    if (showLabels) {
-      const labeled = placed.filter((d) => labelSet.has(d.school));
-
-      g.append("g")
-        .selectAll("text.label")
-        .data(labeled, (d) => d.school)
-        .join("text")
-        .attr("class", "label")
-        .attr("x", (d) => d.px + 8)
-        .attr("y", (d) => d.py - 8)
-        .attr("font-size", 11)
-        .attr("font-weight", 750)
-        .attr("fill", "rgba(255,255,255,0.92)")
-        .attr("paint-order", "stroke")
-        .attr("stroke", "rgba(0,0,0,0.55)")
-        .attr("stroke-width", 3)
-        .attr("opacity", 0)
-        .text((d) => d.school)
-        .transition()
-        .duration(350)
-        .attr("opacity", 0.9);
-    }
 
     if (showDots) {
       g.append("g")
@@ -417,7 +296,7 @@ export default function LengthVsRedundancyQuadrant({
         .attr("class", "hit")
         .attr("cx", (d) => d.px)
         .attr("cy", (d) => d.py)
-        .attr("r", (d) => rScale(d.bpm) + 8)
+        .attr("r", (d) => rScale(d.fights) + 8)
         .attr("fill", "transparent")
         .style("cursor", "default")
         .on("mousemove", (event, d) => {
@@ -445,67 +324,168 @@ export default function LengthVsRedundancyQuadrant({
 
     if (showDots && conferenceColor) {
       const confs = conferenceColor.domain();
-      const legendItems = confs.slice(0, 10);
+      const legendItems = confs.slice(0, 8);
+      const columnCount = legendItems.length > 4 ? 2 : 1;
+      const rowCount = Math.ceil(legendItems.length / columnCount);
+      const columnWidth = 74;
+      const itemHeight = 12;
+      const headerHeight = 12;
+      const sizeBlockHeight = 34;
+      const legendWidth = columnCount * columnWidth + 16;
+      const legendHeight =
+        headerHeight + rowCount * itemHeight + sizeBlockHeight + 18;
 
       const legend = svg
         .append("g")
-        .attr("transform", `translate(${width - 190},${margin.top + 6})`);
+        .attr(
+          "transform",
+          `translate(${width - legendWidth - 50},${margin.top - 28})`
+        );
+
+      legend
+        .append("rect")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", legendWidth)
+        .attr("height", legendHeight)
+        .attr("rx", 8)
+        .attr("fill", "rgba(182, 181, 176, 0.43)")
+        .attr("stroke", "rgba(255,255,255,0.12)")
+        .attr("stroke-width", 1);
+
+      legend
+        .append("text")
+        .attr("x", 8)
+        .attr("y", 10)
+        .attr("font-size", 9)
+        .attr("font-weight", 700)
+        .attr("fill", "rgba(255,255,255,0.9)")
+        .attr("letter-spacing", "0.08em")
+        .text("CONFERENCES");
 
       legendItems.forEach((c, i) => {
-        const yy = i * 16;
+        const col = Math.floor(i / rowCount);
+        const row = i % rowCount;
+        const xx = 8 + col * columnWidth;
+        const yy = headerHeight + 8 + row * itemHeight;
+
         legend
           .append("circle")
-          .attr("cx", 0)
+          .attr("cx", xx)
           .attr("cy", yy)
-          .attr("r", 4.8)
+          .attr("r", 3.6)
           .attr("fill", conferenceColor(c))
           .attr("stroke", "white")
-          .attr("stroke-width", 1);
+          .attr("stroke-width", 0.8);
 
         legend
           .append("text")
-          .attr("x", 10)
+          .attr("x", xx + 7)
           .attr("y", yy + 4)
-          .attr("font-size", 11)
-          .attr("opacity", 0.75)
-          .attr("fill", "rgba(255,255,255,0.9)")
+          .attr("font-size", 9)
+          .attr("fill", "rgba(255,255,255,0.82)")
           .text(c);
       });
 
       if (confs.length > legendItems.length) {
         legend
           .append("text")
-          .attr("x", 10)
-          .attr("y", legendItems.length * 16 + 4)
-          .attr("font-size", 11)
+          .attr("x", 8)
+          .attr("y", headerHeight + rowCount * itemHeight + 8)
+          .attr("font-size", 9)
           .attr("opacity", 0.6)
-          .attr("fill", "rgba(255,255,255,0.85)")
+          .attr("fill", "rgba(255,255,255,0.7)")
           .text(`+${confs.length - legendItems.length} more`);
       }
+
+      const sizeY = headerHeight + rowCount * itemHeight + 16;
+      const fightVals = data.map((d) => d.fights).filter(Number.isFinite);
+      const minFight = d3.min(fightVals);
+      const maxFight = d3.max(fightVals);
+      const minLabel = Number.isFinite(minFight) ? Math.round(minFight) : 0;
+      const maxLabel = Number.isFinite(maxFight) ? Math.round(maxFight) : 0;
+
+      legend
+        .append("text")
+        .attr("x", 8)
+        .attr("y", sizeY)
+        .attr("font-size", 9)
+        .attr("font-weight", 700)
+        .attr("fill", "rgba(255,255,255,0.9)")
+        .attr("letter-spacing", "0.08em")
+        .text("FIGHT COUNT");
+
+      const sizeGroup = legend
+        .append("g")
+        .attr("transform", `translate(8, ${sizeY + 10})`);
+
+      sizeGroup
+        .append("circle")
+        .attr("cx", 6)
+        .attr("cy", 8)
+        .attr("r", rScale(minFight))
+        .attr("fill", "rgba(255,255,255,0.22)")
+        .attr("stroke", "rgba(255,255,255,0.6)")
+        .attr("stroke-width", 0.8);
+
+      sizeGroup
+        .append("text")
+        .attr("x", 16)
+        .attr("y", 11)
+        .attr("font-size", 9)
+        .attr("fill", "rgba(255,255,255,0.8)")
+        .text(minLabel);
+
+      sizeGroup
+        .append("circle")
+        .attr("cx", 56)
+        .attr("cy", 8)
+        .attr("r", rScale(maxFight))
+        .attr("fill", "rgba(255,255,255,0.22)")
+        .attr("stroke", "rgba(255,255,255,0.6)")
+        .attr("stroke-width", 0.8);
+
+      sizeGroup
+        .append("text")
+        .attr("x", 66)
+        .attr("y", 11)
+        .attr("font-size", 9)
+        .attr("fill", "rgba(255,255,255,0.8)")
+        .text(maxLabel);
     }
   }, [
     data,
     width,
-    title,
-    subtitle,
+    height,
     conferenceColor,
     ratePerSeconds,
-    labelSet,
     rScale,
     activeStep,
   ]);
 
+  const tooltipWidth = 270;
+  const tooltipHeight = 160;
+  const tooltipLeft = hover
+    ? Math.max(12, Math.min(hover.x, width - tooltipWidth - 12))
+    : 0;
+  const tooltipTop = hover
+    ? Math.max(12, Math.min(hover.y, height - tooltipHeight - 12))
+    : 0;
+
   return (
-    <div ref={wrapperRef} style={{ position: "relative", width: "100%" }}>
+    <div
+      ref={wrapperRef}
+      style={{ position: "relative", width: "100%", height: "100%" }}
+    >
       <svg ref={svgRef} style={{ width: "100%", display: "block" }} />
 
       {hover && (
         <div
           style={{
             position: "absolute",
-            left: hover.x,
-            top: hover.y,
-            width: 270,
+            left: tooltipLeft,
+            top: tooltipTop,
+            width: tooltipWidth,
             pointerEvents: "none",
             padding: "10px 12px",
             borderRadius: 12,
@@ -515,6 +495,7 @@ export default function LengthVsRedundancyQuadrant({
             lineHeight: 1.25,
             boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
             backdropFilter: "blur(8px)",
+            zIndex: 10,
           }}
         >
           <div style={{ fontWeight: 750, marginBottom: 6 }}>{hover.school}</div>
@@ -528,7 +509,7 @@ export default function LengthVsRedundancyQuadrant({
             Duration: <b>{Math.round(hover.duration)}s</b>
           </div>
           <div>
-            “Fight” count: <b>{Math.round(hover.fights)}</b>
+            "Fight" count: <b>{Math.round(hover.fights)}</b>
           </div>
           <div>
             Fight rate: <b>{hover.rate.toFixed(2)}</b> per {ratePerSeconds}s

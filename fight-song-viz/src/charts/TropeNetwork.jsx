@@ -108,9 +108,9 @@ export default function TropeNetwork({
   useEffect(() => {
     if (!svgRef.current || !nodes.length || !width) return;
 
-    const height = Math.max(560, Math.round(width * 0.62));
+    const height = Math.max(580, Math.round(width * 0.62));
     const margin = { top: 50, right: 24, bottom: 44, left: 24 };
-    const innerW = Math.max(320, width - margin.left - margin.right);
+    const innerW = Math.max(410, width - margin.left - margin.right);
     const innerH = height - margin.top - margin.bottom;
 
     const svg = d3.select(svgRef.current);

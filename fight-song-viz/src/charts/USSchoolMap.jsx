@@ -74,7 +74,7 @@ export default function USSchoolMap({
 }) {
   const wrapperRef = useRef(null);
   const svgRef = useRef(null);
-  const { width } = useResizeObserver(wrapperRef);
+  const { width, height } = useResizeObserver(wrapperRef);
 
   const [usTopo, setUsTopo] = useState(null);
   const [songsRows, setSongsRows] = useState([]);
@@ -153,13 +153,16 @@ export default function USSchoolMap({
     const showLegend = activeStep >= 2;
     const allowHover = activeStep >= 1;
 
-    const height = Math.max(520, Math.round(width * 0.62));
+    const chartHeight =
+      height > 0 ? height : Math.max(520, Math.round(width * 0.62));
     const svg = d3.select(svgRef.current);
-    svg.attr("width", width).attr("height", height);
+    svg.attr("width", width).attr("height", chartHeight);
     svg.selectAll("*").remove();
 
     const statesGeo = getUsStatesGeo(usTopo);
-    const projection = d3.geoAlbersUsa().fitSize([width, height], statesGeo);
+    const projection = d3
+      .geoAlbersUsa()
+      .fitSize([width, chartHeight], statesGeo);
     const path = d3.geoPath(projection);
 
     // states
@@ -285,7 +288,7 @@ export default function USSchoolMap({
 
       legend.transition().duration(300).attr("opacity", 1);
     }
-  }, [usTopo, points, width, conferences, conferenceColor, activeStep]);
+  }, [usTopo, points, width, height, conferences, conferenceColor, activeStep]);
 
   const dnaMode = activeStep >= 3 ? "all" : "present";
   const cardData = selected || hover;
@@ -294,7 +297,7 @@ export default function USSchoolMap({
   return (
     <div
       ref={wrapperRef}
-      style={{ position: "relative", width: "100%" }}
+      style={{ position: "relative", width: "100%", height: "100%" }}
       onClick={() => {
         setSelected(null);
         setShowLyrics(false);
@@ -309,6 +312,7 @@ export default function USSchoolMap({
           pinned={isPinned}
           showLyrics={showLyrics}
           onToggleLyrics={() => setShowLyrics((s) => !s)}
+          bounds={{ width, height }}
         />
       )}
     </div>
@@ -327,7 +331,14 @@ function getUsStatesGeo(usTopo) {
   return feature(usTopo, usTopo.objects[objKey]);
 }
 
-function DNASwatchCard({ data, mode, pinned, showLyrics, onToggleLyrics }) {
+function DNASwatchCard({
+  data,
+  mode,
+  pinned,
+  showLyrics,
+  onToggleLyrics,
+  bounds,
+}) {
   const sentence = buildIdentitySentence(data.dna);
   const pills = buildDNAPills(data.dna, mode);
   const confName = data.conference || "Independent";
@@ -335,14 +346,24 @@ function DNASwatchCard({ data, mode, pinned, showLyrics, onToggleLyrics }) {
   const spotifyUrl = data.spotifyId
     ? `https://open.spotify.com/embed/track/${data.spotifyId}?utm_source=generator`
     : "";
+  const cardWidth = 285;
+  const cardHeight = pinned ? 320 : 210;
+  const clampX = Math.max(
+    12,
+    Math.min(data.x, (bounds?.width || 0) - cardWidth - 12)
+  );
+  const clampY = Math.max(
+    12,
+    Math.min(data.y, (bounds?.height || 0) - cardHeight - 12)
+  );
 
   return (
     <div
       style={{
         position: "absolute",
-        left: data.x,
-        top: data.y,
-        width: 285,
+        left: clampX,
+        top: clampY,
+        width: cardWidth,
         pointerEvents: pinned ? "auto" : "none",
         padding: "12px 12px",
         borderRadius: 16,
@@ -354,6 +375,7 @@ function DNASwatchCard({ data, mode, pinned, showLyrics, onToggleLyrics }) {
         )}`,
         backdropFilter: "blur(10px)",
         border: pinned ? `1px solid ${rgbaFromHex(confColor, 0.55)}` : "none",
+        zIndex: 20,
       }}
       onClick={(event) => event.stopPropagation()}
     >

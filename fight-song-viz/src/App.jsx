@@ -1,14 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import * as d3 from "d3";
 import BaselineSection from "./sections/BaselineSection";
-import TropeDensitySection from "./sections/TropeDensitySection";
 import TropeNetworkSection from "./sections/TropeNetworkSection";
-import MapSection from "./sections/MapSection";
-import LengthVsRedundancySection from "./sections/LengthVsRedundancySection";
-import RhetoricVsRealitySection from "./sections/RhetoricVsRealitySection";
 import OpeningHero from "./sections/OpeningHero";
 import "./App.css";
 import ConferenceByHeatmapSection from "./sections/ConferenceHeatmapSection";
+import SongIdentitySection from "./sections/SongIdentitySection";
+import RhetoricVsRealitySection from "./sections/RhetoricVsRealitySection";
 
 export default function App() {
   const [conferenceFilter, setConferenceFilter] = useState("All");
@@ -112,11 +110,9 @@ export default function App() {
             </div>
           </div>
         </section>
-        <TropeDensitySection conferenceFilter={conferenceFilter} />
-        <MapSection conferenceFilter={conferenceFilter} />
-        <LengthVsRedundancySection conferenceFilter={conferenceFilter} />
-        <RhetoricVsRealitySection conferenceFilter={conferenceFilter} />
+        <SongIdentitySection conferenceFilter={conferenceFilter} />
         {/* <ConferenceByHeatmapSection></ConferenceByHeatmapSection> */}
+        <RhetoricVsRealitySection conferenceFilter={conferenceFilter} />
       </div>
     </div>
   );

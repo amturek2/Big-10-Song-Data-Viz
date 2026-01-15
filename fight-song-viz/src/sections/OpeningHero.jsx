@@ -44,7 +44,7 @@ function StatPill({ label, value }) {
 }
 
 export default function OpeningHero({
-  title = "Fight Songs, Quantified",
+  title = "The College Fight Song Breakdown",
   subtitle = "A visual tour of what colleges sing when they want to feel unstoppable.",
   deck = "We treat fight songs like data: tropes, repetition, “rah” energy, and competitive language - then compare the rhetoric to reality.",
   cta = "Explore the charts",
@@ -82,7 +82,7 @@ export default function OpeningHero({
 
       <div className="scorebug" aria-hidden="true" style={filterGlowVars}>
         <div className="scorebug_left">
-          <span className="scorebug_tag">NCAA FIGHT SONG LAB</span>
+          <span className="scorebug_tag">College Fight Song Breakdown</span>
           <span className="scorebug_dot" />
           <span className="scorebug_small">
             {conferenceCountLabel || conferenceCount}
@@ -116,7 +116,9 @@ export default function OpeningHero({
       <div className="hero_inner">
         <div className="hero_topline">
           <span className="hero_badge">DATA VIZ • D3 • REACT</span>
-          <span className="hero_badge hero_badge-ghost">CREATIVE DATA VIZ</span>
+          <span className="hero_badge hero_badge-ghost">
+            FIGHT SONG ANALYSIS
+          </span>
         </div>
 
         <h1 className="hero_title">{title}</h1>

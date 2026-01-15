@@ -1,15 +1,51 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
+
+function useResizeObserver(ref) {
+  const [size, setSize] = useState({ width: 900, height: 480 });
+  useEffect(() => {
+    if (!ref.current) return;
+    const obs = new ResizeObserver((entries) => {
+      const cr = entries[0].contentRect;
+      setSize({ width: cr.width, height: cr.height });
+    });
+    obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, [ref]);
+  return size;
+}
 
 export default function ConferenceHeatmap({ data }) {
   const ref = useRef();
+  const { width: containerW, height: containerH } = useResizeObserver(ref);
 
   useEffect(() => {
-    if (!data || data.length === 0) return;
+    if (!data || data.length === 0 || !containerW) return;
 
-    const margin = { top: 80, right: 40, bottom: 80, left: 160 };
-    const width = 900 - margin.left - margin.right;
-    const height = 480 - margin.top - margin.bottom;
+    const outerWidth = containerW > 0 ? containerW : 900;
+    const outerHeight = containerH > 0 ? containerH : 480;
+    // const margin = {
+    //   top: Math.min(70, Math.max(40, Math.round(outerHeight * 0.16))),
+    //   right: Math.min(40, Math.max(18, Math.round(outerWidth * 0.05))),
+    //   bottom: Math.min(70, Math.max(45, Math.round(outerHeight * 0.2))),
+    //   left: Math.min(140, Math.max(80, Math.round(outerWidth * 0.16))),
+    // };
+    const margin = {
+      top: 50,
+      right: 20,
+      bottom: 50,
+      left: 110,
+    };
+    const width = Math.max(240, outerWidth - margin.left - margin.right);
+    const height = Math.max(200, outerHeight - margin.top - margin.bottom);
+
+    const axisFont = Math.max(9, Math.min(12, Math.round(outerWidth / 70)));
+    const labelFont = Math.max(10, Math.min(13, Math.round(outerWidth / 60)));
+    const titleFont = Math.max(14, Math.min(18, Math.round(outerWidth / 45)));
+    const subtitleFont = Math.max(
+      10,
+      Math.min(12, Math.round(outerWidth / 70))
+    );
 
     // Clear previous content
     d3.select(ref.current).selectAll("*").remove();
@@ -37,6 +73,7 @@ export default function ConferenceHeatmap({ data }) {
       .style("font-size", "12px")
       .style("line-height", "1.4")
       .style("box-shadow", "0 4px 12px rgba(0,0,0,0.4)")
+      .style("z-index", "50")
       .style("opacity", 0);
 
     const categories = [
@@ -114,52 +151,37 @@ export default function ConferenceHeatmap({ data }) {
       )
       .selectAll("text")
       .style("text-anchor", "middle")
-      .style("font-size", "13px");
+      .style("font-size", `${axisFont}px`)
+      .style("fill", "rgba(255,255,255,0.9)");
 
     svg
       .append("g")
       .call(d3.axisLeft(y).tickSize(0))
       .selectAll("text")
-      .style("font-size", "13px");
+      .style("font-size", `${axisFont}px`)
+      .style("fill", "rgba(255,255,255,0.9)");
 
     // Axis labels
     svg
       .append("text")
       .attr("x", width / 2)
-      .attr("y", height + 50)
+      .attr("y", height + margin.bottom - 12)
       .attr("text-anchor", "middle")
-      .style("font-size", "14px")
+      .style("font-size", `${labelFont}px`)
+      .style("fill", "#fff")
       .text("Hype Style Categories");
 
     svg
       .append("text")
       .attr("x", -height / 2)
-      .attr("y", -110)
+      .attr("y", -Math.max(60, Math.round(margin.left * 0.7)))
       .attr("transform", "rotate(-90)")
       .attr("text-anchor", "middle")
-      .style("font-size", "14px")
+      .style("font-size", `${labelFont}px`)
+      .style("fill", "#fff")
       .text("Conference");
 
     // Title + subtitle
-    svg
-      .append("text")
-      .attr("x", width / 2)
-      .attr("y", -40)
-      .attr("text-anchor", "middle")
-      .style("font-size", "20px")
-      .style("font-weight", "600")
-      .text("Hype Profiles by Conference");
-
-    svg
-      .append("text")
-      .attr("x", width / 2)
-      .attr("y", -15)
-      .attr("text-anchor", "middle")
-      .style("font-size", "14px")
-      .style("fill", "#666")
-      .text(
-        "Higher values mean a conference’s fight songs lean more strongly into that style."
-      );
 
     // Tooltip handlers
     const handleMouseOver = (event, d) => {
@@ -168,6 +190,9 @@ export default function ConferenceHeatmap({ data }) {
 
     const handleMouseMove = (event, d) => {
       const description = categoryDescriptions[d.category] || "";
+      const [mx, my] = d3.pointer(event, container.node());
+      const clampedX = Math.max(12, Math.min(mx + 12, outerWidth - 240));
+      const clampedY = Math.max(12, Math.min(my - 28, outerHeight - 160));
       tooltip
         .html(
           `<div><strong>${d.conference}</strong></div>
@@ -177,8 +202,8 @@ export default function ConferenceHeatmap({ data }) {
              Scores are on a custom index; higher means more of this style compared to other conferences in this dataset.
            </div>`
         )
-        .style("left", event.pageX + 12 + "px")
-        .style("top", event.pageY - 28 + "px");
+        .style("left", `${clampedX}px`)
+        .style("top", `${clampedY}px`);
     };
 
     const handleMouseLeave = () => {
@@ -212,7 +237,7 @@ export default function ConferenceHeatmap({ data }) {
       .attr("x", (d) => x(d.category) + x.bandwidth() / 2)
       .attr("y", (d) => y(d.conference) + y.bandwidth() / 2 + 4)
       .attr("text-anchor", "middle")
-      .style("font-size", "10px")
+      .style("font-size", `${Math.max(9, Math.min(11, axisFont))}px`)
       .style("fill", "#fff")
       .text((d) => d.score.toFixed(2));
 
@@ -234,7 +259,7 @@ export default function ConferenceHeatmap({ data }) {
       .append("g")
       .attr(
         "transform",
-        `translate(${width - legendWidth}, ${-margin.top / 2})`
+        `translate(${width - legendWidth}, ${margin.top - 90})`
       );
 
     const gradientId = "legendGradient";
@@ -270,8 +295,15 @@ export default function ConferenceHeatmap({ data }) {
       .attr("transform", `translate(0, ${legendHeight})`)
       .call(legendAxis)
       .selectAll("text")
-      .style("font-size", "10px");
-  }, [data]);
+      .style("font-size", `${Math.max(9, Math.min(11, axisFont))}px`)
+      .style("fill", "rgba(255,255,255,0.75)");
+  }, [data, containerW, containerH]);
 
-  return <div ref={ref} className="conferenceHeatmap" />;
+  return (
+    <div
+      ref={ref}
+      className="conferenceHeatmap"
+      style={{ position: "relative", width: "100%", height: "100%" }}
+    />
+  );
 }

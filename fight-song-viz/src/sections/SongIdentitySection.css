@@ -1,0 +1,215 @@
+/* SECTION SHELL ------------------------------------------------------- */
+
+.identitySection {
+  padding: 68px 90px 84px;
+  background: radial-gradient(
+    circle at top center,
+    #1c2537 0,
+    #05060a 50%,
+    #020308 100%
+  );
+  color: #f9fafb;
+}
+
+.identitySection_inner {
+  margin: 0;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* HEADER -------------------------------------------------------------- */
+
+.identitySection_header {
+  border-radius: 24px;
+  padding: 24px 26px 20px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(4, 8, 20, 0.95)
+  );
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(18px);
+}
+
+.identitySection_title {
+  font-size: 28px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 850;
+  margin: 0 0 8px;
+}
+
+.identitySection_subtitle {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(241, 245, 249, 0.78);
+}
+
+/* GRID LAYOUT --------------------------------------------------------- */
+
+.identityGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.identityGrid--bento {
+  display: grid;
+  gap: 18px;
+
+  /* 2 columns */
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
+
+  /* TOTAL HEIGHT CONTROL */
+  height: 1000px;
+  max-height: 1000px;
+
+  /* 36 EVEN ROWS */
+  grid-template-rows: repeat(36, 1fr);
+}
+
+.identityCard {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.identityCard_chart {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  padding: 0px;
+}
+.identityCard--density {
+  grid-column: 1;
+  grid-row: 1 / span 13;
+}
+
+.identityCard--map {
+  grid-column: 2;
+  grid-row: 1 / span 20;
+}
+
+.identityCard--length {
+  grid-column: 1;
+  grid-row: 14 / span 23;
+}
+
+.identityCard--heatmap {
+  grid-column: 2;
+  grid-row: 21 / span 16;
+}
+/* CARDS --------------------------------------------------------------- */
+
+.identityCard--primary {
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.9);
+}
+
+.identityCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* CARD TYPOGRAPHY ----------------------------------------------------- */
+
+.identityCard_intro {
+  margin-bottom: 8px;
+}
+
+.identityCard_title {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 780;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.identityCard_desc {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(226, 232, 240, 0.8);
+}
+
+.identityCard_caption {
+  margin: 6px 2px 0;
+  font-size: 11px;
+  color: rgba(148, 163, 184, 0.9);
+}
+
+/* CHART CONTAINERS ---------------------------------------------------- */
+
+.identityCard_chart {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  border-radius: 16px;
+
+  padding: 6px 6px 4px;
+}
+
+.identityCard_chart--tall {
+  min-height: 260px;
+}
+
+.identityCard_chart--map {
+  min-height: 260px;
+}
+
+.identityCard_chart--scatter {
+  min-height: 230px;
+}
+
+.identityCard_chart--heatmap {
+  min-height: 230px;
+}
+
+/* RESPONSIVE ---------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .identityGrid--bento {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+  }
+
+  .identityCard--density,
+  .identityCard--map,
+  .identityCard--length,
+  .identityCard--heatmap {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  .identitySection_header {
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .identitySection {
+    padding: 56px 0 60px;
+  }
+
+  .identitySection_inner {
+    padding: 0 16px;
+  }
+
+  .identitySection_title {
+    font-size: 22px;
+  }
+
+  .identityCard {
+    padding: 14px 14px 12px;
+  }
+
+  .identityCard_chart {
+    padding: 6px 4px 2px;
+  }
+}

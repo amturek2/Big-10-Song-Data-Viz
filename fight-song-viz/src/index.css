@@ -305,6 +305,114 @@
   opacity: 0.88;
 }
 
+.identitySection {
+  padding: 68px 90px 84px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.identitySection_inner {
+  width: min(1320px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
+}
+
+.identitySection_header {
+  padding: 0;
+  text-align: left;
+}
+
+.identitySection_title {
+  margin: 0 0 12px;
+  font-size: 40px;
+  line-height: 1.1;
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.identitySection_subtitle {
+  margin: 0;
+  opacity: 0.85;
+  line-height: 1.55;
+  max-width: 820px;
+  font-size: 16px;
+}
+
+.identityGrid {
+  display: grid;
+  gap: 26px;
+}
+
+@media (min-width: 980px) {
+  .identityGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.identityCard {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(8, 10, 16, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 18px 20px 20px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+
+.identityCard_intro {
+  display: grid;
+  gap: 6px;
+}
+
+.identityCard_title {
+  margin: 0;
+  font-size: 22px;
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.identityCard_desc {
+  margin: 0;
+  opacity: 0.8;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.identityCard_chart {
+  width: 100%;
+}
+
+.identityCard_chart > div,
+.identityCard_chart svg {
+  width: 100%;
+}
+
+.identityCard_note {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.identityCard_noteTitle {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.identityCard_noteText {
+  margin: 0;
+  opacity: 0.82;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
 .vizSection_inner-wide {
   width: min(1300px, 100%);
 }
@@ -387,6 +495,12 @@
   }
   .languageSection_keyText {
     text-align: left;
+  }
+  .identitySection {
+    padding: 54px 16px 70px;
+  }
+  .identityCard {
+    padding: 16px;
   }
 }
 
