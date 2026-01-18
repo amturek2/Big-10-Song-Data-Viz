@@ -8,7 +8,7 @@ export default function ConferenceByHeatmapSection() {
   useEffect(() => {
     const csvUrl = new URL(
       "../data/conference_trope_summary_1.csv",
-      import.meta.url
+      import.meta.url,
     ).toString();
     d3.csv(csvUrl).then((rows) => {
       const parsed = rows.map((d) => ({
@@ -16,7 +16,7 @@ export default function ConferenceByHeatmapSection() {
         score_aggression: +d.score_aggression,
         score_unity: +d.score_unity,
         score_tradition: +d.score_tradition,
-        score_pageantry: +d.score_pageantry,
+        score_chant_cheer: +d.score_chant_cheer,
         score_institutional: +d.score_institutional,
         score_competitive_glory: +d.score_competitive_glory,
       }));

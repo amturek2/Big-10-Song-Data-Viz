@@ -54,7 +54,7 @@ function linearRegression(xs, ys) {
 
 const defaultCsvUrl = new URL(
   "../data/song_data.csv",
-  import.meta.url
+  import.meta.url,
 ).toString();
 
 export default function RhetoricVsRealityScatter({
@@ -261,7 +261,7 @@ export default function RhetoricVsRealityScatter({
       .attr("y1", (d) => y(d))
       .attr("y2", (d) => y(d))
       .attr("stroke", (d) =>
-        d === 50 ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.14)"
+        d === 50 ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.14)",
       )
       .attr("stroke-width", (d) => (d === 50 ? 1.6 : 0.8))
       .attr("opacity", 0);
@@ -342,7 +342,7 @@ export default function RhetoricVsRealityScatter({
       .call((ax) => ax.select(".domain").attr("opacity", 0.25))
       .call((ax) => ax.selectAll("line").attr("opacity", 0.12))
       .call((ax) =>
-        ax.selectAll("text").attr("opacity", 0.75).attr("fill", "white")
+        ax.selectAll("text").attr("opacity", 0.75).attr("fill", "white"),
       );
 
     const yAxis = g
@@ -351,7 +351,7 @@ export default function RhetoricVsRealityScatter({
         d3
           .axisLeft(y)
           .tickValues([20, 40, 50, 60, 80, 100])
-          .tickFormat((d) => `${d}%`)
+          .tickFormat((d) => `${d}%`),
       )
       .call((ax) => ax.select(".domain").attr("opacity", 0.15))
       .call((ax) => ax.selectAll("line").attr("opacity", 0));
@@ -372,7 +372,7 @@ export default function RhetoricVsRealityScatter({
       .attr("class", "cliIndexTrigger")
       .style("cursor", "pointer")
       .text(
-        `Competitive Language Index (Competive Language per ${perSeconds}s)`
+        `Competitive Language Index (Competive Language per ${perSeconds}s)`,
       )
       .on("mouseenter", () => onIndexHoverChange(true))
       .on("mouseleave", () => onIndexHoverChange(false));
@@ -588,7 +588,7 @@ export default function RhetoricVsRealityScatter({
       .ease(d3.easeCubicOut)
       .attr("cy", (d) => y(d.y))
       .attr("r", (d) =>
-        showPoints ? (Number.isFinite(d.att) ? r(d.att) : 6) : 0
+        showPoints ? (Number.isFinite(d.att) ? r(d.att) : 6) : 0,
       )
       .attr("opacity", showPoints ? 0.85 : 0);
 
@@ -663,7 +663,7 @@ export default function RhetoricVsRealityScatter({
         .append("g")
         .attr(
           "transform",
-          `translate(${width - legendWidth - 18},${margin.top + 6})`
+          `translate(${width - legendWidth - 18},${margin.top + 6})`,
         )
         .attr("opacity", 0);
 

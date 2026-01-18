@@ -46,11 +46,11 @@ function useResizeObserver(ref) {
 
 const defaultTopoUrl = new URL(
   "../data/us-states-10m.json",
-  import.meta.url
+  import.meta.url,
 ).toString();
 const defaultSongsCsvUrl = new URL(
   "../data/song_data.csv",
-  import.meta.url
+  import.meta.url,
 ).toString();
 
 const defaultTropeKeys = [
@@ -140,7 +140,7 @@ export default function USSchoolMap({
 
   const conferences = useMemo(
     () => Array.from(new Set(points.map((d) => d.conference))).filter(Boolean),
-    [points]
+    [points],
   );
 
   const conferenceColor = useMemo(() => {
@@ -197,7 +197,7 @@ export default function USSchoolMap({
       .attr("fill", (d) =>
         conferenceColor && d.conference
           ? conferenceColor(d.conference)
-          : unknownColor
+          : unknownColor,
       )
       .attr("stroke", "white")
       .attr("stroke-width", 1.2);
@@ -333,9 +333,13 @@ export default function USSchoolMap({
               pinned={isPinned}
               showLyrics={showLyrics}
               onToggleLyrics={() => setShowLyrics((s) => !s)}
+              onClose={() => {
+                setSelected(null);
+                setShowLyrics(false);
+              }}
               containerRect={containerRect}
             />,
-            portalRoot
+            portalRoot,
           )
         : null}
     </div>
@@ -346,10 +350,10 @@ function getUsStatesGeo(usTopo) {
   const objKey = usTopo.objects?.states
     ? "states"
     : usTopo.objects?.states10m
-    ? "states10m"
-    : usTopo.objects?.land
-    ? "land"
-    : Object.keys(usTopo.objects || {})[0];
+      ? "states10m"
+      : usTopo.objects?.land
+        ? "land"
+        : Object.keys(usTopo.objects || {})[0];
 
   return feature(usTopo, usTopo.objects[objKey]);
 }
@@ -360,6 +364,7 @@ function DNASwatchCard({
   pinned,
   showLyrics,
   onToggleLyrics,
+  onClose,
   containerRect,
 }) {
   const sentence = buildIdentitySentence(data.dna);
@@ -369,8 +374,8 @@ function DNASwatchCard({
   const spotifyUrl = data.spotifyId
     ? `https://open.spotify.com/embed/track/${data.spotifyId}?utm_source=generator`
     : "";
-  const cardWidth = 285;
-  const cardHeight = pinned ? 320 : 210;
+  const cardWidth = pinned ? 320 : 285;
+  const cardHeight = pinned ? (showLyrics ? 420 : 320) : 210;
   const originX = containerRect?.left ?? 0;
   const originY = containerRect?.top ?? 0;
   const viewportW =
@@ -380,15 +385,23 @@ function DNASwatchCard({
   const rawLeft = originX + data.x;
   const rawTop = originY + data.y;
   const clampX = Math.max(12, Math.min(rawLeft, viewportW - cardWidth - 12));
-  const clampY = Math.max(12, Math.min(rawTop, viewportH - cardHeight - 12));
+  const shouldFlipY = rawTop + cardHeight + 16 > viewportH;
+  const desiredTop = shouldFlipY ? rawTop - cardHeight - 12 : rawTop + 12;
+  const clampY = Math.max(
+    12,
+    Math.min(desiredTop, viewportH - cardHeight - 12),
+  );
 
   return (
     <div
       style={{
         position: "fixed",
-        left: clampX,
-        top: clampY,
+        left: pinned ? "auto" : clampX,
+        right: pinned ? 24 : "auto",
+        top: pinned ? 90 : clampY,
         width: cardWidth,
+        maxHeight: pinned ? "calc(100vh - 140px)" : "none",
+        overflow: pinned ? "auto" : "visible",
         pointerEvents: pinned ? "auto" : "none",
         padding: "12px 12px",
         borderRadius: 16,
@@ -396,7 +409,7 @@ function DNASwatchCard({
         color: "white",
         boxShadow: `0 14px 40px rgba(0,0,0,0.35), 0 0 18px ${rgbaFromHex(
           confColor,
-          0.35
+          0.35,
         )}`,
         backdropFilter: "blur(10px)",
         border: pinned ? `1px solid ${rgbaFromHex(confColor, 0.55)}` : "none",
@@ -404,11 +417,68 @@ function DNASwatchCard({
       }}
       onClick={(event) => event.stopPropagation()}
     >
+      {pinned ? (
+        <button
+          type="button"
+          onClick={(event) => {
+            event.stopPropagation();
+            onClose?.();
+          }}
+          aria-label="Close"
+          style={{
+            position: "absolute",
+            top: 10,
+            right: 10,
+            width: 26,
+            height: 26,
+            borderRadius: 999,
+            border: "1px solid rgba(255,255,255,0.2)",
+            background: "rgba(255,255,255,0.06)",
+            color: "white",
+            fontSize: 14,
+            lineHeight: 1,
+            cursor: "pointer",
+          }}
+        >
+          ✕
+        </button>
+      ) : null}
       <div style={{ fontWeight: 800 }}>{data.school}</div>
       <div style={{ opacity: 0.7, fontSize: 12, marginTop: 2 }}>{confName}</div>
       <div style={{ marginTop: 8, fontSize: 12, opacity: 0.85 }}>
         "{sentence}"
       </div>
+      {!pinned && (
+        <div
+          style={{
+            marginTop: 6,
+            fontSize: 11,
+            opacity: 0.7,
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+          }}
+        >
+          <span
+            style={{
+              width: 18,
+              height: 18,
+              borderRadius: 999,
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: `1px solid ${rgbaFromHex(confColor, 0.6)}`,
+              background: rgbaFromHex(confColor, 0.18),
+              fontSize: 12,
+              lineHeight: 1,
+              fontWeight: 700,
+            }}
+          >
+            +
+          </span>
+          Click to listen and read the lyrics.
+        </div>
+      )}
       <DNAPills pills={pills} accent={confColor} />
       {pinned && (
         <div style={{ marginTop: 10, display: "grid", gap: 6 }}>
@@ -445,17 +515,37 @@ function DNASwatchCard({
           {showLyrics && (
             <div
               style={{
-                maxHeight: 140,
+                maxHeight: 180,
                 overflow: "auto",
-                padding: "8px 10px",
-                borderRadius: 10,
-                background: "rgba(255,255,255,0.06)",
-                fontSize: 11,
-                lineHeight: 1.45,
-                opacity: 0.88,
+                padding: "10px 12px",
+                borderRadius: 12,
+                background:
+                  "linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03))",
+                border: "1px solid rgba(255,255,255,0.12)",
+                boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.2)",
               }}
             >
-              {data.lyrics || "Lyrics unavailable."}
+              <div
+                style={{
+                  fontSize: 10,
+                  letterSpacing: "0.16em",
+                  textTransform: "uppercase",
+                  opacity: 0.6,
+                  marginBottom: 6,
+                }}
+              >
+                Lyrics
+              </div>
+              <div
+                style={{
+                  fontSize: 12,
+                  lineHeight: 1.6,
+                  opacity: 0.92,
+                  whiteSpace: "pre-wrap",
+                }}
+              >
+                {data.lyrics || "Lyrics unavailable."}
+              </div>
             </div>
           )}
         </div>

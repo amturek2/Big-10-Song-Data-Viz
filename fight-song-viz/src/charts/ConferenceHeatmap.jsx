@@ -53,7 +53,7 @@ export default function ConferenceHeatmap({ data }) {
     const titleFont = Math.max(14, Math.min(18, Math.round(outerWidth / 45)));
     const subtitleFont = Math.max(
       10,
-      Math.min(12, Math.round(outerWidth / 70))
+      Math.min(12, Math.round(outerWidth / 70)),
     );
 
     // Clear previous content
@@ -89,8 +89,8 @@ export default function ConferenceHeatmap({ data }) {
       "Aggression/Conflict",
       "Unity/Brotherhood",
       "Tradition/Legacy",
-      "Pageantry/Spectacle",
-      "Institutional Pride",
+      "Cheer & Chant",
+      "School Pride",
       "Competitive Glory",
     ];
 
@@ -108,8 +108,8 @@ export default function ConferenceHeatmap({ data }) {
       "Aggression/Conflict": "score_aggression",
       "Unity/Brotherhood": "score_unity",
       "Tradition/Legacy": "score_tradition",
-      "Pageantry/Spectacle": "score_pageantry",
-      "Institutional Pride": "score_institutional",
+      "Cheer & Chant": "score_chant_cheer",
+      "School Pride": "score_institutional",
       "Competitive Glory": "score_competitive_glory",
     };
 
@@ -121,9 +121,9 @@ export default function ConferenceHeatmap({ data }) {
         "Higher values mean the songs emphasize we, us, our, team, loyalty, and togetherness over attacking the opponent.",
       "Tradition/Legacy":
         "Higher values mean the songs lean into alma mater language, honor, forever, faithful, and slower, ceremonial styles.",
-      "Pageantry/Spectacle":
+      "Cheer & Chant":
         "Higher values mean more chant-style language like rah, hail, cheer, nonsensical syllables, and crowd call-and-response.",
-      "Institutional Pride":
+      "School Pride":
         "Higher values mean more mentions of the school name and colors, foregrounding identity and branding.",
       "Competitive Glory":
         "Higher values mean more references to champions, triumph, glory, and victory without necessarily using raw fight words.",
@@ -156,7 +156,7 @@ export default function ConferenceHeatmap({ data }) {
         d3
           .axisBottom(x)
           .tickSize(0)
-          .tickFormat((d) => d.replace("/", "\n"))
+          .tickFormat((d) => d.replace("/", "\n")),
       )
       .selectAll("text")
       .style("text-anchor", "middle")
@@ -209,7 +209,7 @@ export default function ConferenceHeatmap({ data }) {
            <div style="margin-top:4px;">This is the average ${d.category.toLowerCase()} score for this conference’s fight songs. ${description}</div>
            <div style="margin-top:4px; font-size:11px; opacity:0.8;">
              Scores are on a custom index; higher means more of this style compared to other conferences in this dataset.
-           </div>`
+           </div>`,
         )
         .style("left", `${clampedX}px`)
         .style("top", `${clampedY}px`);
@@ -268,7 +268,7 @@ export default function ConferenceHeatmap({ data }) {
       .append("g")
       .attr(
         "transform",
-        `translate(${width - legendWidth}, ${margin.top - 65})`
+        `translate(${width - legendWidth}, ${margin.top - 65})`,
       );
 
     const gradientId = "legendGradient";
@@ -286,7 +286,7 @@ export default function ConferenceHeatmap({ data }) {
         d3.ticks(0, 1, 10).map((t) => ({
           offset: `${t * 100}%`,
           color: color(scoreRange[0] + t * (scoreRange[1] - scoreRange[0])),
-        }))
+        })),
       )
       .enter()
       .append("stop")

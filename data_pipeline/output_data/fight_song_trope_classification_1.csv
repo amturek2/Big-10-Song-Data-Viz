@@ -1,1021 +1,1490 @@
-school,conference,song_name,writers,year,student_writer,official_song,contest,bpm,sec_duration,fight,number_fights,victory,win_won,victory_win_won,rah,nonsense,colors,men,opponents,spelling,trope_count,spotify_id,school_id,avg_home_attendance,attendance_sd,home_games,home_wins,home_win_pct,lyrics_song_name,lyrics,latitude,longitude,primary_bucket,secondary_bucket,score_aggression,score_unity,score_tradition,score_pageantry,score_institutional,score_competitive_glory,lex_aggression_freq,lex_unity_freq,lex_tradition_freq,lex_pageantry_freq,lex_institutional_freq,lex_competitive_glory_freq
-Boston College,ACC,For Boston,T.J. Hurley,,0,1,0,147,84,0,0,0,0,0,0,0,0,0,0,0,0,4E8cLR6NcYCCJWqD2iwz7c,boston_college,28136.25,17051.47,154,95,0.6169,For Boston,"For Boston, for Boston, 
-We sing our proud refrain! 
-For Boston, for Boston, 
-'Tis Wisdom's earthly fane. 
-For here all are one 
-And their hearts are true, 
-And the towers on the Heights 
-Reach to Heav'ns own blue. 
-For Boston, for Boston, 
+school,conference,song_name,writers,year,student_writer,official_song,contest,bpm,sec_duration,fight,number_fights,victory,win_won,victory_win_won,rah,nonsense,colors,men,opponents,spelling,trope_count,spotify_id,school_id,avg_home_attendance,attendance_sd,home_games,home_wins,home_win_pct,lyrics_song_name,lyrics,latitude,longitude,primary_bucket,secondary_bucket,score_aggression,score_unity,score_tradition,score_chant_cheer,score_institutional,score_competitive_glory,lex_aggression_freq,lex_unity_freq,lex_tradition_freq,lex_chant_cheer_freq,lex_institutional_freq,lex_competitive_glory_freq
+Boston College,ACC,For Boston,T.J. Hurley,,0,1,0,147,84,0,0,0,0,0,0,0,0,0,0,0,0,4E8cLR6NcYCCJWqD2iwz7c,boston_college,28136.25,17051.47,154,95,0.6169,For Boston,"For Boston, for Boston,
+
+We sing our proud refrain!
+
+For Boston, for Boston,
+
+'Tis Wisdom's earthly fane.
+
+For here all are one
+
+And their hearts are true,
+
+And the towers on the Heights
+
+Reach to Heav'ns own blue.
+
+For Boston, for Boston,
+
 Till the echoes ring again!
 
-For Boston, for Boston, 
-Thy glory is our own! 
-For Boston, for Boston, 
-'Tis here that Truth is known. 
-And ever with the Right 
-Shall thy heirs be found, 
-Till time shall be no more 
-And thy work is crown'd. 
-For Boston, for Boston, 
-For Thee and Thine alone.",42.3355,71.1685,Tradition/Legacy,Institutional Pride,0.13724381847029313,0.5,1.9867271423268031,0.10979505477623451,1.5833333333333333,0.08333333333333333,0.0,0.0625,0.0,0.0,0.13541666666666666,0.010416666666666666
-Clemson,ACC,Tiger Rag,Original Dixieland Jass Band,1917.0,0,1,0,145,78,0,0,0,0,0,0,0,0,0,0,1,1,7hGtgN4N9ebZTlC7xhvKIE,clemson,59325.9,34460.34,162,138,0.8519,Tiger Rag,"Long ago, way down in the jungle
+For Boston, for Boston,
+
+Thy glory is our own!
+
+For Boston, for Boston,
+
+'Tis here that Truth is known.
+
+And ever with the Right
+
+Shall thy heirs be found,
+
+Till time shall be no more
+
+And thy work is crown'd.
+
+For Boston, for Boston,
+
+For Thee and Thine alone.",42.3355,71.1685,Tradition/Legacy,,0.13724381847029313,0.6666666666666666,2.570060475660137,0.27646172144290115,1.5833333333333333,0.08333333333333333,0.0,0.08333333333333333,0.07291666666666667,0.020833333333333332,0.13541666666666666,0.010416666666666666
+Clemson,ACC,Tiger Rag,Original Dixieland Jass Band,1917.0,0,1,0,145,78,0,0,0,0,0,0,0,0,0,0,1,1,7hGtgN4N9ebZTlC7xhvKIE,clemson,59325.9,34460.34,162,138,0.8519,Tiger Rag,"Long ago way down in the jungle
+
 Someone got an inspiration for a tune
+
 And that jingle came from the jungle
+
 Became famous mighty soon
+
 Thrills and chills it sends through you
+
 Hot so hot it burns you too
+
 Though it's just the growl of the Tiger
+
 It was written in a syncopated way
-More and more, they yell for the Tiger
-Everywhere you go today, they're shoutin'
+
+More and more they yell for the Tiger
+
+Everywhere you go today, they're shoutin:
+
 Where's that Tiger?
+
 Where's that Tiger?
+
 Where's that Tiger?
+
 Where's that Tiger?
+
 Hold that Tiger!
+
 Hold that Tiger!
+
 Hold that Tiger!
-C-L-E-M-S-O… N!",34.6834,82.8374,Tradition/Legacy,,0.20549541351018763,0.0,1.9508998397424897,0.1810629974748168,0.5,-0.041666666666666664,0.010416666666666666,0.0,0.0,0.010416666666666666,0.0,0.0
+
+C-L-E-M-S-O...N!",34.6834,82.8374,Tradition/Legacy,,0.20549541351018763,0.0,1.9508998397424897,0.1810629974748168,0.5,0.041666666666666664,0.010416666666666666,0.0,0.0,0.010416666666666666,0.0,0.010416666666666666
 Duke,ACC,Fight Blue Devils,Joe Hewitt and Doug Ballin,1947.0,0,1,0,139,58,1,5,0,1,1,0,0,1,0,1,0,4,0fDiYvMTYWSSrIuHVJGMZj,duke,18429.83,12174.52,151,65,0.4305,Fight Blue Devils,"Fight, Fight Blue Devils
+
 Fight for Duke and the Blue and White
+
 March on through
+
 For the touchdown's there for you
+
 Go get 'em
+
 Duke is out to win today
+
 Carolina goodnight
+
 So turn on the steam team
-Fight Blue Devils Fight",36.0014,78.9382,Aggression/Conflict,,5.7197740081536805,0.19047619047619047,1.8274537009165277,0.06153349223723031,2.392857142857143,-0.8809523809523809,0.14285714285714285,0.023809523809523808,0.0,0.0,0.14285714285714285,0.023809523809523808
-Florida State,ACC,FSU Fight Song,Doug Alley and Tommie Wright,1950.0,1,1,0,135,92,1,6,1,1,1,0,1,0,0,0,1,5,552UZRLtAO5YXvIVRLjphI,florida_state,56907.58,31271.95,159,115,0.7233,FSU Fight Song,"You got to fight, fight, fight, for FSU!
-You got to scalp 'em Seminoles!
-You got to win, win, win, win this game, and
-Roll on down and make those goals!
-For FSU is on the warpath now, and
-at the battle's end she's great!
-So fight, fight, fight, fight, for victory
-the Seminoles of Florida State!
-F-L-O-R-I-D-A S-T-A-T-E
-Florida State, Florida State, Florida State!",27.6648,81.5158,Aggression/Conflict,,5.32675338870966,0.0,2.1229764104273956,1.0374027109677282,0.9266666666666667,0.3933333333333332,0.16,0.0,0.0,0.0,0.05333333333333334,0.06666666666666667
-Georgia Tech,ACC,Ramblin' Wreck From Georgia Tech,Unknown,,1,1,0,148,68,0,0,0,0,0,0,0,1,1,1,0,3,0ZOzvjnZDwrtluHrwbtvGR,georgia_tech,35012.53,19670.67,151,93,0.6159,Ramblin' Wreck From Georgia Tech,"I’m a Ramblin’ Wreck from Georgia Tech and a hell of an engineer A helluva’, helluva helluva helluva helluva engineer Like all the jolly good fellows I drink my whiskey clear I’m a Ramblin’ Wreck from Georgia Tech and a hell of an engineer Oh, if I had a daughter sir, I’d dress her in white and gold And put her on the campus, sir, to cheer on the brave and bold And if I had a son, sir, I’d tell you what he’d do He would yell “To Hell With georgia” like his daddy used to do Oh, I wish I had a barrel of rum and sugar three thousand pounds A college bell to put it in and a clapper to stir it around I’d drink to all the good fellows who come from far and near I’m a ramblin’ gamblin’ hell of an engineer! Hey!",33.778,84.398,Tradition/Legacy,Aggression/Conflict,1.6447846876170125,1.0,1.8529805984252556,0.2779899122557722,1.6283783783783785,0.0,0.0,0.0,0.0,0.02027027027027027,0.0472972972972973,0.0
+
+Fight Blue Devils Fight",36.0014,78.9382,Aggression/Conflict,,5.529297817677491,0.19047619047619047,1.8274537009165277,0.06153349223723031,2.392857142857143,-0.7857142857142857,0.11904761904761904,0.023809523809523808,0.0,0.0,0.14285714285714285,0.023809523809523808
+Florida State,ACC,FSU Fight Song,Doug Alley and Tommie Wright,1950.0,1,1,0,135,92,1,6,1,1,1,0,1,0,0,0,1,5,552UZRLtAO5YXvIVRLjphI,florida_state,56907.58,31271.95,159,115,0.7233,FSU Fight Song,"You got to fight, fight, fight for FSU,
+
+You got to scalp 'em Seminoles.
+
+You got to win, win, win, win this game,
+
+and roll on down and make those goals.
+
+For FSU is on the warpath now,
+
+and at the battles end she's great.
+
+For it's fight, fight, fight for victory,
+
+the Seminoles of Florida State.
+
+F-L-O-R-I-D-A-S-T-A-T-E
+
+Florida State! Florida State! Florida State!
+
+WHOOOOOOO!",27.6648,81.5158,Aggression/Conflict,,4.8888586518675545,0.0,2.1229764104273956,1.0374027109677282,0.9210526315789473,0.7105263157894739,0.10526315789473684,0.0,0.0,0.0,0.05263157894736842,0.07894736842105263
+Georgia Tech,ACC,Ramblin' Wreck From Georgia Tech,Unknown,,1,1,0,148,68,0,0,0,0,0,0,0,1,1,1,0,3,0ZOzvjnZDwrtluHrwbtvGR,georgia_tech,35012.53,19670.67,151,93,0.6159,Ramblin' Wreck From Georgia Tech,"I’m a Ramblin’ Wreck from Georgia Tech and a hell of an engineer
+
+A helluva’, helluva helluva helluva helluva engineer
+
+Like all the jolly good fellows I drink my whiskey clear
+
+I’m a Ramblin’ Wreck from Georgia Tech and a hell of an engineer
+
+Oh, if I had a daughter sir, I’d dress her in white and gold
+
+And put her on the campus, sir, to cheer on the brave and bold
+
+And if I had a son, sir, I’d tell you what he’d do
+
+He would yell “To Hell With Georgia” like his daddy used to do
+
+Oh, I wish I had a barrel of rum and sugar three thousand pounds
+
+A college bell to put it in and a clapper to stir it around
+
+I’d drink to all the good fellows who come from far and near
+
+I’m a ramblin’ gamblin’ hell of an engineer! Hey!",33.778,84.398,Aggression/Conflict,Tradition/Legacy,1.9691090119413368,1.2162162162162162,1.8529805984252556,0.33204396630982624,1.6283783783783785,-0.16216216216216217,0.04054054054054054,0.02702702702702703,0.0,0.02702702702702703,0.0472972972972973,0.0
 Louisville,ACC,Fight! U of L,Robert B. Griffith,1962.0,0,1,0,139,80,1,3,1,1,1,1,0,0,0,0,1,5,1sCmJDLWfD4hsCHyc9hqUr,louisville,34787.1,20306.41,150,107,0.7133,Fight! U of L,"Fight now for victory and show them
+
 How we sure will win this game
+
 Fight on you Card'nals and prove to them
+
 That we deserve our fame.
+
 Rah, Rah, Rah!
+
 Roll up the score now and beat the foe
+
 So we can give a yell
+
 With a FIGHT! give them all you've got
-For we are with you U of L.",38.2158,85.7614,Aggression/Conflict,,4.8638021111981775,0.6557377049180327,2.0030602427197644,2.0861236561716567,0.5,0.3688524590163933,0.09836065573770492,0.08196721311475409,0.0,0.06557377049180328,0.0,0.03278688524590164
+
+For we are with you U of L.",38.2158,85.7614,Aggression/Conflict,,4.732654570214571,0.7868852459016393,2.134207783703371,2.0861236561716567,0.5,0.5655737704918034,0.08196721311475409,0.09836065573770492,0.01639344262295082,0.06557377049180328,0.0,0.04918032786885246
 Miami,ACC,Miami U How-Dee-Doo,Henry Fillmore,1950.0,0,1,0,75,73,1,3,1,0,1,0,0,0,0,0,1,3,2TDHghruqAnMmH4L9GFUUr,miami,40307.66,24198.82,151,113,0.7483,Miami U How-Dee-Doo,"Miami, Miami, Miami, Hurricanes
+
 Drive, Drive, you Hurricanes
+
 Keep right on goin, up that scorin'
+
 Miami, Miami, Miami, Hurricanes
+
 Drive on over the goal and on to victory.
-M-I-A-M-I, M-I-A-M-I, fight,fight,fight.",25.717,80.2798,Aggression/Conflict,,3.1796670935650324,0.0,2.333277934276223,-0.3245590080748034,1.670731707317073,-0.5975609756097562,0.07317073170731707,0.0,0.0,0.0,0.14634146341463414,0.024390243902439025
-North Carolina,ACC,I'm a Tar Heel Born,Unknown,,0,1,0,158,38,0,0,0,0,0,1,0,0,0,0,0,1,23cCr6w4YgxQaYlr3eNTUr,north_carolina,37769.36,22550.4,154,93,0.6039,I'm a Tar Heel Born,"I'm a Tar Heel born, I'm a Tar Heel bred
-And when I die, I'm a Tar Heel dead
-So it's rah-rah, Car'lina-'lina
-Rah-rah, Car'lina-'lina
-Rah-rah, Car'lina-'lina
-Rah, rah, rah!",35.9049,79.0469,Pageantry/Spectacle,,0.2201933790842066,0.0,1.5531901791561775,3.676154703267365,0.5,0.0,0.0,0.0,0.0,0.25,0.0,0.0
-North Carolina State,ACC,The Red & White Song,J. Perry Watson,1961.0,0,0,0,90,82,0,0,0,0,0,0,0,1,0,1,1,3,2Pn76lkyMhOxJj8maIrIRT,north_carolina_state,41758.56,23767.74,163,108,0.6626,The Red & White Song,"We're the Red and White from State
-And we know we are the best
-A hand behind our back
-We can take on all the rest
-Come over the hill, Caroline
-Devils and Deacs stand in line
-The Red and White from N.C. State
-Go State!",35.7851,78.6813,Institutional Pride,Aggression/Conflict,1.2074142771072869,0.851063829787234,0.31462654434418685,-0.2340685783141705,1.4308510638297873,0.0,0.0,0.10638297872340426,0.0,0.0,0.0851063829787234,0.0
+
+M-I-A-M-I, M-I-A-M-I, fight,fight,fight.",25.717,80.2798,Aggression/Conflict,,3.765032947223569,0.0,2.333277934276223,-0.3245590080748034,1.670731707317073,-0.8902439024390244,0.14634146341463414,0.0,0.0,0.0,0.14634146341463414,0.024390243902439025
+North Carolina,ACC,I'm a Tar Heel Born,Unknown,,0,1,0,158,38,0,0,0,0,0,1,0,0,0,0,0,1,23cCr6w4YgxQaYlr3eNTUr,north_carolina,37769.36,22550.4,154,93,0.6039,I'm a Tar Heel Born,"I'm a Tar Heel born I'm a Tar Heel bred
+
+And when I die I'm a Tar Heel dead.
+
+So it's RAH, RAH, Car'lina 'lina
+
+RAH, RAH, Car'lina 'lina
+
+RAH, RAH, Car'lina
+
+RAH! RAH! RAH!",35.9049,79.0469,Chant/Cheer,,0.2201933790842066,0.0,1.5531901791561775,3.733297560410222,0.5,0.0,0.0,0.0,0.0,0.2571428571428571,0.0,0.0
+North Carolina State,ACC,The Red & White Song,J. Perry Watson,1961.0,0,0,0,90,82,0,0,0,0,0,0,0,1,0,1,1,3,2Pn76lkyMhOxJj8maIrIRT,north_carolina_state,41758.56,23767.74,163,108,0.6626,The Red & White Song,"We’re the Red and White from State
+
+And we know we are the best.
+
+A hand behind our back,
+
+We can take on all the rest.
+
+Come over the hill, Caroline.
+
+Devils and Deacs stand in line.
+
+The Red and White from N.C. State.
+
+Go State!",35.7851,78.6813,School Pride,Aggression/Conflict,1.3776270430647337,1.0212765957446808,0.31462654434418685,-0.2340685783141705,1.4308510638297873,0.0851063829787234,0.02127659574468085,0.1276595744680851,0.0,0.0,0.0851063829787234,0.02127659574468085
 Pitt,ACC,Hail to Pitt,George Kirk and Lester Milton Taylor,1911.0,1,1,0,79,110,0,0,1,1,1,0,1,1,1,0,1,6,55nndPja6lpTsGMinT1SJy,pitt,34821.09,21374.17,158,103,0.6519,Hail to Pitt,"Hail to Pitt, hail to Pitt every loyal son!
+
 Hail to Pitt, hail to Pitt 'til the victory is won!
-The Gold and Blue shall wave forever
-On high through fair and stormy weather
+
+The gold and blue shall wave forever
+
+On high through fair and stormy weather;
+
 We'll sing her praises far and wide
+
 Until the end of time!
-Hooperay, hooperay for dear old U-N-I
-We'll give a grand old alleghenee, genac, genac, genac!
+
+Hooperay, hooperay for dear old U-N-I;
+
+We'll give a grand old alleghenee, genac, genac, genac
+
 We'll wave and cheer for many a year
+
 And sing our songs out loud and clear
-For our university",40.4445,79.9613,Tradition/Legacy,,1.7220256921031296,1.7926829268292683,2.897168354686887,1.1873766512434791,2.0853658536585367,2.1463414634146343,0.012195121951219513,0.036585365853658534,0.036585365853658534,0.06097560975609756,0.07317073170731707,0.024390243902439025
-Syracuse,ACC,Down the Field,Ralph Murphy and C. Harold Lewis,1914.0,1,1,0,137,85,1,3,1,0,1,1,0,1,1,1,0,6,4zrPkQ9AFljRbPy0JNW6cA,syracuse,27813.13,17046.47,152,81,0.5329,Down the Field,"Out upon the gridiron stand old Syracuse
-Warriors clad in Orange and in Blue
-Fighting for the fame of Alma Mater
-Soon those Crouse chimes will be ringing
-Soon you'll hear those fellows singing
-Onondaga's Braves are out to win today
-The sons of Syracuse are ready for the fray
-The line holds like a wall and now the Orange has the ball
-So ready for that old long yell
-Rah! Rah! Rah!
-Down, down the field goes old Syracuse
+
+For our university.",40.4445,79.9613,Tradition/Legacy,,1.6244647164933734,2.182926829268293,3.482534208345424,1.5776205536825034,2.0853658536585367,2.1951219512195124,0.0,0.08536585365853659,0.10975609756097561,0.10975609756097561,0.07317073170731707,0.024390243902439025
+Syracuse,ACC,Down the Field,Ralph Murphy and C. Harold Lewis,1914.0,1,1,0,137,85,1,3,1,0,1,1,0,1,1,1,0,6,4zrPkQ9AFljRbPy0JNW6cA,syracuse,27813.13,17046.47,152,81,0.5329,Down the Field,"Down, down the field goes old Syracuse,
+
 Just see those backs hit the line and go thro'
-Down, down the field they go marching
-Fighting for the Orange staunch and true
+
+Down, down the field they go marching,
+
+Fighting for the Orange staunch and true.
+
 Rah! Rah! Rah!
-Vict'y's in sight for old Syr-a-cuse
-Each loyal son knows she ne'er more will lose
+
+Vict'ry's in sight for old Syracuse,
+
+each loyal son knows the (opposing team's nickname) will lose,
+
 For we'll fight, yes, we'll fight, and with all our might
-For the glory of old Syracuse",43.0387,76.1337,Aggression/Conflict,,4.958998247570475,1.226950354609929,2.4521993316044455,1.9466312221698552,1.7039007092198581,-0.5851063829787235,0.04964539007092199,0.028368794326241134,0.04964539007092199,0.04964539007092199,0.05673758865248227,0.014184397163120567
-Virginia,ACC,The Good Old Song,Edward H. Craighill,1893.0,1,0,0,112,42,0,0,0,0,0,1,1,0,0,0,1,3,4zymLpKnHG2KURvrSUyUy8,virginia,35282.34,21941.82,157,94,0.5987,The Good Old Song,"Out upon the gridiron stand old Syracuse
-Warriors clad in Orange and in Blue
-Fighting for the fame of Alma Mater
-Soon those Crouse chimes will be ringing
-Soon you'll hear those fellows singing
-Onondaga's Braves are out to win today
-The sons of Syracuse are ready for the fray
-The line holds like a wall and now the Orange has the ball
-So ready for that old long yell
-Rah! Rah! Rah!
-Down, down the field goes old Syracuse
-Just see those backs hit the line and go thro'
-Down, down the field they go marching
-Fighting for the Orange staunch and true
-Rah! Rah! Rah!
-Vict'y's in sight for old Syr-a-cuse
-Each loyal son knows she ne'er more will lose
-For we'll fight, yes, we'll fight, and with all our might
-For the glory of old Syracuse",38.0336,78.508,Pageantry/Spectacle,,0.2704765189024898,0.22695035460992907,0.25978574646887076,2.7958138392354672,0.22695035460992907,-0.08510638297872342,0.04964539007092199,0.028368794326241134,0.04964539007092199,0.04964539007092199,0.028368794326241134,0.014184397163120567
+
+For the glory of Syracuse.",43.0387,76.1337,Aggression/Conflict,,5.531532096700069,1.7272727272727273,2.6610968170976754,1.913104465238843,1.7348484848484849,-0.8636363636363638,0.12121212121212122,0.09090909090909091,0.07575757575757576,0.045454545454545456,0.06060606060606061,0.015151515151515152
+Virginia,ACC,The Good Old Song,Edward H. Craighill,1893.0,1,0,0,112,42,0,0,0,0,0,1,1,0,0,0,1,3,4zymLpKnHG2KURvrSUyUy8,virginia,35282.34,21941.82,157,94,0.5987,The Good Old Song,"That good old song of
+
+Wah-hoo-wa
+
+We'll sing it o'er and o'er
+
+It cheers our hearts and
+
+warms our blood
+
+To hear them shout and roar.
+
+We come from Old Virginia,
+
+Where all is bright and gay.
+
+Let's all join hands and give a yell
+
+For the dear old UVA
+
+Wah-hoo-wa,
+
+Wah-hoo-wa.
+
+Uni-v, Virginia,
+
+Hoo-rah-ray,
+
+Hoo-rah-ray,
+
+Ray! Ray! U-V-A
+
+'Wah-hoo-wa'",38.0336,78.508,Chant/Cheer,,-0.12668660166488613,0.7466666666666667,0.2892892925681615,3.145317385334758,0.21333333333333335,0.0,0.0,0.09333333333333334,0.05333333333333334,0.09333333333333334,0.02666666666666667,0.0
 Virginia Tech,ACC,Tech Triumph,Wilfred P. Maddux and Mattie Eppes,1919.0,1,1,0,133,71,0,0,0,1,1,0,1,1,1,0,1,5,5v3wGg8VMD8MMYGb8SXBss,virginia_tech,46965.46,28029.29,156,112,0.7179,Tech Triumph,"Techmen, we're Techmen, with spirit true and faithful,
+
 Backing up our teams with hopes undying;
+
 Techmen, Oh, Techmen, we're out to win today,
-Showing pep and life with which we're trying;
+
+Showing 'pep' and life with which we're trying;
+
 V.P., old V.P., you know our hearts are with you
+
 In our luck which never seems to die;
+
 Win or lose, we'll greet you with a glad returning,
+
 You're the pride of V.P.I.
 
 Just watch our men so big and active
+
 Support the Orange and Maroon. Let's go Techs.
+
 We know our ends and backs are stronger,
+
 With winning hopes, we fear defeat no longer.
+
 To see our team plow through the line, boys.
+
 Determined now to win or die:
+
 So give a Hokie, Hokie, Hokie, Hi,
-Rae, Ri, old V.P.I.
 
-Fight, men, oh, fight, men, we're going to be the champions
-Adding to our list another victory;
-Football or baseball, the games in which we star,
-They're the sports which made old VP famous.
-Hold'em, just hold'em, you know the Corps' behind you
-Watching every movement that you make.
-Winning games was nothing for our teams before you --
-Keep the ""rep"" for VP's sake.",37.2284,80.4234,Tradition/Legacy,Unity/Brotherhood,1.2816716504162213,2.0833333333333335,2.1340840414620876,1.0253373203329772,1.5833333333333333,1.0833333333333333,0.03125,0.07291666666666667,0.020833333333333332,0.0,0.010416666666666666,0.026041666666666668
-Wake Forest,ACC,O Here's To Wake Forest,C.P. Weaver,1908.0,0,1,0,146,69,0,0,0,0,0,1,0,1,1,0,0,3,3u6THWNCTIdCcGIcJ1FQsN,wake_forest,22006.97,12436.41,152,84,0.5526,O Here's To Wake Forest,"
-Oh, here's to Wake Forest
+Rae, Ri, old V.P.I.",37.2284,80.4234,Unity/Brotherhood,Tradition/Legacy,1.1566716504162213,2.3125,2.217417374795421,1.0253373203329772,1.625,1.3125,0.015625,0.1015625,0.03125,0.0,0.015625,0.046875
+Wake Forest,ACC,O Here's To Wake Forest,C.P. Weaver,1908.0,0,1,0,146,69,0,0,0,0,0,1,0,1,1,0,0,3,3u6THWNCTIdCcGIcJ1FQsN,wake_forest,22006.97,12436.41,152,84,0.5526,O Here's To Wake Forest,"O here's to Wake Forest
+
 A glass of the finest
-Red ruddy, Rhenish filled up to the brim
-Her sons, they are many
+
+Red ruddy, Rhenish filled up to the brim.
+
+Her sons they are many
+
 Unrivaled by any
-With hearts o'erflowing
-We will sing a hymn
 
+With hearts o'erflowing, we will sing a hymn.
 
-Rah! Rah! Wake Forest, rah!
-Old Alma Mater's sons are we!
+Rah! Rah! Wake Forest Rah!
+
+Old Alma Mater's sons are we.
+
 We'll herald the story
-And die for her glory
-Old Gold and Black is ever waving high
 
+And die for her glory,
+
+Old Gold and Black is ever waving high.
 
 As frosh we adore her
+
 As sophs we explore her
-And carve our names upon her ancient walls
+
+And carve our names upon her ancient walls.
+
 As juniors patrol her
+
 As seniors extol her
-And weep to leave fore'er her sacred halls
 
-
-Rah! Rah! Wake Forest, rah!
-Old Alma Mater's sons are we!
-We'll herald the story
-And die for her glory
-Old Gold and Black is ever waving high
-See pop shows near Chicago
-Get tickets as low as $133
-
-You might also like
-Spirit of the Old Gold and Black
-Wake Forest University
-Dear Old Wake Forest
-Wake Forest University
-Last Christmas
-Wham!
-
-
-Though fortune forsake us
-And fate o'ertake us
-We'll ne'er forget our dear old college days
-And o'er memory's treasure
-We'll drink without measure
-And sing fore'er our Alma Mater's praise
-
-
-Rah! Rah! Wake Forest, rah!
-Old Alma Mater's sons are we!
-We'll herald the story
-And die for her glory
-Old Gold and Black is ever waving high",35.9799,78.5097,Tradition/Legacy,Institutional Pride,0.12970294932357374,1.9403669724770642,2.350092324780004,1.9340375888166572,2.3440366972477067,0.11009174311926606,0.0,0.05504587155963303,0.05963302752293578,0.04128440366972477,0.10550458715596331,0.013761467889908258
+And weep to leave fore'er her sacred halls.",35.9799,78.5097,Unity/Brotherhood,Tradition/Legacy,0.12970294932357374,2.3333333333333335,2.2896947712631843,2.0204290261255258,2.0833333333333335,0.08333333333333333,0.0,0.10416666666666667,0.052083333333333336,0.052083333333333336,0.07291666666666667,0.010416666666666666
 Baylor,Big 12,Old Fight,Dick Baker and Frank Boggs,1947.0,1,1,0,76,99,1,4,1,1,1,0,0,1,0,0,1,5,2ZsaI0Cu4nz8DHfBkPt0Dl,baylor,31910.19,17749.63,140,79,0.5643,Old Fight,"Bear down you Bears of Old Baylor U We're all for you!
+
 GO BEARS!
 
 We're gonna show dear old Baylor spirit through and through!
+
 GO BEARS!
 
 Come on and fight them with all your might you bruins bold
+
 And win all our victories for the Green and Gold!
 
 B! A! Y! L! O! R! BAYLOR! BEARS! FIGHT!
 
 Come on and fight them with all your might you bruins bold
+
 And win all our victories for the Green and Gold!
 
-B-A-Y-L-O-R BAYLOR BEARS FIGHT!",31.5501,97.1135,Aggression/Conflict,,4.238205745416852,0.6818181818181819,2.7165984247263086,-0.3185263127574279,2.2272727272727275,0.3636363636363635,0.07954545454545454,0.022727272727272728,0.022727272727272728,0.0,0.09090909090909091,0.022727272727272728
+B-A-Y-L-O-R BAYLOR BEARS FIGHT!",31.5501,97.1135,Aggression/Conflict,,4.056387563598669,1.1363636363636362,2.8075075156353995,-0.3185263127574279,2.2272727272727275,0.45454545454545436,0.056818181818181816,0.07954545454545454,0.03409090909090909,0.0,0.09090909090909091,0.022727272727272728
 Iowa State,Big 12,Iowa State Fights,"Jack Barker, Manly Rice, Paul Gnam, Rosalind K. Cook",1930.0,1,1,0,155,55,1,5,0,0,0,1,0,0,1,0,1,4,3yyfoOXZQCtR6pfRJqu9pl,iowa_state,41167.6,22644.26,156,86,0.5513,Iowa State Fights,"O we will fight, fight, fight for Iowa State,
+
 And may her colors ever fly.
+
 Yes, we will fight with might for Iowa State,
+
 With a will to do or die,
+
 Rah! Rah! Rah!
+
 Loyal sons forever true,
+
 And we will fight the battle through.
+
 And when we hit that line we'll hit it hard
-every yard for I.S.U.",42.0267,93.6465,Aggression/Conflict,,2.984456017545688,1.7868852459016393,1.8381317702125939,2.0514992402660583,0.7622950819672132,-1.8934426229508197,0.09836065573770492,0.09836065573770492,0.01639344262295082,0.04918032786885246,0.03278688524590164,0.0
-Kansas,Big 12,I'm a Jayhawk,"George ""Dumpy"" Bowles",1912.0,1,1,0,137,62,0,0,0,0,0,0,1,0,1,1,0,3,0JzbjZgcjugS0dmPjF9R89,kansas,27581.85,18549.84,148,67,0.4527,I'm a Jayhawk,"Talk about the sooners the Aggies and the braves,
-Talk about the tiger and his tail,
-Talk about the huskers, those old cornhuskin' boys,
-But I'm a bird to make 'em weep and wail.
-'Cause I'm a jay, jay, jay, jay, jayhawk
-up at Lawrence on the Kaw
-'Cause I'm a jay, jay, jay, jay, jayhawk,
-With a sis-boom hip hoorah.
 
-Got a bill that's big enough to twist the tiger's tail,
-Husk some corn and listen to the cornhusker's wail
-'Cause I'm a jay, jay, jay, jay, jayhawk,
-Riding on a Kansas gale.
+ev'ry yard for I.S.U.",42.0267,93.6465,Aggression/Conflict,,3.3778986404965075,2.3114754098360653,2.2315743931634135,2.0514992402660583,0.7622950819672132,-2.0901639344262293,0.14754098360655737,0.16393442622950818,0.06557377049180328,0.04918032786885246,0.03278688524590164,0.0
+Kansas,Big 12,I'm a Jayhawk,"George ""Dumpy"" Bowles",1912.0,1,1,0,137,62,0,0,0,0,0,0,1,0,1,1,0,3,0JzbjZgcjugS0dmPjF9R89,kansas,27581.85,18549.84,148,67,0.4527,I'm a Jayhawk,"Talk about the Sooners, Cowboys and the Bears,
 
-'Cause I'm a jay, jay, jay, jay, jayhawk
-up at Lawrence on the Kaw
-'Cause I'm a jay, jay, jay, jay, jayhawk,
-With a sis-boom hip hoorah.
-
-Got a bill that's big enough to twist the tiger's tail,
-Husk some corn and listen to the cornhusker's wail
-'Cause I'm a jay, jay, jay, jay, jayhawk,
-Riding on a Kansas gale, and that's our team.
-
-Perhaps the most popular fight song is K.U.'s own ""I'm a Jayhawk."" George ""Dumpy"" Bowles, a student witht he Class of 1912, produced some outstanding student musical shows. a song in one of these shows was ""I'm a Jayhawk."" Written in 1912, it was dormant until 1920 when a great uprising of school spirit brought out ""I'm a Jayhawk"" once more. The song contributed to the raising of funds to build both the stadium and union as World War I memorials. The 1926 glee club made it known nationally.
-
-From the KU traditions page (Revised in Fall 2010 due to changes in the Big XII; new lyrics by Matt Schoenfeld)
-
-Talk about the Sooners, Cowboys and the Bears,
 Aggies and the Tiger and his tail.
+
 Talk about the Wildcats, and the Cyclone boys,
-But I'm the bird to make 'em weep and wail
+
+But I'm the bird to make 'em weep and wail.
 
 'Cause I'm a Jay, Jay, Jay, Jay, Jayhawk,
-Up at Lawrence on the Kaw–
+
+Up at Lawrence on the Kaw-
+
 'Cause I'm a Jay, Jay, Jay, Jay, Jayhawk,
+
 With a sis-boom, hip hoorah,
 
 Got a bill that's big enough
+
 To twist a Tiger's tail,
+
 Rope some 'Horns and listen
-To the Red Raiders wail–
+
+To the Red Raiders wail-
+
 'Cause I'm a Jay, Jay, Jay, Jay, Jayhawk,
-Riding on a Kansas gale.",38.9543,95.2558,Tradition/Legacy,Aggression/Conflict,1.583633492125715,0.5653950953678474,1.8932459188199375,1.0494681016024792,0.3371934604904632,-0.010899182561307902,0.0027247956403269754,0.008174386920980926,0.0027247956403269754,0.0,0.010899182561307902,0.0
+
+Riding on a Kansas gale.",38.9543,95.2558,Tradition/Legacy,Aggression/Conflict,1.561835127003099,0.5842105263157895,1.8714475536973219,1.3020996805498475,0.4184210526315789,0.0,0.0,0.010526315789473684,0.0,0.031578947368421054,0.021052631578947368,0.0
 Kansas State,Big 12,Wildcat Victory,Harry E. Erickson,1927.0,1,1,0,80,67,1,6,1,0,1,0,0,1,0,0,0,3,4xxDK4g1OHhZ44sTFy8Ktm,kansas_state,38961.12,20329.6,162,117,0.7222,Wildcat Victory,"Fight, you K-State Wildcats
-For Alma Mater, fight, fight, fight!
+
+For alma mater fight-fight-fight!
+
 Glory in the combat
-For the Purple and the White
-Faithful to our colors
-We will ever be
-Fighting ever fighting for a​
-Wildcat victory!
-Go, State!",39.1974,96.5847,Aggression/Conflict,,3.4741108487979875,0.9210526315789473,2.8868007118387022,-0.2943955314879258,1.9210526315789473,-0.5,0.10526315789473684,0.05263157894736842,0.07894736842105263,0.0,0.05263157894736842,0.05263157894736842
-Oklahoma,Big 12,Boomer Sooner,Arthur M. Alden,1905.0,1,1,0,153,37,0,0,0,0,0,1,0,0,0,0,1,2,0QXC8Gg1oKWkORegslTXoT,oklahoma,64344.61,34449.05,154,137,0.8896,Boomer Sooner,"
+
+For the purple and the white.
+
+Faithful to our colors.
+
+We will ever be,
+
+Fighting ever fighting for a
+
+Wildcat Victory!
+
+Go State!",39.1974,96.5847,Tradition/Legacy,Aggression/Conflict,3.4741108487979875,1.3421052631578947,3.518379659207123,-0.2943955314879258,1.9210526315789473,-0.5,0.10526315789473684,0.10526315789473684,0.15789473684210525,0.0,0.05263157894736842,0.05263157894736842
+Oklahoma,Big 12,Boomer Sooner,Arthur M. Alden,1905.0,1,1,0,153,37,0,0,0,0,0,1,0,0,0,0,1,2,0QXC8Gg1oKWkORegslTXoT,oklahoma,64344.61,34449.05,154,137,0.8896,Boomer Sooner,"Boomer Sooner, Boomer Sooner
+
 Boomer Sooner, Boomer Sooner
+
 Boomer Sooner, Boomer Sooner
-Boomer Sooner, Boomer Sooner
-Boomer Sooner, OK U
+
+Boomer Sooner, OK U!
 
 Oklahoma, Oklahoma
+
 Oklahoma, Oklahoma
+
 Oklahoma, Oklahoma
-Oklahoma, OK U
+
+Oklahoma, OK U!
 
 I'm a Sooner born and Sooner bred
-And when I die, I'll be Sooner dead
-Rah, Oklahoma, rah, Oklahoma
-Rah, Oklahoma, OK U",35.1987,97.4449,Institutional Pride,Pageantry/Spectacle,0.1824890333506096,0.0,1.5753715402065445,2.1459912266804877,2.166666666666667,0.0,0.0,0.0,0.0,0.0625,0.20833333333333334,0.0
-Oklahoma State,Big 12,Ride 'Em Cowboys,J.K. Long,1934.0,0,1,0,180,29,1,5,1,0,1,0,0,0,1,1,0,4,0mTJqaacUZPG740Y1YDn5j,oklahoma_state,39399.22,21820.56,156,115,0.7372,Ride 'Em Cowboys,"(Cowboys a riding,
-Lassoes a-flying,
-Under the western sky.
-And as they ride,
-We rise to sing and shout our battle cry!)
-Ride, ride, ride, ride,
-Ride'em Cowboys,
+
+and when I die, I'll be Sooner dead
+
+Rah Oklahoma, Rah Oklahoma
+
+Rah Oklahoma, OK U!",35.1987,97.4449,School Pride,Chant/Cheer,0.1824890333506096,0.0,1.5753715402065445,2.1459912266804877,2.166666666666667,0.0,0.0,0.0,0.0,0.0625,0.20833333333333334,0.0
+Oklahoma State,Big 12,Ride 'Em Cowboys,J.K. Long,1934.0,0,1,0,180,29,1,5,1,0,1,0,0,0,1,1,0,4,0mTJqaacUZPG740Y1YDn5j,oklahoma_state,39399.22,21820.56,156,115,0.7372,Ride 'Em Cowboys,"Ride, ride, ride, ride,
+
+Ride ‘em Cowboys,
+
 Right down the field;
+
 Fight! Fight! Fight! Fight!
-Fight'em Cowboys, and never yield.
+
+Fight ‘em Cowboys, and never yield.
+
 Ride, ride, ride, ride,
+
 Ride on, Cowboys, to victory;
-Cross (opponent)'s goal;
-Then we'll sing ?O-kla-homa State!?",36.1266,97.0735,Aggression/Conflict,,5.66028604869913,0.7580645161290323,1.3486318423453192,0.30887400024962686,0.25,-0.7580645161290324,0.0967741935483871,0.03225806451612903,0.0,0.0,0.0,0.016129032258064516
+
+Cross (opponent)’s goal;
+
+Then we’ll sing “O-kla-homa State!”",36.1266,97.0735,Aggression/Conflict,,6.056824207629107,0.6951219512195121,1.3486318423453192,0.503995951469139,0.25,-0.8902439024390244,0.14634146341463414,0.024390243902439025,0.0,0.024390243902439025,0.0,0.024390243902439025
 Texas,Big 12,Texas Fight,"Walter S. Hunnicutt, James E. King and Burnett Pharr",1923.0,0,1,0,81,65,1,17,0,1,1,0,0,1,0,1,0,4,53CytfvDMSkJHY5PtrcZiD,texas,71467.86,39672.58,150,111,0.74,Texas Fight,"Texas Fight, Texas Fight,
-And it’s goodbye to A&M.
+
+And it’s goodbye to A&M.;
+
 Texas Fight, Texas Fight,
+
 And we’ll put over one more win.
+
 Texas Fight, Texas Fight,
+
 For it’s Texas that we love best.
-Hail, Hail, The gang’s all here,
-And it’s good-bye to all the rest! (YELL)
+
+Give 'em hell, give 'em hell! Go, Horns, go!
+
+And it’s good-bye to all the rest!
 
 Yea Orange! Yea White!
+
 Yea Longhorns! Fight! Fight! Fight!
+
 Texas Fight! Texas Fight,
-Yea Texas Fight!
-Texas Fight! Texas Fight,
+
 Yea Texas Fight!
 
-The Eyes of Texas are upon you,
+Texas Fight! Texas Fight,
+
+Yea Texas Fight! The Eyes of Texas are upon you,
+
 All the livelong day.
-The Eyes of Texas are upon you,
-You cannot get away.
-Texas Fight, Texas Fight,
-For it’s Texas that we love best.
-Hail, Hail, The gang’s all here,
-And it good-bye to all the rest!",30.285,97.7335,Aggression/Conflict,,5.370315685556043,0.20512820512820512,2.2332248380798836,0.053517505709791635,2.6175213675213675,-1.047008547008547,0.15384615384615385,0.02564102564102564,0.0,0.042735042735042736,0.17094017094017094,0.008547008547008548
-TCU,Big 12,TCU Fight Song,Claude Sammis,1928.0,0,1,0,149,47,1,2,1,0,1,1,0,1,1,0,1,6,0ItcRLvqHlbkaqMCPtQKUl,tcu,31035.65,17870.63,144,109,0.7569,TCU Fight Song,"We'll raise a song, both loud and long
-To cheer our team to victory
-For TCU, so tried and true
-We pledge eternal loyalty
-Rah, rah, TCU
 
-Fight on, boys, fight with all your might
+The Eyes of Texas are upon you,
+
+You cannot get away.
+
+Texas Fight, Texas Fight,
+
+For it’s Texas that we love best.
+
+Give 'em hell, give 'em hell! Go, Horns, go!
+
+And it good-bye to all the rest!",30.285,97.7335,Aggression/Conflict,,5.5165956351146805,0.45901639344262296,2.2332248380798836,0.03950601628846612,2.5614754098360653,-0.9918032786885246,0.1721311475409836,0.05737704918032787,0.0,0.040983606557377046,0.16393442622950818,0.02459016393442623
+TCU,Big 12,TCU Fight Song,Claude Sammis,1928.0,0,1,0,149,47,1,2,1,0,1,1,0,1,1,0,1,6,0ItcRLvqHlbkaqMCPtQKUl,tcu,31035.65,17870.63,144,109,0.7569,TCU Fight Song,"We'll raise a song, both loud and long
+
+To cheer our team to victory
+
+For TCU, so tried and true,
+
+We pledge eternal loyalty.
+
+Rah, Rah, TCU!
+
+Fight on boys, fight, with all your might
+
 Roll up the scores for TCU
-Hail, White and Purple flag, whose heroes never lag
-Horned Frog, we are all for you",32.7079,97.3628,Aggression/Conflict,,3.4330273111496967,2.2017543859649122,1.6793234768411542,2.1832639541829155,2.2017543859649122,-0.5,0.03508771929824561,0.08771929824561403,0.0,0.07017543859649122,0.08771929824561403,0.017543859649122806
+
+Hail white and purple flag whose heroes never lag,
+
+Horned Frog, we are all for you!",32.7079,97.3628,Aggression/Conflict,,3.4330273111496967,2.763157894736842,2.1003761084201016,2.323614831375898,2.2017543859649122,-0.35964912280701755,0.03508771929824561,0.15789473684210525,0.05263157894736842,0.08771929824561403,0.08771929824561403,0.03508771929824561
 Texas Tech,Big 12,"Fight, Raiders, Fight",Carroll McMath,1936.0,1,1,0,159,54,1,8,1,0,1,0,0,1,0,0,0,3,3DfKi9Iqvtxf4DIjs8ezTq,texas_tech,40870.71,23217.4,146,98,0.6712,"Fight, Raiders, Fight","Fight, Raiders, Fight! Fight, Raiders, Fight!
+
 Fight for the school we love so dearly.
+
 You'll hit 'em high, you'll hit 'em low.
+
 You'll push the ball across the goal,
+
 Tech, Fight! Fight!
 
 We'll praise your name, boost you to fame.
+
 Fight for the Scarlet and Black.
+
 You will hit 'em, you will wreck 'em.
+
 Hit 'em! Wreck 'em, Texas Tech!
-And the Victory Bells will ring out!",33.5845,101.8751,Aggression/Conflict,,4.182958128827941,0.6194029850746269,1.6748713324229743,0.18218739858474084,2.0970149253731343,-0.8582089552238807,0.11940298507462686,0.014925373134328358,0.0,0.0,0.07462686567164178,0.014925373134328358
-West Virginia,Big 12,Hail West Virginia,"Earl Miller, Ed McWhorter and Fred Deem",1915.0,1,1,0,152,92,0,0,0,0,0,0,0,0,1,0,0,1,1VqZp811UsBJy66R8TTkei,west_virginia,42245.16,23382.01,152,109,0.7171,Hail West Virginia,"Let's give a ""rah"" for West Virginia
-And let us pledge to her anew
-Others may be black or crimson
-But for us, it's Gold and Blue
-Let all our troubles be forgotten
-Let college spirit rule
-We'll join and give our loyal efforts
-For the good of our old school
 
-It's West Virginia, it's West Virginia
-The pride of every Mountaineer
-Come on, you old grads, join with us, young lads
-It's West Virginia now, we cheer
+And the Victory Bells will ring out!",33.5845,101.8751,Aggression/Conflict,,5.018779024350329,0.7388059701492538,1.794274317497601,0.3015903836593677,2.0970149253731343,-1.1567164179104479,0.22388059701492538,0.029850746268656716,0.014925373134328358,0.014925373134328358,0.07462686567164178,0.029850746268656716
+West Virginia,Big 12,Hail West Virginia,"Earl Miller, Ed McWhorter and Fred Deem",1915.0,1,1,0,152,92,0,0,0,0,0,0,0,0,1,0,0,1,1VqZp811UsBJy66R8TTkei,west_virginia,42245.16,23382.01,152,109,0.7171,Hail West Virginia,"It's West Virginia, It's West Virginia
+
+The Pride of every Mountaineer.
+
+Come on you old grads, join with us young lads,
+
+It's West Virginia now we cheer!
+
 Now is the time, boys, to make a big noise
-No matter what the people say
-For there is naught to fear, the gang's all here
-So hail to West Virginia, hail",39.648,79.9697,Tradition/Legacy,,0.17494816420389017,1.5818181818181818,2.1658751354865573,0.43086762227220304,1.518181818181818,0.0,0.0,0.07272727272727272,0.01818181818181818,0.03636363636363636,0.12727272727272726,0.0
-Illinois,Big Ten,Oskee-Wow-Wow,H.R. Green and H.V. Hill,1910.0,1,1,0,162,60,0,0,1,0,1,1,1,1,1,1,0,6,6C0vaoMxzM21yYgJBmGx5K,illinois,35824.82,20875.3,156,75,0.4808,Oskee-Wow-Wow,"Old Princeton yells her tiger
-Wisconsin her varsity
-And they give the same old rah, rah, rah!
-At each university
-But the yell that always thrills me
-And fills my heart with joy
-Is the good old Oskee-wow-wow
-That they yell at Illinois
 
-Oskee-wow-wow, Illinois
-Our eyes are all on you
-Oskee-wow-wow, Illinois
-Wave your Orange and Blue, rah, rah!
-When your team trots out before you
-Ev'ry man stand up and yell
-Back the team to gain a victory
-Oskee-wow-wow, Illinois",40.0985,88.2291,Pageantry/Spectacle,,2.7503568556710842,1.3555555555555556,1.9713326063565788,3.411396595647979,1.7833333333333332,1.0888888888888888,0.0,0.044444444444444446,0.03333333333333333,0.08888888888888889,0.06666666666666667,0.011111111111111112
-Indiana,Big Ten,"Indiana, Our Indiana",Russell P. Harker and Karl L. King,1912.0,1,1,0,150,63,1,1,0,0,0,0,0,1,0,0,1,3,2Wbo5zdRDnq4pOgWL9avaG,indiana,32286.35,17738.07,151,76,0.5033,"Indiana, Our Indiana","Indiana, our Indiana
+No matter what the people say,
+
+For there is naught to fear; the gang's all here,
+
+So hail to West Virginia, Hail",39.648,79.9697,Tradition/Legacy,,0.17494816420389017,1.542372881355932,2.4272002510489608,0.5467381923800614,1.5847457627118644,0.13559322033898305,0.0,0.06779661016949153,0.05084745762711865,0.05084745762711865,0.13559322033898305,0.01694915254237288
+Illinois,Big Ten,Oskee-Wow-Wow,H.R. Green and H.V. Hill,1910.0,1,1,0,162,60,0,0,1,0,1,1,1,1,1,1,0,6,6C0vaoMxzM21yYgJBmGx5K,illinois,35824.82,20875.3,156,75,0.4808,Oskee-Wow-Wow,"Old Princeton yells her Tiger,
+
+Wisconsin, her Varsity
+
+And they give the same old Rah, Rah, Rah,
+
+At each University,
+
+But the yell that always thrills me
+
+And fills my heart with joy,
+
+Is the good old Oskee-Wow-Wow,
+
+That they yell at Illinois.
+
+Oskee-Wow-Wow,
+
+Illinois,
+
+Our eyes are all on you.
+
+Oskee-Wow-Wow,
+
+Illinois,
+
+Wave your Orange and your Blue,
+
+Rah, Rah,
+
+When the team trots out before you,
+
+Every man stand up and yell,
+
+Back the team to victory,
+
+Oskee-Wow-Wow.
+
+Illinois.",40.0985,88.2291,Chant/Cheer,,2.7503568556710842,1.5393258426966292,2.064216501487665,3.419386608132373,1.7893258426966292,1.0898876404494382,0.0,0.06741573033707865,0.0449438202247191,0.0898876404494382,0.06741573033707865,0.011235955056179775
+Indiana,Big Ten,"Indiana, Our Indiana",Russell P. Harker and Karl L. King,1912.0,1,1,0,150,63,1,1,0,0,0,0,0,1,0,0,1,3,2Wbo5zdRDnq4pOgWL9avaG,indiana,32286.35,17738.07,151,76,0.5033,"Indiana, Our Indiana","Indiana, Our Indiana
+
 Indiana, we're all for you
-We will fight for the cream and crimson
-For the glory of old IU
+
+We will fight for
+
+the Cream & Crimson,
+
+For the glory of Old IU
+
 Never daunted, we cannot falter
+
 In the battle, we're tried and true
-Indiana, our Indiana
-Indiana, we're all for you",39.1682,86.523,Institutional Pride,Aggression/Conflict,2.5408188068628323,1.4523809523809523,1.9914808205841414,0.12789314072836108,2.833333333333333,-1.5,0.047619047619047616,0.11904761904761904,0.023809523809523808,0.0,0.16666666666666666,0.023809523809523808
-Iowa,Big Ten,Iowa Fight Song,Meredith Willson,1950.0,0,1,0,150,72,1,9,0,1,1,1,0,0,0,0,0,3,604ELPPFgbFlW0SHoEYVJw,iowa,51669.64,29061.01,160,121,0.7562,Iowa Fight Song,"The word is ""Fight! Fight! Fight! for IOWA,""
+
+Indiana, Our Indiana
+
+Indiana, we're all for you!",39.1682,86.523,School Pride,,2.5501103283494757,1.8658536585365855,2.386370483766487,0.12789314072836108,3.0609756097560976,-1.5,0.04878048780487805,0.17073170731707318,0.07317073170731707,0.0,0.1951219512195122,0.024390243902439025
+Iowa,Big Ten,Iowa Fight Song,Meredith Willson,1950.0,0,1,0,150,72,1,9,0,1,1,1,0,0,0,0,0,3,604ELPPFgbFlW0SHoEYVJw,iowa,51669.64,29061.01,160,121,0.7562,Iowa Fight Song,"The word is 'Fight! Fight! Fight! for IOWA,'
+
 Let every loyal Iowan sing;
-The word is ""Fight! Fight! Fight! for IOWA,""
-Until the walls and rafters ring (Go Hawks!)
-Come on and cheer, cheer, cheer for IOWA, 
+
+The word is 'Fight! Fight! Fight! for IOWA,'
+
+Until the walls and rafters ring (rah! rah!)
+
+Come on and cheer, cheer, cheer for IOWA,
+
 Come on and cheer until you hear the final gun.
-The word is ""Fight! Fight! Fight! for IOWA,""
-Until the game is won.",41.6627,91.555,Aggression/Conflict,,4.493199759243784,0.13333333333333333,1.8728436699365478,2.1612264740616944,1.0333333333333332,-1.0333333333333332,0.16666666666666666,0.016666666666666666,0.0,0.06666666666666667,0.06666666666666667,0.016666666666666666
+
+The word is 'Fight! Fight! Fight! for IOWA,'
+
+Until the game is won.",41.6627,91.555,Aggression/Conflict,,3.9217711878152133,0.12698412698412698,1.9998277969206748,2.51678202961725,1.007936507936508,-0.753968253968254,0.09523809523809523,0.015873015873015872,0.015873015873015872,0.1111111111111111,0.06349206349206349,0.015873015873015872
 Maryland,Big Ten,Maryland Fight Song,Ralph Davis,1939.0,1,1,0,142,56,1,8,1,1,1,0,0,0,0,0,0,3,6PKoPWKJLOBI2K33RkFvbc,maryland,32742.63,18879.01,150,85,0.5667,Maryland Fight Song,"Fight, fight, fight for Maryland,
+
 Honor now her name again,
+
 Push up the score, keep on fighting for more,
+
 For Maryland, GO TERPS!
+
 And we will fight, fight, fight for terrapins,
+
 Keep on fighting 'till we win.
+
 So sing out our song as we go marching along,
-To victory!!!",38.9869,76.9426,Aggression/Conflict,,5.242396615593838,0.6530612244897959,1.956656690013829,0.07963157818935689,0.8265306122448979,0.2551020408163265,0.14285714285714285,0.08163265306122448,0.02040816326530612,0.0,0.04081632653061224,0.04081632653061224
+
+To victory!!!",38.9869,76.9426,Aggression/Conflict,,5.242396615593838,0.8163265306122449,2.1199219961362776,0.40616219043425483,0.8265306122448979,0.41836734693877564,0.14285714285714285,0.10204081632653061,0.04081632653061224,0.04081632653061224,0.04081632653061224,0.061224489795918366
 Michigan,Big Ten,The Victors,Louis Elbel,1898.0,1,1,0,83,122,0,0,0,0,0,0,0,0,0,0,0,0,6wVbHLCBOCqp6052WcWXLG,michigan,85611.95,46006.87,166,132,0.7952,The Victors,"Hail! to the victors valiant
-Hail! to the conquering heroes
-Hail! Hail! to michigan
-the leaders and best!
-Hail! To the victors valiant
-Hail! to the conquering heroes
-Hail! Hail! to michigan
-the champions of the west!
+
+Hail! to the conqu'ring heroes
+
+Hail! Hail! to Michigan
+
+the leaders and best
+
 Hail! to the victors valiant
-Hail! to the conquering heroes
-Hail! Hail! to michigan
-the champions of the west
-Hail! to the victors valiant
-Hail! to the conquering heroes
-Hail! Hail! to michigan
-The champions of the west!!!!!!",42.2771,83.7382,Tradition/Legacy,,-0.34537180691974895,0.0,2.676140033026246,1.4303692211308676,0.9266666666666667,0.32,0.0,0.0,0.0,0.21333333333333335,0.05333333333333334,0.04
+
+Hail! to the conqu'ring heroes
+
+Hail! Hail! to Michigan,
+
+the champions of the West!",42.2771,83.7382,Tradition/Legacy,,-0.34537180691974895,0.0,5.270734627620841,1.4534322841939307,0.9324324324324325,1.945945945945946,0.0,0.0,0.32432432432432434,0.21621621621621623,0.05405405405405406,0.24324324324324326
 Michigan State,Big Ten,Victory for MSU,Francis Irving Lankey and Arthur L. Sayles,1915.0,1,1,0,145,112,1,6,1,1,1,1,0,1,0,0,1,5,4BSrPApxbeUNPA5Q8LyfMd,michigan_state,55588.49,30677.62,157,103,0.6561,Victory for MSU,"On the banks of the Red Cedar,
-There’s a school that’s known to all;
+
+There's a school that's known to all;
+
 Its specialty is winning,
+
 And those Spartans play good ball;
+
 Spartan teams are never beaten,
+
 All through the game they fight;
-Fight for the only colors:
+
+Fight for the only colors,
+
 Green and White.
 
 Go right through for MSU,
-Watch the points keep growing,
+
+Watch the points keep growing.
+
 Spartan teams are bound to win,
-They’re fighting with a vim!
+
+They're fighting with a vim.
+
 Rah! Rah! Rah!
+
 See their team is weakening,
-We’re going to win this game,
+
+We're going to win this game.
+
 Fight! Fight! Rah! Team, Fight!
-Victory for MSU!",42.7251,84.4791,Aggression/Conflict,,4.773324870874529,0.686046511627907,2.222291767983856,1.9698226873972975,1.7790697674418605,0.4534883720930233,0.08139534883720931,0.023255813953488372,0.0,0.046511627906976744,0.03488372093023256,0.03488372093023256
-Minnesota,Big Ten,The Minnesota Rouser,Floyd Hutsell,1909.0,0,1,1,151,60,0,0,0,0,0,1,1,0,0,0,1,3,2EeyLSmHKdZulOKGcTpLS0,minnesota,35655.08,20479.45,156,94,0.6026,The Minnesota Rouser,"Minnesota, hats off to thee!
-To thy colors, true we shall ever be
-Firm and strong, united are we
-Rah! Rah! Rah! For Ski-U-Mah!
-Rah! Rah! Rah! Rah! Rah for the U of M!
 
+Victory for MSU.",42.7251,84.4791,Aggression/Conflict,,4.587278359246621,0.872093023255814,2.222291767983856,1.9698226873972975,1.7790697674418605,0.63953488372093,0.05813953488372093,0.046511627906976744,0.0,0.046511627906976744,0.03488372093023256,0.046511627906976744
+Minnesota,Big Ten,The Minnesota Rouser,Floyd Hutsell,1909.0,0,1,1,151,60,0,0,0,0,0,1,1,0,0,0,1,3,2EeyLSmHKdZulOKGcTpLS0,minnesota,35655.08,20479.45,156,94,0.6026,The Minnesota Rouser,"Minnesota, Hats off to thee!
 
-Minnesota, hats off to thee!
-To thy colors, true we shall ever be
-Firm and strong, united are we
-Rah! Rah! Rah! For Ski-U-Mah!
-Rah! Rah! Rah! Rah! Rah for the U of M!
+To thy colors, true we shall ever be,
 
+Firm and strong, united are we.
 
-M-I-N-N-E-S-O-T-A!
-Minnesota, Minnesota!
-Yeah, Gophers!",44.974,93.2277,Pageantry/Spectacle,,0.16740729505717078,0.7529411764705882,1.7710255881810428,4.139808188986913,0.8764705882352941,0.0,0.0,0.09411764705882353,0.0,0.18823529411764706,0.047058823529411764,0.0
+Rah! Rah! Rah! for Ski-U-Mah,
+
+Rah! Rah! Rah! Rah! Rah for the U of M.
+
+[Repeat]
+
+M - I - N - N - E - S - O - T - A!
+
+Minnesota! Minnesota! Yeaaaaaaah Gophers!",44.974,93.2277,Chant/Cheer,,0.16740729505717078,0.8,2.0910255881810427,3.913925836045737,0.98,0.16,0.0,0.1,0.04,0.16,0.06,0.02
 Nebraska,Big Ten,Dear Old Nebraska U.,Harry Pecha,1924.0,1,0,0,136,94,0,0,0,0,0,0,0,0,1,0,0,1,7z2TihIyf3IZR1r0AmI1Ik,nebraska,67280.1,35862.23,165,112,0.6788,Dear Old Nebraska U.,"There is no place like Nebraska,
+
 Dear old Nebraska U.
+
 Where the girls are the fairest,
+
 The boys are the squarest,
+
 Of any old school that I knew.
+
 There is no place like Nebraska,
+
 Where they're all true blue.
+
 We'll all stick together,
+
 In all kinds of weather,
-For dear old Nebraska U.",40.8202,96.7005,Unity/Brotherhood,,0.05429425785637965,1.3018867924528301,0.585738134862287,0.04343540628510373,0.7547169811320755,0.0,0.0,0.03773584905660377,0.05660377358490566,0.0,0.09433962264150944,0.0
-Northwestern,Big Ten,Go! U Northwestern,Theodore C. Van Etten,1912.0,1,1,0,140,57,1,1,1,1,1,1,0,0,0,0,0,4,4iWO9U49SZ0vvzto7qxRxN,northwestern,24844.82,15822.88,143,78,0.5455,Go! U Northwestern,"Go U Northwestern!
-Break right through that line
-With our colors flying
-We will cheer you all the time
-U, rah! rah!
+
+For dear old Nebraska U.",40.8202,96.7005,Unity/Brotherhood,,0.05429425785637965,2.2075471698113205,1.0385683235415324,0.04343540628510373,0.7547169811320755,0.0,0.0,0.1509433962264151,0.11320754716981132,0.0,0.09433962264150944,0.0
+Northwestern,Big Ten,Go! U Northwestern,Theodore C. Van Etten,1912.0,1,1,0,140,57,1,1,1,1,1,1,0,0,0,0,0,4,4iWO9U49SZ0vvzto7qxRxN,northwestern,24844.82,15822.88,143,78,0.5455,Go! U Northwestern,"Go! U Northwestern!
+
+Break right through that line.
+
+With our colors flying,
+
+We will cheer you all the time.
+
+U! Rah! Rah!
+
 Go! U Northwestern!
-Fight for victory
-Spread far the fame of our fair name
-Go! Northwestern win that game
 
-Go! Northwestern, go!
+Fight for victory.
 
-Go! Northwestern, go!
+Spread far the fame of our fair name.
+
+Go Northwestern, win that game!
+
+(Whistle)
+
+(Yell) Go! Northwestern Go!
+
+(Whistle)
+
+(Yell) Go! Northwestern Go!
+
 Hit 'em hard!
+
 Hit 'em low!
-Go! Northwestern, go!
 
-Go U Northwestern!
-Break right through that line
-With our colors flying
-We will cheer you all the time
-U, rah! rah!
-Go! U Northwestern!
-Fight for victory
-Spread far the fame of our fair name
-Go! Northwestern win that game",42.0565,87.6753,Aggression/Conflict,,4.414354641659751,0.4948453608247423,1.8134388900626415,2.062411548379348,1.2422680412371134,0.6649484536082476,0.041237113402061855,0.061855670103092786,0.0,0.061855670103092786,0.09278350515463918,0.041237113402061855
-Ohio State,Big Ten,Buckeye Battle Cry,Frank Crumit,1919.0,0,1,1,178,89,1,1,1,1,1,0,0,1,1,0,0,5,2faIedehtxwQqYxRRc6T2L,ohio_state,79967.34,44508.15,166,151,0.9096,Buckeye Battle Cry,"In old Ohio there’s a team
-That’s known thru-out the land;
+Go, Northwestern Go!",42.0565,87.6753,Aggression/Conflict,,4.61779106777659,0.5333333333333333,1.9467722233959748,2.2342328542212724,1.3,0.6333333333333333,0.06666666666666667,0.06666666666666667,0.016666666666666666,0.08333333333333333,0.1,0.05
+Ohio State,Big Ten,Buckeye Battle Cry,Frank Crumit,1919.0,0,1,1,178,89,1,1,1,1,1,0,0,1,1,0,0,5,2faIedehtxwQqYxRRc6T2L,ohio_state,79967.34,44508.15,166,151,0.9096,Buckeye Battle Cry,"In old Ohio there's a team,
+
+That's known thru-out the land;
+
 Eleven warriors, brave and bold,
-Whose fame will ever stand.
+
+Whose fame will ever stand,
+
 And when the ball goes over,
+
 Our cheers will reach the sky,
-Ohio field will hear again
-The Buckeye Battle Cry-
 
-Drive! Drive on down the field,
+Ohio Field will hear again
+
+The Buckeye Battle Cry.
+
+Drive! Drive on down the field;
+
 Men of the scarlet and gray;
-Don’t let them thru that line,
-We have to win this game today,
+
+Don't let them thru that line,
+
+We've got to win this game today,
+
 Come on, Ohio!
-Smash through to victory.
-We cheer you as you go:
+
+Smash thru to victory,
+
+We'll cheer you as you go;
+
 Our honor defend
-So we’ll fight to the end for O-hi-o.",40.0061,83.0283,Aggression/Conflict,,4.796542676912212,2.0106382978723403,2.0098369311281625,0.38191499259359923,1.925531914893617,0.4574468085106381,0.05319148936170213,0.06382978723404255,0.02127659574468085,0.010638297872340425,0.05319148936170213,0.02127659574468085
-Penn State,Big Ten,"Fight On, State",Joseph Sanders,1933.0,0,1,0,145,81,1,5,1,1,1,0,0,1,0,0,1,5,5InlNNfIFQAvCL78VFgR5O,penn_state,77107.32,46598.5,166,128,0.7711,"Fight On, State","Fight on State, Fight on State,
-Strike your gait and win,
-Victory we predict for thee,
-We're ever true to you, dear old White and Blue.
-Onward State, Onward State
-Roar Lions Roar,
-We'll hit that line, roll up the score,
-Fight on to victory evermore,
-Fight on, on
-On, on, on!
-Fight on, on,
-Penn State!",40.7982,77.8599,Aggression/Conflict,,5.104618220527731,0.7807017543859649,2.1151970635450046,0.09772966414148346,1.9210526315789473,0.4298245614035088,0.12280701754385964,0.03508771929824561,0.017543859649122806,0.0,0.05263157894736842,0.05263157894736842
-Purdue,Big Ten,Hail Purdue,James R. Morrison and Edward S. Wotawa,1912.0,1,1,0,160,86,0,0,1,0,1,0,0,1,0,0,0,2,1bYZgec19T5gQJAUeIzq9W,purdue,39185.94,23732.36,157,80,0.5096,Hail Purdue,"To your call once more we rally
-Alma mater, hear our praise
-Where the Wabash spreads its valley
-Filled with joy, our voices raise
-From the skies in swelling echoes
-Come the cheers that tell the tale
-Of your vict'ries and your heroes
-Hail, Purdue, we sing all hail
-Hail, hail to old Purdue
-All hail to our old gold and black
-Hail, hail to old Purdue
-Our friendship, may she never lack
-Ever grateful, ever true
-Thus, we raise our song anew
-Of the days we've spent with you
-All hail our own Purdue
-When in after years we're turning
-Alma mater, back to you
-May our hearts, with love, be yearning
-For the scenes of old Purdue
-Back among your pathways winding
-Let us seek what lies before
-Fondest hopes and aims e'er finding
-While we sing of days of yore
-Hail, hail to old Purdue
-All hail to our old gold and black
-Hail, hail to old Purdue
-Our friendship, may she never lack
-Ever grateful, ever true
-Thus, we raise our song anew
-Of the days we've spent with you
-All hail our own Purdue",40.4237,86.9212,Tradition/Legacy,Institutional Pride,1.2352751173776455,1.3465608465608465,2.389874799882409,0.7808126864947089,2.007936507936508,1.0,0.0,0.10582010582010581,0.0582010582010582,0.07407407407407407,0.06349206349206349,0.0
+
+So we'll fight to the end
+
+For Ohio.",40.0061,83.0283,Aggression/Conflict,,4.979706414192508,2.108695652173913,2.2744067738663682,0.38376513135400625,2.0217391304347827,0.543478260869565,0.07608695652173914,0.07608695652173914,0.05434782608695652,0.010869565217391304,0.06521739130434782,0.043478260869565216
+Penn State,Big Ten,"Fight On, State",Joseph Sanders,1933.0,0,1,0,145,81,1,5,1,1,1,0,0,1,0,0,1,5,5InlNNfIFQAvCL78VFgR5O,penn_state,77107.32,46598.5,166,128,0.7711,"Fight On, State","Fight on State (GO!)
+
+Fight on State (GO!)
+
+Strike your gait and win, (LET’S GO STATE!)
+
+Victory we predict for thee
+
+We’re ever true to you, dear old White and Blue.
+
+Onward State, (GO!)
+
+Onward State, (GO!)
+
+Roar, Lions, roar: (LET’S GO STATE!)
+
+We’ll hit that line, roll up the score,
+
+Fight on to victory ever more,
+
+Fight on, on, on, on, on, Fight on, on, Penn State! (S-T-A-T-E GO! STATE!)",40.7982,77.8599,Aggression/Conflict,,4.975495413510187,1.0333333333333332,2.5081795196853554,0.3110629974748168,1.82,0.39333333333333315,0.10666666666666667,0.06666666666666667,0.06666666666666667,0.02666666666666667,0.04,0.04
+Purdue,Big Ten,Hail Purdue,James R. Morrison and Edward S. Wotawa,1912.0,1,1,0,160,86,0,0,1,0,1,0,0,1,0,0,0,2,1bYZgec19T5gQJAUeIzq9W,purdue,39185.94,23732.36,157,80,0.5096,Hail Purdue,"To Your Call Once More We Rally;
+
+Alma Mater Hear Our Praise;
+
+Where The Wabash Spreads Its Valley,
+
+Filled With Joy Our Voices Raise.
+
+From The Skies In Swelling Echoes
+
+Come The Cheers That Tell The Tale
+
+Of Your Vict'ries And Your Heroes,
+
+Hail Purdue! We Sing All Hail!
+
+Hail, Hail To Old Purdue!
+
+All Hail To Our Old Gold And Black!
+
+Hail, Hail To Old Purdue!
+
+Our Friendship May She Never Lack.
+
+Ever Grateful, Ever True,
+
+Thus We Raise Our Song Anew
+
+Of The Days We’ve Spent With You,
+
+All Hail Our Own Purdue!
+",40.4237,86.9212,Tradition/Legacy,,1.2352751173776455,1.763157894736842,3.5242663342739435,1.1145358833758006,2.0052631578947366,1.0842105263157895,0.0,0.15789473684210525,0.2,0.11578947368421053,0.06315789473684211,0.010526315789473684
 Rutgers,Big Ten,The Bells Must Ring,Richard Hadden and W.E. Sanford,1931.0,1,1,1,75,74,1,10,1,1,1,1,1,1,1,0,1,8,7EdGMXzZjJKNHJaszbWTHi,rutgers,30885.5,19933.12,142,63,0.4437,The Bells Must Ring,"March, men of Rutgers
-Down the field today
-March to another score
-Forward to the fray
+
+Down the field today.
+
+March to another score,
+
+Forward to the fray;
+
 Fight, men of Rutgers
+
 As in days gone by
-Fight for the Scarlet flag
-Over the rest must fly
 
-
-Keep Rutgers colors to the fore
-For they must win, so fight, fight, fight
-And we'll advance some more to score
-The Rutgers flag flies high tonight, alright, alright
-We'll fling the Scarlet banner out
-And Rutgers men will fight, fight, fight, fight, fight
-The bells of Queens each victory shout
-The bells of Queens must ring tonight
-
-RU, rah, rah
-RU, rah, rah
-Whoo-rah, whoo-rah
-Rutgers, rah!
-Up stream, Red team
-Red team, up stream
-Rah, rah, Rutgers, rah
+Fight! For the Scarlet Flag over the rest must fly.
 
 Keep Rutgers colors to the fore
-For they must win, so fight, fight, fight
-And we'll advance some more to score
+
+For they must win so fight, fight, fight!
+
+And we'll advance some more to score,
+
 The Rutgers flag flies high tonight, alright, alright
-We'll fling the Scarlet banner out
-And Rutgers men will fight, fight, fight, fight, fight
+
+We'll fling the Scarlet Banner out,
+
+And Rutgers men will fight, fight, fight, fight, fight;
+
 The bells of Queens each victory shout
-The bells of Queens must ring tonight",40.5018,74.4479,Aggression/Conflict,,4.554301239906495,1.5914285714285714,2.3412600498127336,2.632583849068054,2.185714285714286,0.20285714285714285,0.12,0.011428571428571429,0.0,0.05714285714285714,0.08571428571428572,0.022857142857142857
-Wisconsin,Big Ten,"On, Wisconsin",William Purdy and Carl Beck,1909.0,0,1,0,132,134,1,5,0,1,1,0,0,0,1,0,0,3,4DmMOLdp4ZYvrAqemDBBbJ,wisconsin,59171.26,33653.17,161,126,0.7826,"On, Wisconsin","
-On Wisconsin, on Wisconsin!
-Plunge right through that line
+
+The bells of Queens must ring tonight.
+
+RU, Rah, Rah;
+
+RU, Rah, Rah,
+
+Whoo-Rah, Whoo-Rah;
+
+Rutgers Rah
+
+Up Stream Red Team
+
+Red Team Up Stream
+
+Rah, Rah, Rutgers Rah",40.5018,74.4479,Aggression/Conflict,,4.346437992043247,1.7735042735042734,2.3412600498127336,3.2010820175662222,2.252136752136752,0.26068376068376065,0.09401709401709402,0.03418803418803419,0.0,0.1282051282051282,0.09401709401709402,0.017094017094017096
+Wisconsin,Big Ten,"On, Wisconsin",William Purdy and Carl Beck,1909.0,0,1,0,132,134,1,5,0,1,1,0,0,0,1,0,0,3,4DmMOLdp4ZYvrAqemDBBbJ,wisconsin,59171.26,33653.17,161,126,0.7826,"On, Wisconsin","On Wisconsin, On Wisconsin
+
+Plunge right through that line,
+
 Run the ball clear down the field, boys
-Touchdown, sure this time!
 
+Touchdown sure this time
 
-On Wisconsin, on Wisconsin!
-Fight on for her fame
-Fight, fellows! Fight, fight, fight!
-We'll win this game!",43.0755,89.4155,Aggression/Conflict,,4.460028217166938,1.0,2.4763233489129743,0.019304625015601616,1.3205128205128205,-1.0128205128205128,0.1794871794871795,0.0,0.0,0.0,0.10256410256410256,0.02564102564102564
-Oregon,Big Ten,Mighty Oregon,DeWitt Gilbert and Albert John Perfect,1916.0,1,1,0,65,80,1,2,1,1,1,0,0,0,1,1,0,5,4zPgdoDF3Od2dwQdPlGJtt,oregon,43568.06,23442.12,155,132,0.8516,Mighty Oregon,"
-Oregon, our Alma Mater
-We will guard thee on and on
-Fellows gather 'round and cheer her
-Chant her glory, Oregon!
-Roar the praises of her warriors
-Sing the story, Oregon
-On to victory urge the heroes
-Of our Mighty Oregon!
+On Wisconsin, On Wisconsin
 
+Fight on for her fame,
 
-Go! Ducks! Go!
-Fight! Ducks! Fight!
-Go! Fight!
-Win! Ducks! Win!
+Fight, Fellows, Fight, Fight, Fight
 
+We'll win this game!",43.0755,89.4155,Aggression/Conflict,,4.6651564222951425,1.6153846153846154,2.6814515540411796,0.019304625015601616,1.3205128205128205,-0.9102564102564104,0.20512820512820512,0.07692307692307693,0.02564102564102564,0.0,0.10256410256410256,0.05128205128205128
+Oregon,Big Ten,Mighty Oregon,DeWitt Gilbert and Albert John Perfect,1916.0,1,1,0,65,80,1,2,1,1,1,0,0,0,1,1,0,5,4zPgdoDF3Od2dwQdPlGJtt,oregon,43568.06,23442.12,155,132,0.8516,Mighty Oregon,"Oregon, our Alma Mater, we will guard thee on and on.
 
-Oregon, our Alma Mater
-We will guard thee on and on
-Fellows gather 'round and cheer her
-Chant her glory, Oregon!
-Roar the praises of her warriors
-Sing the story, Oregon
-On to victory urge the heroes
-Of our Mighty Oregon!",44.0448,123.0726,Aggression/Conflict,,5.449000075321022,1.0161290322580645,2.79356571771093,-0.2128429504958705,0.9381720430107527,0.8010752688172043,0.053763440860215055,0.06451612903225806,0.043010752688172046,0.021505376344086023,0.08602150537634409,0.06451612903225806
-UCLA,Big Ten,Sons of Westwood, Harold P. Williams and N. Loyall McLaren; Kelly James,1959.0,0,1,0,72,69,1,3,0,0,0,0,0,1,1,1,1,5,0XxQcPAThn9dOZ6NVFUfGl,ucla,46046.21,28551.57,147,92,0.6259,Sons of Westwood,"We are the sons of Westwood, and we hail
-the blue and gold,true to thee our hearts will
-be, our love will not grow old.
+Fellows gather ‘round and cheer her; chant her glory, Oregon.
 
-Bruins roam the hills of Westwood, by the
-blue Pacific shore, and if by chance they see
-a man from USC, every Bruin starts to roar!
+Roar the praises of her warriors, sing the story, Oregon;
 
-U rah rah rah rah,
-C rah rah rah rah,
-L rah rah rah rah,
-A rah rah rah rah
+On to victory urge the heroes of our Mighty Oregon.
 
-U. C. L. A  FIGHT, FIGHT, FIGHT!",34.0699,118.4438,Aggression/Conflict,,3.3754761008207677,1.6075949367088609,2.4207133808671166,1.3788618933148422,1.5537974683544304,-1.6518987341772151,0.0379746835443038,0.0759493670886076,0.012658227848101266,0.21518987341772153,0.0379746835443038,0.0
-USC,Big Ten,"Fight On, USC",Milo Sweet,1922.0,1,1,1,75,60,1,5,1,1,1,0,0,0,1,0,1,5,23EM48kuqZWVltXE9bApcK,usc,55210.37,32430.29,147,116,0.7891,"Fight On, USC","Fight On for ol' SC
-Our men Fight On to victory
-Our Alma Mater dear,
-looks up to you
-Fight On and win
-For ol' SC
-Fight On to victory
-Fight On!",34.0224,118.2851,Aggression/Conflict,,5.094301239906496,1.5,2.729510432301583,-0.3245590080748034,0.5,0.5,0.1875,0.0625,0.0625,0.0,0.0,0.09375
-Washington,Big Ten,Bow Down to Washington,Lester J. Wilson,1915.0,0,1,1,139,89,1,1,1,0,1,1,0,1,0,0,0,4,0OLQPcJ1jMwrXJbt81hHrx,washington,50896.2,28461.16,155,102,0.6581,Bow Down to Washington,"
-Bow down to Washington, bow down to Washington
-Mighty are the ones who wear the Purple and the Gold
-Joyfully we welcome them within the victor's fold
-We will carve their names in the Hall of Fame
-To preserve the memory of our devotion
+We will march, march, on down the field, fighting for Oregon.
 
-So, heaven help the foes of Washington
-They're trembling at the feet of mighty Washington
-Our teams are there with bells, their fighting blood excels
-It's harder to push thеm over the line than pass thе Dardanelles
-So, victory's the cry of Washington
-Our leather lungs together with a rah! Rah! Rah!
-And o'er the land the loyal band
-Will sing the glory of Washington forever!",47.6567,122.3066,Aggression/Conflict,,3.2210610094406817,1.0045045045045045,2.1469713546204336,1.7777497084534466,2.0765765765765765,-0.5000000000000001,0.018018018018018018,0.06306306306306306,0.009009009009009009,0.02702702702702703,0.07207207207207207,0.009009009009009009
-Notre Dame,Independent,Victory March,Michael J. Shea and John F. Shea,1908.0,0,1,0,152,64,1,1,1,1,1,1,0,1,1,0,0,6,15a3ShKX3XWKzq0lSS48yr,notre_dame,58526.83,34371.72,152,111,0.7303,Victory March,"
-Rally sons of Notre Dame
-Sing her glory and sound her fame
+Plough through the foeman's line their strength we'll defy.
+
+We'll give a long cheer for our men. We're out to win again.
+
+OSU may fight to the end but we will win.
+",44.0448,123.0726,Aggression/Conflict,,5.304606834153588,1.3571428571428572,2.9256701723960297,0.09130451494191749,0.7261904761904762,0.9285714285714284,0.03571428571428571,0.10714285714285714,0.05952380952380952,0.05952380952380952,0.05952380952380952,0.07142857142857142
+UCLA,Big Ten,Sons of Westwood, Harold P. Williams and N. Loyall McLaren; Kelly James,1959.0,0,1,0,72,69,1,3,0,0,0,0,0,1,1,1,1,5,0XxQcPAThn9dOZ6NVFUfGl,ucla,46046.21,28551.57,147,92,0.6259,Sons of Westwood,"We are Sons of Westwood,
+
+And we hail the Blue and Gold;
+
+True to thee our hearts will be,
+
+Our love will not grow old.
+
+Bruins roam the hills of Westwood,
+
+By the blue Pacific shore;
+
+And when they chance to see a man from USC,
+
+Ev'ry Bruin starts to roar.
+
+U! (3 claps)
+
+C! (3 claps)
+
+L! (3 claps)
+
+A! (3 claps)
+
+U-C-L-A! Fight! Fight! Fight!",34.0699,118.4438,Aggression/Conflict,,3.4145357753234804,1.8,2.6623047009394494,0.3430571916873557,1.592857142857143,-1.6714285714285715,0.04285714285714286,0.1,0.04285714285714286,0.08571428571428572,0.04285714285714286,0.0
+USC,Big Ten,"Fight On, USC",Milo Sweet,1922.0,1,1,1,75,60,1,5,1,1,1,0,0,0,1,0,1,5,23EM48kuqZWVltXE9bApcK,usc,55210.37,32430.29,147,116,0.7891,"Fight On, USC","Fight On for ol’ SC
+
+Our men Fight On to victory.
+
+Our Alma Mater dear, looks up to you
+
+Fight On and win for ol’ SC
+
+Fight On to victory. Fight On!",34.0224,118.2851,Aggression/Conflict,,4.844301239906496,1.5,2.979510432301583,-0.3245590080748034,0.5,0.625,0.15625,0.0625,0.09375,0.0,0.0,0.09375
+Washington,Big Ten,Bow Down to Washington,Lester J. Wilson,1915.0,0,1,1,139,89,1,1,1,0,1,1,0,1,0,0,0,4,0OLQPcJ1jMwrXJbt81hHrx,washington,50896.2,28461.16,155,102,0.6581,Bow Down to Washington,"Bow down to Washington
+
+Bow down to Washington
+
+Mighty are the ones who wear the purple and the gold
+
+Joyfully we welcome them within the victor’s fold
+
+We will carve their names in the hall of fame
+
+to preserve the memory of our devotion.
+
+So heaven help the foes of Washington
+
+They’re trembling at the feet of mighty Washington
+
+Our teams are there with bells
+
+Their fighting blood excels
+
+It’s harder to push them over the line than pass the Dardanelles.
+
+So, “VICTORY’S” the cry of Washington
+
+Our leather lungs together with a RAH! RAH! RAH!
+
+And o’er the land the loyal band will sing the glory of Washington forever!",38.6488,90.3108,Aggression/Conflict,,3.3678259562056287,1.1545454545454545,2.3658083734574524,1.9251698558735941,2.081818181818182,-0.35454545454545444,0.03636363636363636,0.08181818181818182,0.03636363636363636,0.045454545454545456,0.07272727272727272,0.03636363636363636
+Notre Dame,Independent,Victory March,Michael J. Shea and John F. Shea,1908.0,0,1,0,152,64,1,1,1,1,1,1,0,1,1,0,0,6,15a3ShKX3XWKzq0lSS48yr,notre_dame,58526.83,34371.72,152,111,0.7303,Victory March,"Rally sons of Notre Dame:
+
+Sing her glory and sound her fame,
+
 Raise her Gold and Blue
-And cheer with voices true
+
+And cheer with voices true:
+
 Rah, rah, for Notre Dame
-We will fight in ev'ry game
+
+We will fight in ev-ry game,
+
 Strong of heart and true to her name
+
 We will ne'er forget her
+
 And will cheer her ever
+
 Loyal to Notre Dame
 
-Cheer, cheer for old Notre Dame
-Wake up the echoes cheering her name
-Send a volley cheer on high
-Shake down the thunder from thе sky
+Cheer, cheer for old Notre Dame,
+
+Wake up the echoes cheering her name,
+
+Send a volley cheer on high,
+
+Shake down the thunder from the sky.
+
 What though the odds be great or small
-Old Notrе Dame will win over all
-While her loyal sons and daughters
-March on to victory",41.7052,86.2352,Aggression/Conflict,,4.401363258543513,1.9528301886792452,1.9478647512361253,2.168260418155565,2.330188679245283,0.6132075471698113,0.02830188679245283,0.05660377358490566,0.018867924528301886,0.0660377358490566,0.10377358490566038,0.02830188679245283
-Arizona,Pac-12,"Bear Down, Arizona",Jack K. Lee,1952.0,0,0,0,144,83,0,0,0,0,0,0,0,1,0,0,0,1,2ckfyC5awK1YD3kbOfCHeP,arizona,36801.01,20014.91,154,81,0.526,"Bear Down, Arizona","
-Bear Down, Arizona!
-Bear Down, Red and Blue!
-Bear Down, Arizona!
-Hit 'em hard, let 'em know who's who
-Bear Down, Arizona!
-Bear Down, Red and Blue!
-Go, go, Wildcats, go
-Arizona, Bear Down!
-Bear Down, Arizona!
-Bear Down, Red and Blue!
-Bear Down, Arizona!
-Hit 'em hard, let 'em know who's who
-Bear Down, Arizona!
-Bear Down, Red and Blue!
-Go, go, Wildcats, go
-Arizona, Bear Down!
-A-R-I-Z-O-N-A!
-A-R-I-Z-O-N-A!
-A-R-I-Z-O-N-A!
-Go A-R-I-Z-O-N-A!
-W-I-L-D Cats! (Say what?)
-W-I-L-D Wildcats! (That's right!)
-W-I-L-D Cats!
-We're wild about those Cats!",32.2319,110.9535,Institutional Pride,,0.908009640782201,0.5,-0.0031568872575808427,0.09169696882410794,2.0578512396694215,-0.39669421487603307,0.09917355371900827,0.0,0.0,0.0,0.1322314049586777,0.0
-Arizona State,Pac-12,Maroon and Gold,Felix McKernan,1948.0,0,1,0,150,106,1,3,1,0,1,0,0,1,0,0,1,4,138TmlsqwA1J0pGeJBoGUS,arizona_state,40333.18,23452.94,154,105,0.6818,Maroon and Gold,"Fight, Devils down the field
-Fight with your might and don't ever yield
-Long may our colors outshine all others
-Echo from the buttes, give 'em hell Devils
-Cheer, cheer for A-S-U
-Fight for the old Maroon
-For it's hail, hail, the gang's all here
-And it's onward to victory",33.423,111.9278,Aggression/Conflict,,3.775251041295067,0.6538461538461539,2.2980817520240673,0.7432777561129765,1.6538461538461537,-0.653846153846154,0.07692307692307693,0.019230769230769232,0.019230769230769232,0.07692307692307693,0.019230769230769232,0.019230769230769232
-California,Pac-12,Fight for California,Earl Elleson McCoy and Robert N. Fitch,1909.0,0,1,0,134,88,1,2,1,1,1,0,0,1,1,0,0,5,06Qz83gVtmHtWTClrucgjX,california,35744.39,22234.93,148,88,0.5946,Fight for California,"Our sturdy Golden Bear
-Is watching from the skies
-Looks down upon our colors fair
-And guards us from his lair
-Our banner, Gold and Blue
-The symbol on it, too
-Means fight for California
-For California through and through
-Stalwarts girded for the fray
-Will strive for victory
-Their all at mater's feet will lay
-That brain and brawn will win the day
+
+Old Notre Dame will win over all,
+
+While her loyal sons are marching
+
+Onward to victory.",41.7052,86.2352,Aggression/Conflict,,4.325891560430305,2.2547169811320753,2.5516383361417856,2.3946755124951875,2.4056603773584904,0.8773584905660377,0.018867924528301886,0.09433962264150944,0.09433962264150944,0.09433962264150944,0.11320754716981132,0.05660377358490566
+Arizona,Pac-12,"Bear Down, Arizona",Jack K. Lee,1952.0,0,0,0,144,83,0,0,0,0,0,0,0,1,0,0,0,1,2ckfyC5awK1YD3kbOfCHeP,arizona,36801.01,20014.91,154,81,0.526,"Bear Down, Arizona","Bear Down, Arizona
+
+Bear Down, red and Blue
+
+Bear Down, Arizona
+
+Hit 'em hard, let 'em know who's who;
+
+Bear Down, Arizona
+
+Bear Down, Red and Blue
+
+Go, go, Wildcats, go;
+
+Arizona, Bear Down",32.2319,110.9535,School Pride,,1.7616800345595467,0.5,-0.0031568872575808427,0.09169696882410794,2.8823529411764706,-0.8235294117647058,0.20588235294117646,0.0,0.0,0.0,0.23529411764705882,0.0
+Arizona State,Pac-12,Maroon and Gold,Felix McKernan,1948.0,0,1,0,150,106,1,3,1,0,1,0,0,1,0,0,1,4,138TmlsqwA1J0pGeJBoGUS,arizona_state,40333.18,23452.94,154,105,0.6818,Maroon and Gold,"Fight, Devils Down The Field
+
+Fight With Your Might and Don't Ever Yield
+
+Long May Our Colors Outshine All Others
+
+Echo From The Buttes, Give 'Em Hell Devils!
+
+Cheer, Cheer For A-S-U
+
+Fight For The Old Maroon
+
+For it's Hail, Hail, The Gang's All Here
+
+And It's Onward to Victory!",33.423,111.9278,Aggression/Conflict,,3.9290971951412206,1.1153846153846154,2.9134663674086827,0.8971239099591304,1.6538461538461537,-0.7307692307692308,0.09615384615384616,0.07692307692307693,0.09615384615384616,0.09615384615384616,0.019230769230769232,0.019230769230769232
+California,Pac-12,Fight for California,Earl Elleson McCoy and Robert N. Fitch,1909.0,0,1,0,134,88,1,2,1,1,1,0,0,1,1,0,0,5,06Qz83gVtmHtWTClrucgjX,california,35744.39,22234.93,148,88,0.5946,Fight for California,"Our sturdy Golden Bear,
+
+Is watching from the skies,
+
+Looks down upon our colors fair,
+
+And guards us from his lair.
+
+Our banner Gold and Blue,
+
+The symbol on it too,
+
+Means FIGHT! for California.
+
+For California through and through!
+
+Stalwarts girded for the fray,
+
+Will strive for victory,
+
+Their all at Mater’s feet will lay,
+
+That brain and brawn will win the day.
+
 Our mighty sons and true
-Will strive for us anew
-And fight for California
-For California through and through",37.8712,122.2555,Aggression/Conflict,,4.42475468823764,2.174698795180723,2.0970806435987286,0.03137001565035267,2.0783132530120483,0.5000000000000002,0.04819277108433735,0.08433734939759036,0.0,0.0,0.07228915662650602,0.024096385542168676
-Colorado,Pac-12,Fight CU,Richard Durnett,,0,1,0,151,27,1,8,1,1,1,0,0,0,0,0,1,4,0Q3VKlBT4lugyLG5n9LKIz,colorado,36810.62,20731.04,143,74,0.5175,Fight CU,"Fight, CU, down the field
+
+Will strive for us anew,
+
+And FIGHT! for California,
+
+For California through and through!",37.8712,122.2555,Aggression/Conflict,,4.328369146068965,2.3674698795180724,2.193466185767403,0.03137001565035267,2.174698795180723,0.6445783132530121,0.03614457831325301,0.10843373493975904,0.012048192771084338,0.0,0.08433734939759036,0.03614457831325301
+Colorado,Pac-12,Fight CU,Richard Durnett,,0,1,0,151,27,1,8,1,1,1,0,0,0,0,0,1,4,0Q3VKlBT4lugyLG5n9LKIz,colorado,36810.62,20731.04,143,74,0.5175,Fight CU,"Fight CU down the field,
+
 CU must win
+
 Fight, fight for victory
+
 CU knows no defeat
+
 We'll roll up a mighty score
+
 Never give in
+
 Shoulder to shoulder
+
 We will fight, fight
-Fight, fight, fight",40.0073,105.266,Aggression/Conflict,,6.681693009342885,0.22857142857142856,1.5076157754761879,0.13392583604573663,0.5,-0.2999999999999998,0.3142857142857143,0.02857142857142857,0.0,0.0,0.0,0.05714285714285714
-Oregon State,Pac-12,Hail to Old OSU,Harold Wilkins,1914.0,0,1,0,137,63,1,2,0,0,0,0,0,0,0,0,1,2,4IV43tyrxewZDmBMp2rtHh,oregon_state,29137.98,16599.26,148,90,0.6081,Hail to Old OSU,"Here we come with a toast and song for the college up on the hill
-We love its shady slopes and trees, its mem'ries cheer and thrill
-But fondest thoughts, when the years have run
-Will be of teams and vict'ries won
-Each man a loyal son
-Hail to old OSU
-OSU, our hats are off to you
-Beavers, Beavers, fighters through and through
-We'll cheer thoughout the land
-We'll root for every stand that's made for old OSU
-Watch our team go tearing down the field
-Those of iron, their strength will never yield
-Hail, hail, hail, hail
-Hail to old OSU",44.5618,123.2823,Aggression/Conflict,Tradition/Legacy,2.2171749328283417,0.5436893203883495,2.1124393779716963,0.6708273249034501,0.5,-1.5,0.019417475728155338,0.06796116504854369,0.02912621359223301,0.07766990291262135,0.0,0.009708737864077669
-Stanford,Pac-12,Come Join the Band,"Aurania Ellerbeck Rouverol, Robert Browne Hall",1907.0,1,1,0,135,63,0,0,0,1,1,0,0,1,1,0,0,3,3Zw53YIiVtdcQBmwbBQ2JS,stanford,31461.08,19346.31,144,84,0.5833,Come Join the Band,"Come join the band
-And give a cheer for Stanford Red
+
+Fight, fight, fight!",40.0073,105.266,Aggression/Conflict,,6.453121580771456,0.45714285714285713,1.5076157754761879,0.13392583604573663,0.5,0.04285714285714315,0.2857142857142857,0.05714285714285714,0.0,0.0,0.0,0.08571428571428572
+Oregon State,Pac-12,Hail to Old OSU,Harold Wilkins,1914.0,0,1,0,137,63,1,2,0,0,0,0,0,0,0,0,1,2,4IV43tyrxewZDmBMp2rtHh,oregon_state,29137.98,16599.26,148,90,0.6081,Hail to Old OSU,"OSU our hats are off to you,
+
+Beavers, Beavers fighters thru and thru.
+
+We'll cheer throughout the land,
+
+We'll root for ev'ry plan,
+
+(LET’S X GO X O-S-U!)
+
+Watch our team go tearing down the field,
+
+Those of iron their strength will never yield.
+
+Hail, hail, hail, hail,
+
+Hail to old OSU.
+
+(OSU Fight! B-E-A-V-E-R-S)",44.5618,123.2823,Tradition/Legacy,Aggression/Conflict,2.315803380971353,0.6349206349206349,2.6413344311385942,0.8113728635072411,0.5,-1.626984126984127,0.031746031746031744,0.07936507936507936,0.09523809523809523,0.09523809523809523,0.0,0.0
+Stanford,Pac-12,Come Join the Band,"Aurania Ellerbeck Rouverol, Robert Browne Hall",1907.0,1,1,0,135,63,0,0,0,1,1,0,0,1,1,0,0,3,3Zw53YIiVtdcQBmwbBQ2JS,stanford,31461.08,19346.31,144,84,0.5833,Come Join the Band,"Come, join the band,
+
+And give a cheer for Stanford red;
+
 Throughout the land
-Our banner waving overhead
-Stanford for you
-Each loyal comrade brave and true
-With might and main sings this refrain
-Forever and forever, Stanford Red
 
-After the game
-When Stanford Red has won the day
+Our banner waving overhead;
+
+Stanford, for you,
+
+Each loyal comrade brave and true,
+
+With might and main sings this refrain,
+
+“Forever and forever Stanford red.”
+
+After the game,
+
+When Stanford red has won the day,
+
 Praising her name
-Down to the field, we'll force our way
-And on the green
-Each man who joins the serpentine
-With might and main sings this refrain
 
-Forever and forever, Stanford Red",37.4277,122.1701,Institutional Pride,Tradition/Legacy,1.2418753399291724,1.8902439024390243,2.2817389623076076,0.1349636865774843,2.475609756097561,1.0,0.024390243902439025,0.04878048780487805,0.04878048780487805,0.012195121951219513,0.12195121951219512,0.012195121951219513
-Utah,Pac-12,Utah Man,Harvey Holmes and the football team,1904.0,0,1,0,168,66,1,1,0,0,0,0,1,1,1,0,0,4,5pwoauvjUb3aRkDDvibaco,utah,35349.27,19913.44,143,110,0.7692,Utah Man,"
-I am a Utah Man/Fan, sir, and I live across the green,
+Down on the field we’ll force our way
+
+And on the green
+
+Each man who joins the serpentine
+
+With might and main sings this refrain.
+
+“Forever and forever Stanford red.”",37.4277,122.1701,Tradition/Legacy,Unity/Brotherhood,1.1443143643194165,2.475609756097561,2.47686091352712,0.1349636865774843,2.475609756097561,1.048780487804878,0.012195121951219513,0.12195121951219512,0.07317073170731707,0.012195121951219513,0.12195121951219512,0.012195121951219513
+Utah,Pac-12,Utah Man,Harvey Holmes and the football team,1904.0,0,1,0,168,66,1,1,0,0,0,0,1,1,1,0,0,4,5pwoauvjUb3aRkDDvibaco,utah,35349.27,19913.44,143,110,0.7692,Utah Man,"I am a Utah man (fan), sir, and I live across the green,
+
 Our gang it is the jolliest that you have ever seen.
+
 Our students are the finest and each one's a shining star,
+
 Our yell, you'll hear it ringing through the mountains near and far!
 
-
 Who am I, sir,
-A Utah Man/Fan am I!
-A Utah Man/Fan, sir,
+
+A Utah man (fan) am I!
+
+A Utah man (fan), sir,
+
 Will be 'til I die.
+
 Ki-yi!
+
 We're up to snuff, we never bluff, we're game for any fuss.
+
 No rival band of college fans dare meet us in The Muss.
+
 So fill your lungs and sing it out and shout it to the sky,
-We'll fight for dear old crimson for a Utah Man/Fan am I!
+
+We'll fight for dear old crimson for a Utah man (fan) am I!
+
 Ki-yi!
 
 And when we prom the avenue,
+
 All lined up in a row, and arm in arm,
+
 And step in time as down the street we go.
+
 No matter if a freshman green, or in a senior's gown,
+
 the people all admit we are the warmest gang in town.
+
 We may not live forever on this jolly good sphere,
+
 But while we do we'll live a life of merriment and cheer,
+
 And when our college days are o'er and night is drawing nigh,
-With parting breath we'll sing that song: ""A Utah Man/Fan Am I.""
 
-Go Utes!",40.7649,111.8421,Aggression/Conflict,Unity/Brotherhood,2.3686614312819945,1.9018264840182648,1.789421821735317,1.3095410171717141,1.7922374429223744,-1.5365296803652968,0.0091324200913242,0.0502283105022831,0.0091324200913242,0.0091324200913242,0.0365296803652968,0.0
-Washington State,Pac-12,The Fight Song,Zella Melcher and Phyllis Sayles,1919.0,1,1,0,81,64,1,7,1,1,1,0,0,1,0,0,1,5,5VErX42t9bSJGas8aOtQyD,washington_state,23990.65,14009.35,144,81,0.5625,The Fight Song,"Fight, fight, fight for Washington State!
-Win the victory!
+With parting breath we'll sing that song: “A Utah man (fan) Am I.”",40.7649,111.8421,Aggression/Conflict,Unity/Brotherhood,2.36933478944541,2.3110599078341014,1.8638278987927417,1.457679813123148,1.794930875576037,-1.5368663594470047,0.009216589861751152,0.10138248847926268,0.018433179723502304,0.027649769585253458,0.03686635944700461,0.0
+Washington State,Pac-12,The Fight Song,Zella Melcher and Phyllis Sayles,1919.0,1,1,0,81,64,1,7,1,1,1,0,0,1,0,0,1,5,5VErX42t9bSJGas8aOtQyD,washington_state,23990.65,14009.35,144,81,0.5625,The Fight Song,"Fight, fight, fight for Washington State
+
+Win the victory,
+
 Win the day for Crimson and Gray!
-Best in the West
-We know you'll all do your best
-So on, on, on, on! Fight to the end!
+
+Best in the West,
+
+We know you'll all do your best,
+
+So on, on, on, on!
+
+Fight to the end!
+
 Honor and glory you must win!
-So fight, fight, fight for Washington State and victory!
-W-A-SHI-N-G-TON, S-T-ATE, C-O-UGS!
-Go, Cougs!",46.7289,117.1468,Aggression/Conflict,,4.870315685556043,0.6230769230769231,2.348319645620296,-0.28836283617055025,1.9923076923076923,0.6230769230769231,0.15384615384615385,0.015384615384615385,0.015384615384615385,0.0,0.06153846153846154,0.09230769230769231
-Alabama,SEC,Yea Alabama,Ethelred Lundy (Epp) Sykes,1926.0,1,1,1,153,59,1,3,1,1,1,0,0,1,1,1,0,6,1lkKK6lbsPYD6n5QZbiH1q,alabama,74266.93,40369.38,167,144,0.8623,Yea Alabama,"Yea, Alabama! Drown ’em Tide!
-Every ‘Bama man’s behind you,
+
+So fight, fight, fight for Washington State and
+
+Victory!
+
+W-A-S-H-I-N-G-T-O-N
+
+S-T-A-T-E
+
+C-O-U-G-S
+
+Go Cougs!",46.7289,117.1468,Aggression/Conflict,,4.406669742458044,0.7191780821917808,2.4444208047351537,-0.28836283617055025,1.9383561643835616,1.1027397260273972,0.0958904109589041,0.0273972602739726,0.0273972602739726,0.0,0.0547945205479452,0.1232876712328767
+Alabama,SEC,Yea Alabama,Ethelred Lundy (Epp) Sykes,1926.0,1,1,1,153,59,1,3,1,1,1,0,0,1,1,1,0,6,1lkKK6lbsPYD6n5QZbiH1q,alabama,74266.93,40369.38,167,144,0.8623,Yea Alabama,"Yea, Alabama! Drown 'em Tide!
+
+Every 'Bama man's behind you,
+
 Hit your stride.
+
 Go teach the Bulldogs to behave,
+
 Send the Yellow Jackets to a watery grave.
+
 And if a man starts to weaken,
-That’s a shame!
-For Bama’s pluck and grit have
+
+That's a shame!
+
+For Bama's pluck and grit have
+
 Writ her name in Crimson flame.
+
 Fight on, fight on, fight on men!
-Remember the Rose Bowl, we’ll win then.
-So roll on to victory,
+
+Remember the Rose Bowl, we'll win then.
+
+Go, roll to victory,
+
 Hit your stride,
-You’re Dixie’s football pride,
-Crimson Tide, Roll Tide, Roll Tide!!",33.2114,87.5401,Aggression/Conflict,,6.077550761745671,1.0,1.7509780820097811,0.14599122668048767,1.6450617283950617,0.5,0.04938271604938271,0.0,0.0,0.0,0.04938271604938271,0.024691358024691357
-Arkansas,SEC,Arkansas Fight,William Edwin Douglass,1913.0,1,1,0,77,88,1,3,0,0,0,1,0,0,0,0,1,3,20iLjYvQOdAO3lPYkfycGn,arkansas,51457.77,27856.15,160,96,0.6,Arkansas Fight,"Hit that line
-Hit that line
-Keep on going
-Move that ball right down the field
-Give a cheer, rah, rah!
-Never fear, rah, rah!
-Arkansas will never yield
-On your toes, Razorbacks, to the finish
-Carry on with all your might
-For it's A-A-A-R-K-A-N-S-A-S for Arkansas
-Fight, fight, fight!",36.0687,94.1748,Tradition/Legacy,Aggression/Conflict,2.1517558595558666,0.0,2.4409442766891334,1.865472484254863,0.771186440677966,-1.771186440677966,0.06779661016949153,0.0,0.0,0.0847457627118644,0.03389830508474576,0.0
-Auburn,SEC,War Eagle,Robert Allen and Al Stillman,1955.0,0,1,0,77,27,1,1,1,1,1,0,0,1,0,0,0,4,1WSPADIiYIO5GfNTJ2vwnM,auburn,64682.55,36500.45,172,127,0.7384,War Eagle,"War Eagle, fly down the field
-Ever to conquer, never to yield
-War Eagle, fearless and true
-Fight on you Orange and Blue
+
+You're Dixie's football pride,
+
+Crimson Tide, Roll Tide, Roll Tide!!",33.2114,87.5401,Aggression/Conflict,,6.18248903335061,1.1,1.7509780820097811,0.24599122668048767,1.65,0.5499999999999998,0.0625,0.0125,0.0,0.0125,0.05,0.0375
+Arkansas,SEC,Arkansas Fight,William Edwin Douglass,1913.0,1,1,0,77,88,1,3,0,0,0,1,0,0,0,0,1,3,20iLjYvQOdAO3lPYkfycGn,arkansas,51457.77,27856.15,160,96,0.6,Arkansas Fight,"Hit that line! Hit that line!
+
+Keep on going!
+
+Move that ball right down the field!
+
+Give a cheer. Rah! Rah!
+
+Never fear. Rah! Rah!
+
+Arkansas will never yield!
+
+On your toes, Razorbacks, to the finish,
+
+Carry on with all your might!
+
+For it’s A-A-A-R-K-A-N-S-A-S
+
+for Arkansas!
+
+Fight! Fight! Fi-i-i-ight!",36.0687,94.1748,Aggression/Conflict,Tradition/Legacy,2.5126087846515475,0.12903225806451613,2.4409442766891334,1.8326676728825282,0.7580645161290323,-1.9516129032258065,0.11290322580645161,0.016129032258064516,0.0,0.08064516129032258,0.03225806451612903,0.0
+Auburn,SEC,War Eagle,Robert Allen and Al Stillman,1955.0,0,1,0,77,27,1,1,1,1,1,0,0,1,0,0,0,4,1WSPADIiYIO5GfNTJ2vwnM,auburn,64682.55,36500.45,172,127,0.7384,War Eagle,"War Eagle, fly down the field,
+
+Ever to conquer, never to yield.
+
+War Eagle, fearless and true.
+
+Fight on you orange and blue.
+
 Go! Go! Go!
-On to vict'ry, strike up the band
-Give 'em hell, give 'em hell
+
+On to vict'ry, strike up the band.
+
+Give 'em hell, give 'em hell,
+
 Stand up and yell, hey!
-War Eagle, win for Auburn
-Power of Dixieland!",32.5981,85.4943,Aggression/Conflict,,4.378613747430704,0.8076923076923077,1.954035228961977,-0.00480130974774462,1.9615384615384617,0.2692307692307691,0.09615384615384616,0.038461538461538464,0.0,0.038461538461538464,0.057692307692307696,0.019230769230769232
+
+War Eagle, win for Auburn,
+
+Power of Dixieland!",32.5981,85.4943,Aggression/Conflict,,4.840152208969165,1.1153846153846154,2.261727536654284,-0.00480130974774462,1.9615384615384617,0.038461538461538325,0.15384615384615385,0.07692307692307693,0.038461538461538464,0.038461538461538464,0.057692307692307696,0.019230769230769232
 Florida,SEC,The Orange and Blue,George Hamilton and Thornton Whitney Allen,1925.0,0,1,0,71,66,1,1,0,0,0,0,0,1,0,0,0,2,15yyBZUfgNbft50mMB7a4V,florida,65545.55,37599.94,157,122,0.7771,The Orange and Blue,"So give a cheer for the Orange and Blue
-Waving forever!
-Forever pride of Old Florida
-May she droop never
-We'll sing a song for the flag today
+
+Waving Forever!
+
+Forever pride of Old Florida,
+
+May she droop never.
+
+We’ll sing a song for the flag today,
+
 Cheer for the team at play!
-On to the goal
-We'll fight our way for
-Flor-i-da! (Go, Gators!)",29.6465,82.3533,Tradition/Legacy,,1.7308044299862846,0.8333333333333333,2.8015339067901497,-0.015356456010972186,2.0,-1.5833333333333333,0.020833333333333332,0.041666666666666664,0.0625,0.041666666666666664,0.0625,0.0
-Georgia,SEC,"Glory, Glory","Hugh Hodgson, based on traditional song",1915.0,1,0,0,162,41,0,0,0,0,0,0,0,0,0,0,1,1,7masdC1Jz6f4okFu4tAwOz,georgia,71204.98,38116.4,153,129,0.8431,"Glory, Glory","Glory, glory to old Georgia
-Glory, glory to old Georgia
-Glory, glory to old Georgia
-G-E-O-R-G-I-A
 
-Glory, glory to old Georgia
-Glory, glory to old Georgia
-Glory, glory to old Georgia
-G-E-O-R-G-I-A",33.9423,83.3724,Competitive Glory,,0.25035685567108423,0.0,0.6439148354052986,0.2002854845368674,1.0909090909090908,2.1818181818181817,0.0,0.0,0.13636363636363635,0.0,0.13636363636363635,0.2727272727272727
-Kentucky,SEC,On! On! U of K,Troy Perkins and Charles A. Lampert,1923.0,1,1,1,79,52,1,4,1,1,1,0,0,1,0,0,1,5,6QMYhg8EaZm7P1n4FZrCWB,kentucky,46409.14,25123.44,168,94,0.5595,On! On! U of K,"On, on, U of K
-We are right for the fight today
-Hold that ball and hit that line
-Ev'ry Wildcat star will shine
-We'll fight, fight, fight
-For the Blue and White
-As we roll to that goal, Varsity
-And we'll kick, pass and run
-'Til the battle is won
-And we'll bring home the victory",38.0307,84.504,Aggression/Conflict,,4.466569979651268,0.7807017543859649,2.141522726739995,-0.3004282268053013,1.780701754385965,0.35964912280701755,0.10526315789473684,0.03508771929824561,0.0,0.0,0.03508771929824561,0.03508771929824561
-LSU,SEC,Fight for LSU,Castro Carazo and W.G. Higginbotham,1937.0,0,1,0,168,83,1,5,0,1,1,1,0,1,0,0,1,5,5AeAxCC07c4eyWY8eKopQ4,lsu,74161.08,39832.21,170,144,0.8471,Fight for LSU,"Like knights of old, let's fight to hold
-The glory of the purple, gold
-Let's carry through, let's die or do
-To win the game for dear old LSU
-Keep trying for that high score
-Come on and fight
-We want some more, some more
-Come on, you Tigers, fight, fight, fight
-For dear old LSU (Rah!)",30.4102,91.1857,Aggression/Conflict,,4.1377073337092956,0.6403508771929824,2.2731110567043538,1.876832533634103,2.06140350877193,-0.6403508771929824,0.10526315789473684,0.017543859649122806,0.05263157894736842,0.017543859649122806,0.07017543859649122,0.03508771929824561
-Mississippi,SEC,Forward Rebels,E.F. Yerby,,0,1,0,153,65,1,6,1,1,1,0,0,1,0,0,0,4,301ClIQs4cI8poO11mklxg,mississippi,44643.7,24284.98,161,103,0.6398,Forward Rebels,"Forward, Rebels, march to fame
-Hit that line, and win this game
-We know that you'll fight it through
-For your colors, red and blue
-Fight, fight, fight
+On to the goal,
 
+We’ll fight our way for
 
-Rebels, you're the Southland's pride
-Take that ball, and hit your stride
-Don't stop 'til the victory's won
-For your Ole Miss
-Fight, fight, for your Ole Miss",34.3662,89.538,Aggression/Conflict,,5.325346176207752,0.6428571428571428,1.7988707752288458,0.14599122668048767,1.7857142857142856,0.2142857142857142,0.14285714285714285,0.017857142857142856,0.0,0.0,0.03571428571428571,0.03571428571428571
-Mississippi State,SEC,Hail State,Joseph Peavey,1936.0,0,1,1,146,54,1,2,1,1,1,0,0,0,0,0,1,4,3WN6SK7WfjUSRDFH4PlMNV,mississippi_state,40681.77,22583.5,158,88,0.557,Hail State,"Hail dear ol' State
-Fight for that victory today
-Hit that line and tote that ball
-Cross the goal before you fall
-And then we'll yell, yell, yell, yell
-For dear ol' State, we'll yell like H-E-L-L
-Fight for Mis-sis-sip-pi State
-Win that game today",33.4577,88.7942,Aggression/Conflict,,4.600291184617691,0.0,1.753296371548856,1.0449388300470943,0.5,0.5784313725490193,0.058823529411764705,0.0,0.0,0.11764705882352941,0.0,0.0392156862745098
-Missouri,SEC,Fight Tiger,Donald MacKay and Robert Karsch,1946.0,1,1,1,138,86,1,4,1,1,1,0,0,0,0,0,0,3,4nrVmzJetWGvMa3OKGJm2Q,missouri,45135.54,24370.44,157,111,0.707,Fight Tiger,"Fight, Tiger, fight for old Mizzou
-Right behind you, ev'ryone is with you
-Break the line and follow down the field
-And you'll be up on the top, upon the top
+Flor-i-da!
 
-Fight, Tiger, you will always win
-Proudly keep the colors flying skyward
-In the end, we'll win the victory
-So Tiger, fight for old Mizzou",38.9404,92.3277,Aggression/Conflict,,5.069375996149819,0.0,2.3426999169704903,0.05550079691985478,0.5,0.4285714285714284,0.125,0.0,0.03571428571428571,0.0,0.0,0.05357142857142857
-South Carolina,SEC,The Fighting Gamecocks Lead the Way (Step to the Rear),"Paul Dietzel and Elmer Bernstein, arranged by James Pritchard",1968.0,0,1,0,153,64,1,4,0,1,1,0,0,1,0,0,1,4,65X66oBRmSp8gDkoRGbLjD,south_carolina,60622.01,32797.41,163,110,0.6748,The Fighting Gamecocks Lead the Way (Step to the Rear),"
-Hey! Let's give a cheer
-Carolina is here
-The fighting Gamecocks lead the way
-Who gives a care
-If the going gets tough
-And when it is rough
-That's when the 'Cocks get going
+Go Gators!",29.6465,82.3533,Tradition/Legacy,,1.7308044299862846,1.5,2.8015339067901497,0.31797687732236113,2.0,-1.4166666666666665,0.020833333333333332,0.125,0.0625,0.08333333333333333,0.0625,0.020833333333333332
+Georgia,SEC,"Glory, Glory","Hugh Hodgson, based on traditional song",1915.0,1,0,0,162,41,0,0,0,0,0,0,0,0,0,0,1,1,7masdC1Jz6f4okFu4tAwOz,georgia,71204.98,38116.4,153,129,0.8431,"Glory, Glory","Glory, glory to old Georgia!
 
-Hail to our colors of Garnet and Black
-In Carolina pride have we
-So, go Gamecocks go—fight!
-Drive for the goal—fight!
-USC will win today—go 'Cocks!
-So, let's give a cheer
-Carolina is here
-The fighting Gamecocks all the way!",33.9949,81.0285,Aggression/Conflict,,3.4941773450389215,0.7077922077922079,1.790888659692335,0.5615756422649033,2.0194805194805197,-0.551948051948052,0.03896103896103896,0.025974025974025976,0.0,0.05194805194805195,0.06493506493506493,0.012987012987012988
-Tennessee,SEC,Rocky Top,Felice and Boudleaux Bryant,1967.0,0,0,0,149,53,0,0,0,0,0,0,0,0,0,0,0,0,5BRY9YO0PDey8RQcDOV9aP,tennessee,74566.57,42250.25,169,115,0.6805,Rocky Top,"Wish that I was on old Rocky Top
+Glory, glory to old Georgia!
+
+Glory, glory to old Georgia!
+
+G-E-O-R-G-I-A.
+
+Glory, glory to old Georgia!
+
+Glory, glory to old Georgia!
+
+Glory, glory to old Georgia!
+
+G-E-O-R-G-I-A.",33.9423,83.3724,Tradition/Legacy,,0.25035685567108423,0.0,2.8257330172234805,0.2002854845368674,1.0909090909090908,2.1818181818181817,0.0,0.0,0.4090909090909091,0.0,0.13636363636363635,0.2727272727272727
+Kentucky,SEC,On! On! U of K,Troy Perkins and Charles A. Lampert,1923.0,1,1,1,79,52,1,4,1,1,1,0,0,1,0,0,1,5,6QMYhg8EaZm7P1n4FZrCWB,kentucky,46409.14,25123.44,168,94,0.5595,On! On! U of K,"On, on, U of K, we are right for the fight today,
+
+Hold that ball and hit that line;
+
+Ev'ry Wildcat star will shine;
+
+We'll fight, fight, fight, for the blue and white
+
+As we roll to that goal, Varsity,
+
+And we'll kick, pass and run, 'till the battle is won,
+
+And we'll bring home the victory.",38.0307,84.504,Aggression/Conflict,,4.60692085684425,1.2017543859649122,2.141522726739995,-0.3004282268053013,1.780701754385965,0.2894736842105263,0.12280701754385964,0.08771929824561403,0.0,0.0,0.03508771929824561,0.03508771929824561
+LSU,SEC,Fight for LSU,Castro Carazo and W.G. Higginbotham,1937.0,0,1,0,168,83,1,5,0,1,1,1,0,1,0,0,1,5,5AeAxCC07c4eyWY8eKopQ4,lsu,74161.08,39832.21,170,144,0.8471,Fight for LSU,"Like Knights of old, Let's fight to hold
+
+The glory of the Purple Gold.
+
+Let's carry through, Let's die or do
+
+To win the game for dear old LSU.
+
+Keep trying for that high score;
+
+Come on and fight,
+
+We want some more, some more.
+
+Come on you Tigers, Fight! Fight! Fight!
+
+for dear old L-S-U.
+
+RAH!",30.4102,91.1857,Aggression/Conflict,,3.973568172246316,0.635593220338983,2.6656177471593048,1.8720748767801036,1.9067796610169492,-0.5677966101694916,0.0847457627118644,0.01694915254237288,0.1016949152542373,0.01694915254237288,0.05084745762711865,0.03389830508474576
+Mississippi,SEC,Forward Rebels,E.F. Yerby,,0,1,0,153,65,1,6,1,1,1,0,0,1,0,0,0,4,301ClIQs4cI8poO11mklxg,mississippi,44643.7,24284.98,161,103,0.6398,Forward Rebels,"Forward Rebels, march to fame,
+
+Hit that line and win this game,
+
+We know that you'll fight it through,
+
+For your colors Red and Blue — Fight, Fight, Fight.
+
+Rebels you're the Southland's pride,
+
+Take that ball and hit your stride,
+
+Don't stop 'till the victory's won,
+
+For your Ole Miss.
+
+Fight, fight for your Ole Miss.",34.3662,89.538,Aggression/Conflict,,5.468203319064895,0.6428571428571428,1.9417279180859883,0.14599122668048767,1.7857142857142856,0.42857142857142827,0.16071428571428573,0.017857142857142856,0.017857142857142856,0.0,0.03571428571428571,0.07142857142857142
+Mississippi State,SEC,Hail State,Joseph Peavey,1936.0,0,1,1,146,54,1,2,1,1,1,0,0,0,0,0,1,4,3WN6SK7WfjUSRDFH4PlMNV,mississippi_state,40681.77,22583.5,158,88,0.557,Hail State,"Hail dear ol' State!
+
+Fight for that victory today.
+
+Hit that line and tote that ball,
+
+Cross the goal before you fall!
+
+And then we'll yell, yell, yell, yell!
+
+For dear ol' State
+
+we'll yell like H-E-L-L!
+
+Fight for Mis-sis-sip-pi State,
+
+Win that game today!",33.4577,88.7942,Aggression/Conflict,,4.75715392971573,0.3137254901960784,2.223884606842974,1.2018015751451336,0.5,0.4999999999999998,0.0784313725490196,0.0392156862745098,0.058823529411764705,0.13725490196078433,0.0,0.0392156862745098
+Missouri,SEC,Fight Tiger,Donald MacKay and Robert Karsch,1946.0,1,1,1,138,86,1,4,1,1,1,0,0,0,0,0,0,3,4nrVmzJetWGvMa3OKGJm2Q,missouri,45135.54,24370.44,157,111,0.707,Fight Tiger,"Fight, Tiger, fight for old Mizzou,
+
+Right behind you, everyone is with you.
+
+Break the line and follow down the field,
+
+And, you’ll be, on the top, upon the top.
+
+Fight, Tiger, you will always win,
+
+Proudly keep the colors flying skyward.
+
+In the end, we’ll win the victory,
+
+So Tiger, fight for Old Mizzou!
+",38.9404,92.3277,Aggression/Conflict,,4.942103268877092,0.43636363636363634,2.493349267619841,0.05550079691985478,0.5,0.5000000000000002,0.10909090909090909,0.05454545454545454,0.05454545454545454,0.0,0.0,0.05454545454545454
+South Carolina,SEC,The Fighting Gamecocks Lead the Way (Step to the Rear),"Paul Dietzel and Elmer Bernstein, arranged by James Pritchard",1968.0,0,1,0,153,64,1,4,0,1,1,0,0,1,0,0,1,4,65X66oBRmSp8gDkoRGbLjD,south_carolina,60622.01,32797.41,163,110,0.6748,The Fighting Gamecocks Lead the Way (Step to the Rear),"Hey, Let’s give a cheer, Carolina is here,
+
+The Fighting Gamecocks lead the way.
+
+Who gives a care, If the going gets tough,
+
+And when it is rough, that’s when the ‘Cocks get going.
+
+Hail to our colors of garnet and black,
+
+In Carolina pride have we.
+
+So, Go Gamecocks Go - FIGHT!
+
+Drive for the goal - FIGHT!
+
+USC will win today - GO COCKS!
+
+So, let’s give a cheer, Carolina is here.
+
+The Fighting Gamecocks All The Way",33.9949,81.0285,Aggression/Conflict,,3.4941773450389215,0.8116883116883117,1.8947847635884387,0.5615756422649033,2.0194805194805197,-0.448051948051948,0.03896103896103896,0.03896103896103896,0.012987012987012988,0.05194805194805195,0.06493506493506493,0.025974025974025976
+Tennessee,SEC,Rocky Top,Felice and Boudleaux Bryant,1967.0,0,0,0,149,53,0,0,0,0,0,0,0,0,0,0,0,0,5BRY9YO0PDey8RQcDOV9aP,tennessee,74566.57,42250.25,169,115,0.6805,Rocky Top,"Wish that I was on ol’ Rocky Top
+
 Down in the Tennessee hills
-Ain't no smoggy smoke on Rocky Top
-Ain't no telephone bills
+
+Ain’t no smoggy smoke on Rocky Top
+
+Ain’t no telephone bills
+
 Once I had a girl on Rocky Top
-Half bear the other half cat
-Wild as a mink but sweet as soda-pop
+
+Half bear, the other half cat
+
+Wild as a mink, but sweet as soda pop
+
 I still dream about that
 
-Rocky Top you'll always be
+Rocky Top you’ll always be
+
 Home sweet home to me
-Good ol' Rocky Top
-Rocky Top Tennessee, Rocky Top Tennessee
 
-Once two strangers climbed ol' Rocky Top
-Looking for a moonshine still
-Strangers ain't come down from Rocky Top
-Reckon they never will
-The corn won't grow at all on Rocky Top
-Dirt's too rocky by far
-That's why all the folks on Rocky Top
-Get their corn from a jar
+Good ol’ Rocky Top
 
-Rocky Top you'll always be
-Home sweet home to me
-Good ol' Rocky Top
-Rocky Top Tennessee, Rocky Top Tennessee",35.9544,83.9295,Institutional Pride,Aggression/Conflict,0.2642136686518438,0.0,-0.21683977399572535,0.12186044541098556,0.27972027972027974,-0.055944055944055944,0.013986013986013986,0.0,0.006993006993006993,0.0,0.03496503496503497,0.0
-Texas A&M,SEC,Aggie War Hymn,J.V. “Pinky” Wilson,1918.0,1,0,1,117,172,1,1,0,0,0,0,1,0,1,1,0,4,4mssGSMkmNIv0XR5e6j9Ky,texas_aandm,71036.76,39059.78,160,111,0.6938,Aggie War Hymn,"
-Hullabaloo, caneck, caneck
-Hullabaloo, caneck, caneck
+Rocky Top Tennessee, Rocky Top Tennessee",35.9544,83.9295,School Pride,Aggression/Conflict,0.26343666787484304,0.1111111111111111,-0.16167271882867018,0.12186044541098556,0.3333333333333333,-0.05555555555555555,0.013888888888888888,0.013888888888888888,0.013888888888888888,0.0,0.041666666666666664,0.0
+Texas A&M,SEC,Aggie War Hymn,J.V. “Pinky” Wilson,1918.0,1,0,1,117,172,1,1,0,0,0,0,1,0,1,1,0,4,4mssGSMkmNIv0XR5e6j9Ky,texas_aandm,71036.76,39059.78,160,111,0.6938,Aggie War Hymn,"Hullabaloo, Caneck, Caneck
 
+Hullabaloo, Caneck, Caneck
 
-Good-bye to Texas University
-So long to the Orange and the White
-Good luck to the dear old Texas Aggies
-They are the boys that show the real old fight
-""The Eyes of Texas are upon you""
+Good bye to Texas University
+
+So long to the orange and the white
+
+Good luck to dear old Texas Aggies
+
+They are the boys who show the real old fight
+
+'the eyes of Texas are upon you'
+
 That is the song they sing so well
-Sounds like hell!
-So good-bye to Texas University
-We're going to beat you all to
-Chig-gar-roo-gar-rem
-Chig-gar-roo-gar-rem
-Rough tough, real stuff, Texas A&M
 
+Sounds Like Hell
 
-Good-bye to Texas University
-So long to the Orange and the White
-Good luck to the dear old Texas Aggies
-They are the boys that show the real old fight
-""The Eyes of Texas are upon you""
-That is the song they sing so well
-Sounds like hell!
-So good-bye to Texas University
-We're going to beat you all to
-Chig-gar-roo-gar-rem
-Chig-gar-roo-gar-rem
-Rough tough, real stuff, Texas A&M",30.6187,96.3364,Aggression/Conflict,,3.606139695288223,0.5,1.0652561202805282,0.9288141952549687,0.6280487804878049,-1.5975609756097562,0.024390243902439025,0.0,0.024390243902439025,0.0,0.10975609756097561,0.0
+So good bye to Texas University
+
+We're gonna beat you all to
+
+Chigaroogarem
+
+Chigaroogarem
+
+Rough, Tough, Real stuff, Texas A&M;
+
+Saw varsity's horns off
+
+Saw varsity's horns off
+
+Saw varsity's horns off
+
+Short! A!
+
+Varsity's horns are sawed off
+
+Varsity's horns are sawed off
+
+Varsity's horns are sawed off
+
+Short! A!
+",30.6187,96.3364,Aggression/Conflict,,3.6374328384083334,0.6509433962264151,1.0965492634006386,1.0797575914813837,0.5801886792452831,-1.6132075471698113,0.02830188679245283,0.018867924528301886,0.02830188679245283,0.018867924528301886,0.10377358490566038,0.0
 Vanderbilt,SEC,Dynamite,Francis Craig,1941.0,0,1,0,72,45,1,3,1,1,1,0,0,0,0,0,0,3,5tXWqJHiTDHRYtOngsBPAW,vanderbilt,24329.07,14201.87,156,63,0.4038,Dynamite,"Dynamite, Dynamite
-When Vandy starts to fight
-Down the field with blood to yield
-If need be, save the shield
-If victory's won, when battle's done
-Then Vandy's name will rise in fame
-But, win or lose, the fates will choose
-And Vandy's game will be the same
+
+When VANDY starts to fight.
+
+Down the field with blood to yield,
+
+If need be, save the shield.
+
+If vict'ry's won, when battle's done,
+
+Then VANDY's name will rise in fame.
+
+Win not lose,
+
+It's ours to choose,
+
+And VANDY's game will be the same.
+
 Dynamite, Dynamite
-When Vandy starts to fight (Fight!)",36.1447,86.8027,Aggression/Conflict,,4.428821489609194,0.0,2.1278767852060483,-0.34265709402693,0.5,0.35714285714285704,0.10714285714285714,0.0,0.0,0.0,0.0,0.03571428571428571
+
+When VANDY starts to fight!
+
+Fight!",36.1447,86.8027,Aggression/Conflict,,4.1534968142845194,0.0,2.273331330660594,-0.34265709402693,0.5,0.6454545454545456,0.07272727272727272,0.0,0.01818181818181818,0.0,0.0,0.05454545454545454
