@@ -65,28 +65,100 @@ merged["n_words"] = merged["tokens"].map(len).replace(0, np.nan)
 
 LEX = {
     "aggression": {
-        "fight","beat","crush","defeat","win","won","conquer","kill",
-        "strike","down","smash","battle","enemy","foe"
+        "fight", "beat", "crush", "defeat", "strike", "down", "smash",
+        "battle", "enemy", "foe",
+        "hit", "hits", "hitting",
+        "charge", "charges", "charging",
+        "plunge", "plunges", "plunging",
+        "drive", "drives", "driving",
+        "push", "pushed", "pushing",
+        "attack", "attacks", "attacking",
+        "rush", "rushing",
+        "smack", "slam",
+        "crushes", "crushing",
+        "knock", "knocks", "knocking",
+        "line",  
+        "war", "warpath",
+        "hell", 
+        "wreck", "wrecks", "wrecking",
+        "downed", "downing",
+        "kill" 
     },
+
     "unity": {
-        "we","our","us","together","stand","united","one","team",
-        "loyal","true","hearts","brothers","brotherhood","friends"
+        "we", "our", "us", "together", "stand", "united", "one", "team",
+        "loyal", "true", "hearts", "brothers", "brotherhood", "friends",
+        "sons", "daughters", "boys", "girls",
+        "fans", "fellows", "comrades", "mates", "gang",
+        "all", "everyone", "everybody",
+        "side",  
+        "band", "crew",
+        "forever", "ever", "always", 
+        "together", "along",
+        "we'll", "were", "weve"  
     },
+
     "tradition": {
-        "alma","mater","tradition","old","forever","honor","faithful"
+        "alma", "mater", "tradition", "old", "forever", "honor", "faithful",
+        "glory", "fame", "heroes", "hero",
+        "valiant", "loyal", "true", "ever", "always",
+        "again", "echoes", "echo", 
+        "crown", "crowned",
+        "heritage", "legend", "legacy",
+        "old", "dear", "own",
+        "hail"  
     },
-    "pageantry": {
-        "rah","hey","hail","hooray","hurray","cheer","yell"
+
+    "chant_cheer": {
+        "rah", "hey", "hail", "hooray", "hurray", "cheer", "yell",
+        "hoorah", "hurrah", "whoo", "woo", "whOO", 
+        "yay", "yeah",
+        "roar", "roaring",
+        "shout", "shouting",
+        "clap", "claps", "clapping",
+        "bells", "bell",
+        "thunder", "thunders",
+        "echo", "echoes",
+        "song", "sing", "singing", "chant", "chanting",
+        "hymn", "chorus",
+        "hooperay", "sis", "boom", "boomers",
+        "yea", "yay", "who-rah", "whoo-rah"
     },
+
     "competitive_glory": {
-        "champion","champions","glory","victory","win","wins","won","triumph"
+        "champion", "champions", "glory", "victory", "wins", "won", "triumph",
+        "victor", "victors", "victorious",
+        "championship", "championships",
+        "best", "great", "greatest",
+        "leaders", "leading",
+        "conquering",
+        "heroes", "hero",
+        "fame", "honor", "pride",
+        "title", "crown", "crowned",
+        "valiant", "mighty", "strong", "stronger",
+        "win", "winning" 
     },
 }
 
 COLOR_WORDS = {
-    "blue","red","green","gold","yellow","orange","purple","white","black",
-    "scarlet","crimson","navy","maroon","silver","gray","grey","cardinal",
-    "garnet","teal"
+    "blue", "red", "green", "gold", "yellow", "orange", "purple", "white", "black",
+    "scarlet", "crimson", "navy", "maroon", "silver", "gray", "grey", "cardinal",
+    "garnet", "teal",
+    "golden",
+    "bronze", "brown", "tan",
+    "cream",
+    "azure", "indigo",
+    "royal", 
+    "old",   
+}
+COLOR_WORDS = {
+    "blue", "red", "green", "gold", "yellow", "orange", "purple", "white", "black",
+    "scarlet", "crimson", "navy", "maroon", "silver", "gray", "grey", "cardinal",
+    "garnet", "teal",
+    "golden",
+    "bronze", "brown", "tan",
+    "cream",
+    "azure", "indigo",
 }
 
 for k, lexset in LEX.items():
@@ -143,9 +215,9 @@ merged["score_tradition"] = (
     - 0.20*merged["bpm_z"].fillna(0)
 )
 
-merged["score_pageantry"] = (
+merged["score_chant_cheer"] = (
     1.5*merged["rah"] + 1.0*merged["nonsense"]
-    + 8.0*merged["lex_pageantry_freq"]
+    + 8.0*merged["lex_chant_cheer_freq"]
     + 0.20*merged["bpm_z"].fillna(0)
 )
 
@@ -163,16 +235,16 @@ merged["score_competitive_glory"] = (
 
 score_cols = [
     "score_aggression","score_unity","score_tradition",
-    "score_pageantry","score_institutional","score_competitive_glory"
+    "score_chant_cheer","score_institutional","score_competitive_glory"
 ]
 
 label_map = {
     "score_aggression": "Aggression/Conflict",
     "score_unity": "Unity/Brotherhood",
     "score_tradition": "Tradition/Legacy",
-    "score_pageantry": "Pageantry/Spectacle",
-    "score_institutional": "Institutional Pride",
-    "score_competitive_glory": "Competitive Glory",
+    "score_chant_cheer": "Chant/Cheer",
+    "score_institutional": "School Pride",
+    "score_competitive_glory": "Winning & Glory",
 }
 
 merged["primary_bucket"] = merged[score_cols].idxmax(axis=1).map(label_map)
@@ -220,9 +292,9 @@ conf_out_path = out_dir / "conference_trope_summary_1.csv"
 extra_cols = [
     "primary_bucket", "secondary_bucket",
     "score_aggression", "score_unity", "score_tradition",
-    "score_pageantry", "score_institutional", "score_competitive_glory",
+    "score_chant_cheer", "score_institutional", "score_competitive_glory",
     "lex_aggression_freq", "lex_unity_freq", "lex_tradition_freq",
-    "lex_pageantry_freq", "lex_institutional_freq", "lex_competitive_glory_freq",
+    "lex_chant_cheer_freq", "lex_institutional_freq", "lex_competitive_glory_freq",
 ]
 
 base_cols = list(songs.columns)

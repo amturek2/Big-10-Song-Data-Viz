@@ -81,6 +81,7 @@ export default function RhetoricVsRealityScatter({
   colorByConference = true,
   title = "Rhetoric vs Reality",
   subtitle = "Competitive Language Index vs Home Win % Over The Last 24 Years (size = attendance)",
+  onIndexHoverChange = () => {},
 }) {
   const wrapperRef = useRef(null);
   const svgRef = useRef(null);
@@ -171,8 +172,8 @@ export default function RhetoricVsRealityScatter({
     const spotlight = activeStep >= 3;
     const showTrend = activeStep >= 3;
 
-    const margin = { top: 60, right: 130, bottom: 54, left: 70 };
-    const height = Math.max(560, Math.round(width * 0.62));
+    const margin = { top: 74, right: 120, bottom: 80, left: 68 };
+    const height = Math.max(420, Math.round(width * 0.48));
     const innerW = Math.max(260, width - margin.left - margin.right);
     const innerH = height - margin.top - margin.bottom;
 
@@ -197,7 +198,11 @@ export default function RhetoricVsRealityScatter({
       .attr("font-size", 12)
       .attr("opacity", 0.75)
       .attr("fill", "rgba(255,255,255,0.85)")
-      .text(subtitle);
+      .attr("class", "cliIndexTrigger")
+      .style("cursor", "pointer")
+      .text(subtitle)
+      .on("mouseenter", () => onIndexHoverChange(true))
+      .on("mouseleave", () => onIndexHoverChange(false));
 
     const g = svg
       .append("g")
@@ -359,18 +364,22 @@ export default function RhetoricVsRealityScatter({
 
     g.append("text")
       .attr("x", innerW / 2)
-      .attr("y", innerH + 46)
+      .attr("y", innerH + 35)
       .attr("text-anchor", "middle")
       .attr("font-size", 12)
       .attr("opacity", 0.78)
       .attr("fill", "rgba(255,255,255,0.85)")
+      .attr("class", "cliIndexTrigger")
+      .style("cursor", "pointer")
       .text(
         `Competitive Language Index (Competive Language per ${perSeconds}s)`
-      );
+      )
+      .on("mouseenter", () => onIndexHoverChange(true))
+      .on("mouseleave", () => onIndexHoverChange(false));
 
     g.append("text")
       .attr("x", 0)
-      .attr("y", innerH + 64)
+      .attr("y", innerH + 35)
       .attr("text-anchor", "start")
       .attr("font-size", 11)
       .attr("opacity", 0.65)
@@ -379,7 +388,7 @@ export default function RhetoricVsRealityScatter({
 
     g.append("text")
       .attr("x", innerW)
-      .attr("y", innerH + 64)
+      .attr("y", innerH + 35)
       .attr("text-anchor", "end")
       .attr("font-size", 11)
       .attr("opacity", 0.65)
@@ -581,7 +590,7 @@ export default function RhetoricVsRealityScatter({
       .attr("r", (d) =>
         showPoints ? (Number.isFinite(d.att) ? r(d.att) : 6) : 0
       )
-      .attr("opacity", showPoints ? 0.92 : 0);
+      .attr("opacity", showPoints ? 0.85 : 0);
 
     if (spotlight) {
       circles.attr("opacity", (d) => {
@@ -593,39 +602,44 @@ export default function RhetoricVsRealityScatter({
     }
 
     if (showPoints) {
-      g.append("g")
-        .selectAll("circle.hit")
-        .data(data, (d) => d.school)
-        .join("circle")
-        .attr("class", "hit")
-        .attr("cx", (d) => x(d.x))
-        .attr("cy", (d) => y(d.y))
-        .attr("r", (d) => (Number.isFinite(d.att) ? r(d.att) : 6) + 10)
+      const quadtree = d3
+        .quadtree()
+        .x((d) => x(d.x))
+        .y((d) => y(d.y))
+        .addAll(data);
+
+      g.append("rect")
+        .attr("class", "hover-capture")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("width", innerW)
+        .attr("height", innerH)
         .attr("fill", "transparent")
-        .style("cursor", "default")
-        .on("mousemove", (event, d) => {
-          const [mx, my] = d3.pointer(event, svgRef.current);
+        .style("pointer-events", "all")
+        .on("mousemove", (event) => {
+          const [mx, my] = d3.pointer(event, g.node());
+          const nearest = quadtree.find(mx, my, 48);
+          if (!nearest) {
+            setHover(null);
+            return;
+          }
+          const [sx, sy] = d3.pointer(event, svgRef.current);
           setHover({
-            x: mx + 12,
-            y: my - 12,
-            school: d.school,
-            conference: d.conference,
-            cli: d.x,
-            win: d.y,
-            att: d.att,
-            fights: d.fightCount,
-            victory: d.vFlag,
-            winFlag: d.wFlag,
-            duration: d.dur,
+            x: sx + 12,
+            y: sy - 12,
+            school: nearest.school,
+            conference: nearest.conference,
+            cli: nearest.x,
+            win: nearest.y,
+            att: nearest.att,
+            fights: nearest.fightCount,
+            victory: nearest.vFlag,
+            winFlag: nearest.wFlag,
+            duration: nearest.dur,
           });
         })
-        .on("mouseleave", (event) => {
+        .on("mouseleave", () => {
           setHover(null);
-          // reset all strokes quickly
-          pts
-            .selectAll("circle.pt")
-            .attr("stroke", "white")
-            .attr("stroke-width", 1.1);
         });
     } else {
       setHover(null);
@@ -766,7 +780,19 @@ export default function RhetoricVsRealityScatter({
 
       legend.transition().duration(250).attr("opacity", 1);
     }
-  }, [data, width, conferenceColor, perSeconds, title, subtitle, activeStep]);
+    return () => {
+      onIndexHoverChange(false);
+    };
+  }, [
+    data,
+    width,
+    conferenceColor,
+    perSeconds,
+    title,
+    subtitle,
+    activeStep,
+    onIndexHoverChange,
+  ]);
 
   return (
     <div ref={wrapperRef} style={{ position: "relative", width: "100%" }}>

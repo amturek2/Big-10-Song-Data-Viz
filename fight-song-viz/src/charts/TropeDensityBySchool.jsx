@@ -70,6 +70,7 @@ export default function TropeDensityBySchoolVertical({
   const wrapperRef = useRef(null);
   const svgRef = useRef(null);
   const { width, height } = useResizeObserver(wrapperRef);
+  const margin = { top: 0, right: 10, bottom: 90, left: 20 };
 
   const [rows, setRows] = useState([]);
   const [hover, setHover] = useState(null);
@@ -123,6 +124,20 @@ export default function TropeDensityBySchoolVertical({
     return allData.slice(0, n);
   }, [allData, maxBars]);
 
+  const needsScroll = useMemo(() => {
+    if (!enableHorizontalScroll || !width) return false;
+    const contentW = data.length * (barW + barGap);
+    return margin.left + margin.right + contentW > width;
+  }, [
+    enableHorizontalScroll,
+    width,
+    data.length,
+    barW,
+    barGap,
+    margin.left,
+    margin.right,
+  ]);
+
   const conferenceColor = useMemo(() => {
     if (colorBy !== "conference") return null;
     return makeConferenceColorScale(allData.map((d) => d.conference));
@@ -132,7 +147,6 @@ export default function TropeDensityBySchoolVertical({
     if (!svgRef.current || !data.length || !width) return;
 
     const chartHeight = height > 0 ? height : fixedHeight;
-    const margin = { top: 0, right: 84, bottom: 84, left: 60 };
     const innerH = chartHeight - margin.top - margin.bottom;
 
     const contentW = data.length * (barW + barGap);
@@ -293,6 +307,9 @@ export default function TropeDensityBySchoolVertical({
   return (
     <div
       ref={wrapperRef}
+      className={`tropeDensityScroller${
+        needsScroll ? " tropeDensityScroller--scrollable" : ""
+      }`}
       style={{
         position: "relative",
         width: "100%",

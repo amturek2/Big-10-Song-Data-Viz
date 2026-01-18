@@ -39,10 +39,11 @@ export default function SongIdentitySection({ conferenceFilter = "All" }) {
             How Schools Script Their Identity
           </h2>
           <p className="identitySection_subtitle">
-            Same genre, different identities. Some schools pack every trope into
-            a dense hype script, others keep it minimal. This section maps how
-            each school shows up in lyrics, structure, geography, and
-            conference-wide style.
+            This section shows how each school shapes its own fight-song
+            identity. Some lean into every trope, others keep it minimal; some
+            stretch their songs long, others repeat their message fast. Across
+            structure, lyrics, geography, and conference style, these charts
+            reveal the musical DNA that defines each school's spirit.
           </p>
         </header>
         <div className="languageSection_kpiRow" role="status"></div>
@@ -87,8 +88,8 @@ export default function SongIdentitySection({ conferenceFilter = "All" }) {
             <div className="identityCard_intro">
               <h3 className="identityCard_title">Length vs Redundancy</h3>
               <p className="identityCard_desc">
-                Do longer songs actually say more, or do they repeat the same
-                hype louder?
+                Do long fight songs pack more meaning, or just more “fight!
+                fight! fight!” per minute?
               </p>
             </div>
             <div className="identityCard_chart identityCard_chart--scatter">

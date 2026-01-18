@@ -78,8 +78,8 @@ export default function App() {
                 How Fight Songs Use Language
               </h2>
               <p className="languageSection_subtitle">
-                Most fight songs lean on the same core script—fight, school
-                colors, and winning—while chants and nonsense syllables take a
+                Most fight songs lean on the same core script - fight, school
+                colors, and winning - while chants and nonsense syllables take a
                 backseat.
               </p>
             </header>
@@ -103,14 +103,36 @@ export default function App() {
             <div className="languageSection_keybar">
               <span className="languageSection_keyLabel">KEY INSIGHT</span>
               <span className="languageSection_keyText">
-                The baseline ranks the most common tropes, while the network
-                shows how those ideas cluster into a shared hype grammar.
+                When considering all 65 songs, three tropes drive the genre —
+                and they consistently show up together. <br />
+                <strong>‘Fight,’ ‘School Colors,’ and ‘Victory’ </strong>form
+                the backbone of most fight songs.
               </span>
             </div>
           </div>
         </section>
         <SongIdentitySection conferenceFilter={conferenceFilter} />
         <RhetoricVsRealitySection conferenceFilter={conferenceFilter} />
+        <section className="pageFooterSource">
+          <div className="pageFooterSource_inner">
+            <div className="vizSection_source">
+              <div className="vizSection_sourceTitle">Data Source</div>
+              <div className="dataSourceNote">
+                Home win percentages come from a public Kaggle dataset of NCAA
+                FBS games (2001–present), built using SportsDataVerse{" "}
+                <em>cfbfastR</em> and NCAA Statistics.
+                <a
+                  className="vizSection_sourceLink"
+                  href="https://www.kaggle.com/datasets/nilnomics/cfb-attendance-data"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  kaggle.com/…
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* <ConferenceByHeatmapSection></ConferenceByHeatmapSection> */}
       </div>
     </div>

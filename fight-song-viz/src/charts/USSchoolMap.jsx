@@ -312,8 +312,7 @@ export default function USSchoolMap({
   const cardData = selected || hover;
   const isPinned = Boolean(selected);
   const containerRect = wrapperRef.current?.getBoundingClientRect() ?? null;
-  const portalRoot =
-    typeof document !== "undefined" ? document.body : null;
+  const portalRoot = typeof document !== "undefined" ? document.body : null;
 
   return (
     <div
@@ -380,14 +379,8 @@ function DNASwatchCard({
     typeof window !== "undefined" ? window.innerHeight : cardHeight;
   const rawLeft = originX + data.x;
   const rawTop = originY + data.y;
-  const clampX = Math.max(
-    12,
-    Math.min(rawLeft, viewportW - cardWidth - 12)
-  );
-  const clampY = Math.max(
-    12,
-    Math.min(rawTop, viewportH - cardHeight - 12)
-  );
+  const clampX = Math.max(12, Math.min(rawLeft, viewportW - cardWidth - 12));
+  const clampY = Math.max(12, Math.min(rawTop, viewportH - cardHeight - 12));
 
   return (
     <div
@@ -479,13 +472,13 @@ function buildIdentitySentence(dna) {
   const hasFight = lookup.get("fight");
   const bits = [];
 
-  if (hasChaos) bits.push("Chaos-leaning");
-  if (hasColors) bits.push("color-loud");
+  if (hasChaos) bits.push("chaotic");
+  if (hasColors) bits.push("colorful");
   if (!hasChaos && hasVictory) bits.push("victory-first");
   if (!bits.length && hasFight) bits.push("tradition-heavy");
-  if (!bits.length) bits.push("midfield vibes");
+  if (!bits.length) bits.push("pretty balanced");
 
-  return `${bits.join(", ")} chant`;
+  return `${bits.join(" and ")} song`;
 }
 
 function buildDNAPills(dna, mode) {
