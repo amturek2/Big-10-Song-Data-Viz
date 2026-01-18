@@ -19,19 +19,20 @@ Visit Here --> https://amturek2.github.io/Big-10-Song-Data-Viz/
 
 ## Repo Layout
 
-data_pipeline/
-  data_scripts/
-  input_files/
-  output_data/
-fight-song-viz/
-  public/
-  src/
-    charts/
-    data/
-    sections/
-    styles/
-    utils/
-README.md
+- `data_pipeline/`
+  - `data_scripts/`
+    - scoring scripts, preprocessing, merging lyric datasets
+  - `input_files/`
+  - `output_data/`
+- `fight-song-viz/`
+  - `public/`
+  - `src/`
+    - `charts/`
+    - `data/`
+    - `sections/`
+    - `styles/`
+    - `utils/`
+- `README.md`
 
 - `data_pipeline/` data cleaning, enrichment, and scoring scripts.
 - `data_pipeline/input_files/` raw inputs (fight songs, CFB attendance, lyrics).
